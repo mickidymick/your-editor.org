@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+# plugin source (cloned locally for data generation)
+.ypm-plugins/
+
 # Expo
 .expo/
 dist/
