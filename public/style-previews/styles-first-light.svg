@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" width="520" height="260">
+<defs><style>text { font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, monospace; }</style></defs>
+<clipPath id="clip"><rect width="520" height="260" rx="8"/></clipPath>
+<rect width="520" height="260" rx="8" fill="#f6f1d1" clip-path="url(#clip)"/>
+<text x="32" y="30" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">1</text><text x="44" y="30" font-size="12" fill="#48b4eb">/* A style for yed */</text>
+<text x="32" y="48" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">2</text><text x="44" y="48" font-size="12" fill="#d81e5b">#include</text><text x="101.6" y="48" font-size="12" fill="#0b2027"> &lt;stdio.h&gt;</text>
+<text x="32" y="66" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">3</text>
+<text x="32" y="84" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">4</text><text x="44" y="84" font-size="12" fill="#d81e5b">int</text><text x="65.6" y="84" font-size="12" fill="#0b2027"> </text><text x="72.8" y="84" font-size="12" fill="#2c6578">main</text><text x="101.6" y="84" font-size="12" fill="#0b2027">(</text><text x="108.8" y="84" font-size="12" fill="#d81e5b">void</text><text x="137.6" y="84" font-size="12" fill="#0b2027">)</text><text x="144.79999999999998" y="84" font-size="12" fill="#0b2027"> {</text>
+<text x="32" y="102" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">5</text><text x="44" y="102" font-size="12" fill="#0b2027">    </text><text x="72.8" y="102" font-size="12" fill="#d81e5b">char</text><text x="101.6" y="102" font-size="12" fill="#0b2027"> *s = </text><text x="144.8" y="102" font-size="12" fill="#3f965b">&quot;hello&quot;</text><text x="195.20000000000002" y="102" font-size="12" fill="#0b2027">;</text>
+<text x="32" y="120" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">6</text><text x="44" y="120" font-size="12" fill="#0b2027">    </text><text x="72.8" y="120" font-size="12" fill="#d81e5b">int</text><text x="94.4" y="120" font-size="12" fill="#0b2027"> n = </text><text x="130.4" y="120" font-size="12" fill="#895777">42</text><text x="144.8" y="120" font-size="12" fill="#0b2027">;</text>
+<text x="32" y="138" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">7</text><text x="44" y="138" font-size="12" fill="#0b2027">    </text><text x="72.8" y="138" font-size="12" fill="#2c6578">printf</text><text x="116" y="138" font-size="12" fill="#0b2027">(s);</text>
+<text x="32" y="156" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">8</text><text x="44" y="156" font-size="12" fill="#0b2027">    </text><text x="72.8" y="156" font-size="12" fill="#d81e5b">return</text><text x="116" y="156" font-size="12" fill="#0b2027"> </text><text x="123.2" y="156" font-size="12" fill="#895777">0</text><text x="130.4" y="156" font-size="12" fill="#0b2027">;</text>
+<text x="32" y="174" text-anchor="end" font-size="12" fill="#888888" opacity="0.5">9</text><text x="44" y="174" font-size="12" fill="#0b2027">}</text>
+<line x1="36" y1="0" x2="36" y2="238" stroke="#888888" opacity="0.15"/>
+
+
+
+
+<g clip-path="url(#clip)">
+<rect y="238" width="520" height="22" fill="#40798c"/>
+<text x="10" y="253" font-size="12" fill="#f6f1d1" font-weight="bold"> first-light</text>
+<text x="510" y="253" font-size="12" fill="#f6f1d1" text-anchor="end">yed</text>
+</g>
+</svg>

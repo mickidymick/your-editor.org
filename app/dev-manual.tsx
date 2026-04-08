@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet, Platform } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Platform, Image } from 'react-native';
 import { Link } from 'expo-router';
 import { SEO } from '../components/SEO';
 import { CodeBlock } from '../components/CodeBlock';
@@ -379,6 +379,18 @@ int yed_plugin_boot(yed_plugin *self) {
           Build it, drop the <Text style={styles.code}>.so</Text> in your plugins directory, and
           run <Text style={styles.code}>plugin-load count_lines</Text>.
         </Text>
+        <View style={styles.heroContainer}>
+          <View style={styles.heroFrame}>
+            <Image
+              source={require('../assets/images/count_lines.png')}
+              style={styles.heroImage}
+              resizeMode="contain"
+            />
+          </View>
+          <Text style={styles.heroCaption}>
+            The command line shows "(count-lines) 21 lines" after running the count-lines command.
+          </Text>
+        </View>
       </Section>
 
       {/* 10. Creating a Style */}
@@ -387,6 +399,10 @@ int yed_plugin_boot(yed_plugin *self) {
           Styles are plugins that define color themes. They use the{' '}
           <Text style={styles.code}>PACKABLE_STYLE</Text> macro and set attributes on all{' '}
           <Link href="/reference/style-components" style={styles.link}>style components</Link>.
+          {' '}For a simpler approach, the{' '}
+          <Link href="/plugins/fstyle" style={styles.link}>fstyle</Link>
+          {' '}plugin lets you create styles in a plaintext format — a good way to experiment with
+          color palettes before committing to a full style plugin.
         </Text>
 
         <SubSection title="Basic Structure">
@@ -738,5 +754,31 @@ const styles = StyleSheet.create({
     fontFamily: Typography.fontFamily,
     fontSize: Typography.fontSize.sm,
     color: Colors.subtleText,
+  },
+  heroContainer: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  heroFrame: {
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
+    borderRadius: 8,
+    overflow: 'hidden',
+    shadowColor: Colors.link,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.15,
+    shadowRadius: 20,
+  },
+  heroImage: {
+    width: 1100,
+    height: 581,
+    maxWidth: '100%' as any,
+  },
+  heroCaption: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.sm,
+    color: Colors.subtleText,
+    marginTop: 8,
+    textAlign: 'center',
   },
 });

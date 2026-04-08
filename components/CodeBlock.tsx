@@ -5,7 +5,7 @@ import { Typography } from '../constants/typography';
 
 interface CodeBlockProps {
   children: string;
-  lang?: 'c' | 'bash' | 'plain';
+  lang?: 'c' | 'bash' | 'plain' | 'yedrc';
 }
 
 interface Token {
@@ -118,6 +118,58 @@ function tokenizeLine(line: string, inBlockComment: boolean): { tokens: Token[];
   return { tokens, inBlockComment };
 }
 
+function tokenizeYedrcLine(line: string): Token[] {
+  const tokens: Token[] = [];
+  const trimmed = line.trimStart();
+  const leadingSpace = line.substring(0, line.length - trimmed.length);
+
+  if (leadingSpace) tokens.push({ text: leadingSpace, type: 'plain' });
+
+  // Comment line
+  if (trimmed.startsWith('#')) {
+    tokens.push({ text: trimmed, type: 'comment' });
+    return tokens;
+  }
+
+  // Empty line
+  if (!trimmed) return tokens;
+
+  let i = 0;
+  // First word is the command
+  let j = 0;
+  while (j < trimmed.length && !/\s/.test(trimmed[j])) j++;
+  tokens.push({ text: trimmed.substring(0, j), type: 'keyword' });
+  i = j;
+
+  // Rest of the line: strings and other args
+  while (i < trimmed.length) {
+    if (trimmed[i] === '"') {
+      let k = i + 1;
+      while (k < trimmed.length && !(trimmed[k] === '"' && trimmed[k - 1] !== '\\')) k++;
+      tokens.push({ text: trimmed.substring(i, k + 1), type: 'string' });
+      i = k + 1;
+      continue;
+    }
+    if (trimmed[i] === "'") {
+      let k = i + 1;
+      while (k < trimmed.length && trimmed[k] !== "'") k++;
+      tokens.push({ text: trimmed.substring(i, k + 1), type: 'string' });
+      i = k + 1;
+      continue;
+    }
+    // Line continuation backslash — treat as part of string context
+    if (trimmed[i] === '\\' && i === trimmed.length - 1) {
+      tokens.push({ text: trimmed[i], type: 'string' });
+      i++;
+      continue;
+    }
+    tokens.push({ text: trimmed[i], type: 'plain' });
+    i++;
+  }
+
+  return tokens;
+}
+
 function detectLang(code: string): 'c' | 'bash' | 'plain' {
   if (code.includes('#include') || code.includes('yed_plugin') || code.includes('void ') || code.includes('int ')) {
     return 'c';
@@ -139,16 +191,17 @@ const TOKEN_COLORS: Record<Token['type'], string> = {
   type: Colors.heading,
 };
 
-function HighlightedCode({ code, lang }: { code: string; lang: 'c' | 'bash' | 'plain' }) {
+function HighlightedCode({ code, lang }: { code: string; lang: 'c' | 'bash' | 'plain' | 'yedrc' }) {
   const elements = useMemo(() => {
-    if (lang !== 'c') return null;
+    if (lang !== 'c' && lang !== 'yedrc') return null;
 
     const lines = code.split('\n');
     let inBlock = false;
 
     return lines.map((line, lineIdx) => {
-      const { tokens, inBlockComment } = tokenizeLine(line, inBlock);
-      inBlock = inBlockComment;
+      const tokens = lang === 'yedrc'
+        ? tokenizeYedrcLine(line)
+        : (() => { const r = tokenizeLine(line, inBlock); inBlock = r.inBlockComment; return r.tokens; })();
 
       return (
         <Text key={lineIdx}>
@@ -163,7 +216,7 @@ function HighlightedCode({ code, lang }: { code: string; lang: 'c' | 'bash' | 'p
     });
   }, [code, lang]);
 
-  if (lang !== 'c' || !elements) {
+  if ((lang !== 'c' && lang !== 'yedrc') || !elements) {
     return <Text style={codeStyles.code}>{code}</Text>;
   }
 

@@ -1,16 +1,36 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet, Platform } from 'react-native';
-import { useLocalSearchParams, Link } from 'expo-router';
+import { useLocalSearchParams, Link, useRouter } from 'expo-router';
 import { SEO } from '../../components/SEO';
 import { Colors } from '../../constants/colors';
 import { Typography } from '../../constants/typography';
 import plugins from '../../data/plugins.json';
+import styleColors from '../../data/style-colors.json';
+
+const styleColorData = styleColors as Record<string, {
+  bg: string; fg: string; comment: string; keyword: string;
+  fn_call: string; number: string; string: string;
+}>;
+
+function findAllStyleColors(slug: string): { name: string; colors: typeof styleColorData[string] }[] {
+  const base = slug.replace('styles-', '');
+  const matches = Object.keys(styleColorData).filter(k => {
+    const styleName = k.replace('styles-', '');
+    return styleName === base ||
+      styleName.startsWith(base + '-') ||
+      styleName.startsWith(base.replace(/_/g, '-') + '-');
+  });
+  return matches.map(k => ({
+    name: k.replace('styles-', ''),
+    colors: styleColorData[k],
+  }));
+}
 
 const FEATURED_SLUGS = new Set([
   'vimish', 'lsp', 'completer', 'tree_view', 'ctags', 'grep',
   'find_file', 'comment', 'terminal', 'builder', 'diff', 'bookmarks',
   'go_menu', 'loc_history', 'mouse', 'mouse_menu', 'line_numbers',
-  'man', 'calc',
+  'man', 'calc', 'universal_clipboard',
 ]);
 
 const CATEGORIES = [
@@ -38,19 +58,24 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export default function PluginsIndex() {
-  const params = useLocalSearchParams<{ category?: string }>();
+  const params = useLocalSearchParams<{ category?: string; q?: string }>();
   const validCats = CATEGORIES.filter(c => c !== 'all');
   const initialCat = params.category && validCats.includes(params.category as any)
     ? params.category
     : 'all';
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(params.q || '');
   const [category, setCategory] = useState<string>(initialCat);
+  const router = useRouter();
 
+  // Sync category and search to URL so back button restores state
   useEffect(() => {
-    if (Platform.OS === 'web') {
-      window.scrollTo(0, 0);
-    }
-  }, []);
+    if (Platform.OS !== 'web') return;
+    const queryParts: string[] = [];
+    if (category !== 'all') queryParts.push(`category=${category}`);
+    if (search) queryParts.push(`q=${encodeURIComponent(search)}`);
+    const newUrl = '/plugins' + (queryParts.length ? '?' + queryParts.join('&') : '');
+    window.history.replaceState(null, '', newUrl);
+  }, [category, search]);
 
   const filtered = useMemo(() => {
     let result = [...plugins] as typeof plugins;
@@ -125,6 +150,7 @@ export default function PluginsIndex() {
         {filtered.map((plugin) => {
           const catColor = CATEGORY_COLORS[plugin.category] || Colors.link;
           const isFeatured = FEATURED_SLUGS.has(plugin.slug);
+          const styleVariants = plugin.category === 'style' ? findAllStyleColors(plugin.slug) : [];
           return (
             <Link key={plugin.slug} href={`/plugins/${plugin.slug}` as any} asChild>
               <Pressable style={styles.card}>
@@ -144,10 +170,26 @@ export default function PluginsIndex() {
                   </View>
                 </View>
                 <Text style={styles.cardDesc} numberOfLines={2}>{plugin.description}</Text>
-                {plugin.keywords.length > 0 && (
+                {styleVariants.length === 0 && plugin.keywords.length > 0 && (
                   <View style={styles.cardKeywords}>
                     {plugin.keywords.slice(0, 3).map((kw) => (
                       <Text key={kw} style={styles.cardKeyword}>{kw}</Text>
+                    ))}
+                  </View>
+                )}
+                {styleVariants.length > 0 && (
+                  <View style={styles.swatchGroup}>
+                    {styleVariants.map((v) => (
+                      <View key={v.name} style={styles.swatchRow}>
+                        <View style={[styles.swatchBar, { backgroundColor: '#' + v.colors.bg }]}>
+                          {[v.colors.keyword, v.colors.fn_call, v.colors.string, v.colors.number, v.colors.comment, v.colors.fg].map((c, i) => (
+                            <View key={i} style={[styles.swatch, { backgroundColor: '#' + c }]} />
+                          ))}
+                        </View>
+                        {styleVariants.length > 1 && (
+                          <Text style={styles.swatchLabel}>{v.name}</Text>
+                        )}
+                      </View>
                     ))}
                   </View>
                 )}
@@ -308,6 +350,32 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     marginRight: 4,
     marginBottom: 4,
+  },
+  swatchGroup: {
+    marginTop: 'auto' as any,
+  },
+  swatchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+  },
+  swatchBar: {
+    flexDirection: 'row',
+    borderRadius: 4,
+    padding: 5,
+    paddingHorizontal: 7,
+  },
+  swatch: {
+    width: 12,
+    height: 12,
+    borderRadius: 3,
+    marginRight: 4,
+  },
+  swatchLabel: {
+    fontFamily: Typography.fontFamily,
+    fontSize: 10,
+    color: Colors.subtleText,
+    marginLeft: 6,
   },
   emptyState: {
     alignItems: 'center',

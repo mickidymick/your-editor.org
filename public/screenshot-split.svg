@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320">
+<defs><style>text { font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, monospace; font-size: 12px; }</style></defs>
+<clipPath id="clip"><rect width="640" height="320" rx="8"/></clipPath>
+<g clip-path="url(#clip)">
+<!-- Background -->
+<rect width="640" height="320" fill="#f6f1d1"/>
+
+<!-- Left pane: code -->
+<!-- Line 1 - cursor line highlight -->
+<rect x="0" y="0" width="450" height="17" fill="#cfd7c7"/>
+<text x="16" y="13" fill="#888888" opacity="0.5" text-anchor="end">1</text>
+<text x="24" y="13" fill="#d81e5b">#include</text><text x="82" y="13" fill="#0b2027"> &lt;yed/plugin.h&gt;</text>
+
+<!-- Line 2 - empty -->
+<text x="16" y="30" fill="#888888" opacity="0.5" text-anchor="end">2</text>
+
+<!-- Line 3 -->
+<text x="16" y="47" fill="#888888" opacity="0.5" text-anchor="end">3</text>
+<text x="24" y="47" fill="#d81e5b">void</text><text x="53" y="47" fill="#0b2027"> </text><text x="60" y="47" fill="#2c6578">count_lines</text><text x="132" y="47" fill="#0b2027">(</text><text x="139" y="47" fill="#d81e5b">int</text><text x="160" y="47" fill="#0b2027"> n_args, </text><text x="218" y="47" fill="#d81e5b">char</text><text x="247" y="47" fill="#0b2027"> **args) {</text>
+
+<!-- Line 4 -->
+<text x="16" y="64" fill="#888888" opacity="0.5" text-anchor="end">4</text>
+<text x="24" y="64" fill="#0b2027">    </text><text x="53" y="64" fill="#d81e5b">yed_frame</text><text x="118" y="64" fill="#0b2027"> *frame = ys-&gt;active_frame;</text>
+
+<!-- Line 5 - empty -->
+<text x="16" y="81" fill="#888888" opacity="0.5" text-anchor="end">5</text>
+
+<!-- Line 6 -->
+<text x="16" y="98" fill="#888888" opacity="0.5" text-anchor="end">6</text>
+<text x="24" y="98" fill="#0b2027">    </text><text x="53" y="98" fill="#d81e5b">if</text><text x="67" y="98" fill="#0b2027"> (!frame || !frame-&gt;buffer) {</text>
+
+<!-- Line 7 -->
+<text x="16" y="115" fill="#888888" opacity="0.5" text-anchor="end">7</text>
+<text x="24" y="115" fill="#0b2027">        </text><text x="82" y="115" fill="#2c6578">yed_cerr</text><text x="140" y="115" fill="#0b2027">(</text><text x="147" y="115" fill="#3f965b">"no active buffer"</text><text x="277" y="115" fill="#0b2027">);</text>
+
+<!-- Line 8 -->
+<text x="16" y="132" fill="#888888" opacity="0.5" text-anchor="end">8</text>
+<text x="24" y="132" fill="#0b2027">        </text><text x="82" y="132" fill="#d81e5b">return</text><text x="125" y="132" fill="#0b2027">;</text>
+
+<!-- Line 9 -->
+<text x="16" y="149" fill="#888888" opacity="0.5" text-anchor="end">9</text>
+<text x="24" y="149" fill="#0b2027">    }</text>
+
+<!-- Line 10 - empty -->
+<text x="16" y="166" fill="#888888" opacity="0.5" text-anchor="end">10</text>
+
+<!-- Line 11 -->
+<text x="16" y="183" fill="#888888" opacity="0.5" text-anchor="end">11</text>
+<text x="24" y="183" fill="#0b2027">    </text><text x="53" y="183" fill="#d81e5b">int</text><text x="74" y="183" fill="#0b2027"> n = </text><text x="110" y="183" fill="#2c6578">yed_buff_n_lines</text><text x="225" y="183" fill="#0b2027">(frame-&gt;buffer);</text>
+
+<!-- Line 12 -->
+<text x="16" y="200" fill="#888888" opacity="0.5" text-anchor="end">12</text>
+<text x="24" y="200" fill="#0b2027">    </text><text x="53" y="200" fill="#d81e5b">char</text><text x="82" y="200" fill="#0b2027"> msg[</text><text x="111" y="200" fill="#895777">64</text><text x="126" y="200" fill="#0b2027">];</text>
+
+<!-- Line 13 -->
+<text x="16" y="217" fill="#888888" opacity="0.5" text-anchor="end">13</text>
+<text x="24" y="217" fill="#0b2027">    </text><text x="53" y="217" fill="#2c6578">snprintf</text><text x="111" y="217" fill="#0b2027">(msg, </text><text x="147" y="217" fill="#d81e5b">sizeof</text><text x="190" y="217" fill="#0b2027">(msg), </text><text x="233" y="217" fill="#3f965b">"%d lines"</text><text x="306" y="217" fill="#0b2027">, n);</text>
+
+<!-- Line 14 -->
+<text x="16" y="234" fill="#888888" opacity="0.5" text-anchor="end">14</text>
+<text x="24" y="234" fill="#0b2027">    </text><text x="53" y="234" fill="#2c6578">yed_cprint</text><text x="125" y="234" fill="#0b2027">(</text><text x="132" y="234" fill="#3f965b">"%s"</text><text x="161" y="234" fill="#0b2027">, msg);</text>
+
+<!-- Line 15 -->
+<text x="16" y="251" fill="#888888" opacity="0.5" text-anchor="end">15</text>
+<text x="24" y="251" fill="#0b2027">}</text>
+
+<!-- Line 16 - empty -->
+<text x="16" y="268" fill="#888888" opacity="0.5" text-anchor="end">16</text>
+
+<!-- Line 17 -->
+<text x="16" y="285" fill="#888888" opacity="0.5" text-anchor="end">17</text>
+<text x="24" y="285" fill="#d81e5b">int</text><text x="46" y="285" fill="#0b2027"> </text><text x="53" y="285" fill="#2c6578">yed_plugin_boot</text><text x="161" y="285" fill="#0b2027">(</text><text x="168" y="285" fill="#d81e5b">yed_plugin</text><text x="240" y="285" fill="#0b2027"> *self) {</text>
+
+<!-- Gutter separator - left pane -->
+<line x1="20" y1="0" x2="20" y2="296" stroke="#888888" opacity="0.12"/>
+
+<!-- Vertical split divider -->
+<line x1="450" y1="0" x2="450" y2="296" stroke="#40798c" stroke-width="1.5"/>
+
+<!-- Right pane: file tree -->
+<rect x="450" y="0" width="190" height="296" fill="#f6f1d1"/>
+<text x="462" y="13" fill="#0b2027">include</text>
+<text x="462" y="30" fill="#0b2027">plugins</text>
+<text x="462" y="47" fill="#0b2027">src</text>
+<text x="462" y="64" fill="#0b2027">.gitignore</text>
+<text x="462" y="81" fill="#0b2027">build.sh</text>
+<text x="462" y="98" fill="#0b2027">Makefile</text>
+<text x="462" y="115" fill="#0b2027">README.md</text>
+<text x="462" y="132" fill="#0b2027">yedrc</text>
+<text x="462" y="149" fill="#888888">~</text>
+<text x="462" y="166" fill="#888888">~</text>
+<text x="462" y="183" fill="#888888">~</text>
+<text x="462" y="200" fill="#888888">~</text>
+<text x="462" y="217" fill="#888888">~</text>
+<text x="462" y="234" fill="#888888">~</text>
+<text x="462" y="251" fill="#888888">~</text>
+<text x="462" y="268" fill="#888888">~</text>
+<text x="462" y="285" fill="#888888">~</text>
+
+<!-- Status bar -->
+<rect y="296" width="640" height="24" fill="#40798c"/>
+<text x="8" y="312" fill="#f6f1d1" font-weight="bold">[0] 1  src/count_lines.c</text>
+<text x="370" y="312" fill="#f6f1d1">(select-off)</text>
+<text x="540" y="312" fill="#f6f1d1" text-anchor="end">(4%)</text>
+<text x="580" y="312" fill="#f6f1d1" text-anchor="end">1 : 1</text>
+<text x="632" y="312" fill="#f6f1d1" text-anchor="end">02:51</text>
+</g>
+</svg>

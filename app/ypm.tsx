@@ -359,8 +359,8 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
   },
   screenshotImage: {
-    width: 1400,
-    height: 800,
+    width: 1260,
+    height: 665,
     maxWidth: '100%' as any,
   },
   nextSteps: {

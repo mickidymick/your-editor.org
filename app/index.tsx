@@ -11,7 +11,7 @@ const FEATURED_SLUGS = [
   'vimish', 'lsp', 'completer', 'tree_view', 'ctags', 'grep',
   'find_file', 'comment', 'terminal', 'builder', 'diff', 'bookmarks',
   'go_menu', 'loc_history', 'mouse', 'mouse_menu', 'line_numbers',
-  'man', 'calc',
+  'man', 'calc', 'universal_clipboard',
 ];
 const CATEGORY_ORDER: Record<string, number> = {
   'editor-styles': 0, style: 1, editing: 2, navigation: 3, ui: 4,

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" width="680" height="460">
+<defs><style>text { font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, monospace; font-size: 12.5px; }</style></defs>
+<clipPath id="clip"><rect width="680" height="460" rx="8"/></clipPath>
+<g clip-path="url(#clip)">
+<rect width="680" height="460" fill="#f6f1d1"/>
+
+<!-- YPM header -->
+<text x="12" y="22" fill="#d81e5b" font-size="18" font-weight="bold">YPM</text>
+<text x="60" y="22" fill="#0b2027" font-size="13"> - yed plugin manager</text>
+
+<!-- Search hint -->
+<text x="12" y="44" fill="#888888" font-size="11">Press 'f' to search by keyword, ESC to close, 'm' to view the man page for YPM.</text>
+
+<!-- Plugin filter line -->
+<text x="12" y="62" fill="#0b2027" font-size="11">Plugin:</text>
+
+<!-- Column headers -->
+<rect x="0" y="70" width="680" height="17" fill="#e6e1c1"/>
+<text x="12" y="83" fill="#0b2027" font-weight="bold">Plugin</text>
+<text x="200" y="83" fill="#0b2027" font-weight="bold">Installed</text>
+<text x="290" y="83" fill="#0b2027" font-weight="bold">Loaded</text>
+<text x="370" y="83" fill="#0b2027" font-weight="bold">Description</text>
+
+<!-- Selected row -->
+<rect x="0" y="87" width="680" height="17" fill="#cfd7c7"/>
+<text x="12" y="100" fill="#2c6578">alt_template</text>
+<text x="225" y="100" fill="#0b2027">y</text>
+<text x="310" y="100" fill="#0b2027">y</text>
+<text x="370" y="100" fill="#0b2027">opens the specified template at the cursor location</text>
+
+<text x="12" y="117" fill="#2c6578">auto_paren</text>
+<text x="225" y="117" fill="#0b2027">y</text>
+<text x="310" y="117" fill="#0b2027">y</text>
+<text x="370" y="117" fill="#0b2027">automatically insert matching delimiters</text>
+
+<rect x="0" y="121" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="134" fill="#2c6578">auto_save</text>
+<text x="225" y="134" fill="#0b2027">y</text>
+<text x="310" y="134" fill="#888888">n</text>
+<text x="370" y="134" fill="#0b2027">periodically check for modified buffers and save them</text>
+
+<text x="12" y="151" fill="#2c6578">bookmarks</text>
+<text x="225" y="151" fill="#0b2027">y</text>
+<text x="310" y="151" fill="#0b2027">y</text>
+<text x="370" y="151" fill="#0b2027">lets you bookmark lines of code to return to later</text>
+
+<rect x="0" y="155" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="168" fill="#2c6578">builder</text>
+<text x="225" y="168" fill="#0b2027">y</text>
+<text x="310" y="168" fill="#0b2027">y</text>
+<text x="370" y="168" fill="#0b2027">run build commands in the background</text>
+
+<text x="12" y="185" fill="#2c6578">calc</text>
+<text x="225" y="185" fill="#0b2027">y</text>
+<text x="310" y="185" fill="#888888">n</text>
+<text x="370" y="185" fill="#0b2027">an interactive calculator in a special buffer</text>
+
+<rect x="0" y="189" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="202" fill="#2c6578">comment</text>
+<text x="225" y="202" fill="#0b2027">y</text>
+<text x="310" y="202" fill="#0b2027">y</text>
+<text x="370" y="202" fill="#0b2027">toggles commenting of lines of code</text>
+
+<text x="12" y="219" fill="#2c6578">completer</text>
+<text x="225" y="219" fill="#0b2027">y</text>
+<text x="310" y="219" fill="#0b2027">y</text>
+<text x="370" y="219" fill="#0b2027">a basic completion plugin activated on TAB</text>
+
+<rect x="0" y="223" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="236" fill="#2c6578">ctags</text>
+<text x="225" y="236" fill="#0b2027">y</text>
+<text x="310" y="236" fill="#0b2027">y</text>
+<text x="370" y="236" fill="#0b2027">ctags integration for go-to-definition and completion</text>
+
+<text x="12" y="253" fill="#2c6578">cursor_word_hl</text>
+<text x="225" y="253" fill="#0b2027">y</text>
+<text x="310" y="253" fill="#0b2027">y</text>
+<text x="370" y="253" fill="#0b2027">highlight all occurrences of the word under cursor</text>
+
+<rect x="0" y="257" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="270" fill="#2c6578">diff</text>
+<text x="225" y="270" fill="#0b2027">y</text>
+<text x="310" y="270" fill="#0b2027">y</text>
+<text x="370" y="270" fill="#0b2027">view and browse frame-by-frame git diffs</text>
+
+<text x="12" y="287" fill="#2c6578">find_file</text>
+<text x="225" y="287" fill="#0b2027">y</text>
+<text x="310" y="287" fill="#0b2027">y</text>
+<text x="370" y="287" fill="#0b2027">search for files in your current directory tree</text>
+
+<rect x="0" y="291" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="304" fill="#2c6578">go_menu</text>
+<text x="225" y="304" fill="#0b2027">y</text>
+<text x="310" y="304" fill="#0b2027">y</text>
+<text x="370" y="304" fill="#0b2027">create and activate styles in plaintext</text>
+
+<text x="12" y="321" fill="#2c6578">grep</text>
+<text x="225" y="321" fill="#0b2027">y</text>
+<text x="310" y="321" fill="#0b2027">y</text>
+<text x="370" y="321" fill="#0b2027">search for matches to regex in your current directory</text>
+
+<rect x="0" y="325" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="338" fill="#2c6578">line_numbers</text>
+<text x="225" y="338" fill="#0b2027">y</text>
+<text x="310" y="338" fill="#0b2027">y</text>
+<text x="370" y="338" fill="#0b2027">adds line number display to the gutter</text>
+
+<text x="12" y="355" fill="#2c6578">loc_history</text>
+<text x="225" y="355" fill="#0b2027">y</text>
+<text x="310" y="355" fill="#0b2027">y</text>
+<text x="370" y="355" fill="#0b2027">adds buffer locations to a stack for jump back/fwd</text>
+
+<rect x="0" y="359" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="372" fill="#2c6578">lsp</text>
+<text x="225" y="372" fill="#0b2027">y</text>
+<text x="310" y="372" fill="#0b2027">y</text>
+<text x="370" y="372" fill="#0b2027">language server protocol client for yed</text>
+
+<text x="12" y="389" fill="#2c6578">man</text>
+<text x="225" y="389" fill="#0b2027">y</text>
+<text x="310" y="389" fill="#0b2027">y</text>
+<text x="370" y="389" fill="#0b2027">open man pages in a yed buffer</text>
+
+<rect x="0" y="393" width="680" height="17" fill="#ede8c8" opacity="0.5"/>
+<text x="12" y="406" fill="#2c6578">mouse</text>
+<text x="225" y="406" fill="#0b2027">y</text>
+<text x="310" y="406" fill="#0b2027">y</text>
+<text x="370" y="406" fill="#0b2027">enable mouse support for clicking and scrolling</text>
+
+<text x="12" y="423" fill="#2c6578">terminal</text>
+<text x="225" y="423" fill="#0b2027">y</text>
+<text x="310" y="423" fill="#0b2027">y</text>
+<text x="370" y="423" fill="#0b2027">open a terminal emulator in a special buffer</text>
+
+<!-- Status bar -->
+<rect y="440" width="680" height="20" fill="#40798c"/>
+<text x="8" y="454" fill="#f6f1d1" font-size="11" font-weight="bold">[0] *ypm-menu</text>
+<text x="570" y="454" fill="#f6f1d1" font-size="11" text-anchor="end">1 : 1</text>
+<text x="670" y="454" fill="#f6f1d1" font-size="11" text-anchor="end">11:42</text>
+</g>
+</svg>

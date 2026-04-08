@@ -257,7 +257,7 @@ export default function UserGuide() {
         <View style={styles.screenshotContainer}>
           <View style={styles.screenshotFrame}>
             <Image
-              source={require('../assets/images/screenshot-split.png')}
+              source={{ uri: '/screenshot-split.svg' }}
               style={styles.screenshotSplit}
               resizeMode="contain"
             />
@@ -564,8 +564,8 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
   },
   screenshotSplit: {
-    width: 1200,
-    height: 686,
+    width: 900,
+    height: 450,
     maxWidth: '100%' as any,
   },
   screenshotCaption: {

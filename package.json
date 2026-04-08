@@ -6,7 +6,7 @@
     "start": "expo start",
     "web": "expo start --web",
     "build": "expo export --platform web",
-    "prebuild:data": "npx tsx scripts/parse-man-pages.ts && npx tsx scripts/parse-changelog.ts && npx tsx scripts/generate-sitemap.ts"
+    "prebuild:data": "npx tsx scripts/parse-man-pages.ts && npx tsx scripts/parse-changelog.ts && npx tsx scripts/generate-style-previews.ts && npx tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
