@@ -1,0 +1,4574 @@
+[
+  {
+    "slug": "add_template",
+    "name": "add_template",
+    "description": "pastes the specified template at the cursor location",
+    "category": "editing",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "set-template [ template-name ]",
+        "body": "When this command is run the template that is passed will be pasted at the current cursor location"
+      }
+    ],
+    "buffers": [],
+    "notes": "The user must add templates to the ~/.yed/templates dir. The files must be named in this style [template-name.txt].",
+    "version": "0.0.1",
+    "keywords": [
+      "template",
+      "block",
+      "paste"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/add_template"
+  },
+  {
+    "slug": "align",
+    "name": "align",
+    "description": "Align all first occurences of a string in a set of lines.",
+    "category": "editing",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "align <string>",
+        "body": "Align all of the first occurences of <string> in the selected lines to the rightmost match in the set."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "text",
+      "align",
+      "column",
+      "format"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-align"
+  },
+  {
+    "slug": "auto_paren",
+    "name": "auto_paren",
+    "description": "automatically adds the matching character to these [({'\"",
+    "category": "editing",
+    "configuration": [
+      {
+        "title": "disable-auto-paren   \"  \" [ yes / no ]",
+        "body": "disables the automatic insert of a following )"
+      },
+      {
+        "title": "disable-auto-bracket \"\"   [ yes / no ]",
+        "body": "disables the automatic insert of a following ]"
+      },
+      {
+        "title": "disable-auto-dquote  \" \"  [ yes / no ]",
+        "body": "disables the automatic insert of a following \""
+      },
+      {
+        "title": "disable-auto-quote   \"  \" [ yes",
+        "body": "disables the automatic insert of a following '"
+      },
+      {
+        "title": "disable-auto-brace   \"  \" [ yes / no ]",
+        "body": "disables the automatic insert of a following }"
+      },
+      {
+        "title": "auto-paren-skip      \"  \" [ yes / no ]",
+        "body": "if set you will be able to skip ]}) no matter where you are in the file"
+      },
+      {
+        "title": "auto-dquote-skip     \"  \" [ yes / no ]",
+        "body": "if set you will be able to skip \" no matter where you are in the file"
+      },
+      {
+        "title": "auto-quote-skip      \"  \" [ yes / no ]",
+        "body": "if set you will be able to skip ' no matter where you are in the file"
+      },
+      {
+        "title": "auto-paren-jump_word \"  \" [ yes / no ]",
+        "body": "if set you will be able to move the )]} to the right side of the connected word"
+      },
+      {
+        "title": "auto-dquote-jump_word \"  \" [ yes / no ]",
+        "body": "if set you will be able to move the \" to the right side of the connected word"
+      },
+      {
+        "title": "auto-quote-jump_word \"  \" [ yes / no ]",
+        "body": "if set you will be able to move the ' to the right side of the connected word"
+      },
+      {
+        "title": "auto-quote-selection \"  \" [ yes / no ]",
+        "body": "if set you will be able to insert '' around the selection"
+      },
+      {
+        "title": "auto-dquote-selection \"  \" [ yes / no ]",
+        "body": "if set you will be able to insert \"\" around the selection"
+      },
+      {
+        "title": "auto-paren-selection \"  \" [ yes / no ]",
+        "body": "if set you will be able to insert () around the selection"
+      },
+      {
+        "title": "auto-brace-selection \"  \" [ yes / no ]",
+        "body": "if set you will be able to insert [] around the selection"
+      }
+    ],
+    "commands": [
+      {
+        "title": "quote_selection: inserts '' around selection",
+        "body": ""
+      },
+      {
+        "title": "dquote_selection: inserts \"\" around selection",
+        "body": ""
+      },
+      {
+        "title": "brace_selection: inserts [] around selection",
+        "body": ""
+      },
+      {
+        "title": "paren_selection: inserts () around selection",
+        "body": ""
+      }
+    ],
+    "buffers": [],
+    "notes": "Automatically adds the correct following character to the one inserted.\nAuto split and indention has been added to ([{ when you hit enter.",
+    "version": "0.0.1",
+    "keywords": [
+      "automatic",
+      "parenthesis",
+      "brackets",
+      "braces",
+      "single",
+      "quotes",
+      "double",
+      "quotes",
+      "finish"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/auto_paren"
+  },
+  {
+    "slug": "auto-save",
+    "name": "auto-save",
+    "description": "Periodically check for modified buffers and automatically save them.",
+    "category": "configuration",
+    "configuration": [
+      {
+        "title": "auto-save-frequency-ms <ms>",
+        "body": "The number of milliseconds before all buffers are checked for modifications and saved. The minimum allowed is 10,000 milliseconds (10 seconds)."
+      }
+    ],
+    "commands": [
+      {
+        "title": "auto-save-force-quit",
+        "body": "Force quit without checking any buffers and without saving."
+      }
+    ],
+    "buffers": [],
+    "notes": "This overrides the built-in quit command to automatically save modified buffers and then quit. It is recommended to NOT use this plugin alongside confirm-quit.",
+    "version": "0.0.1",
+    "keywords": [
+      "auto",
+      "save",
+      "write",
+      "modified",
+      "quit"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/spatel38305/auto-save"
+  },
+  {
+    "slug": "autotrim",
+    "name": "autotrim",
+    "description": "Remove trailing whitespace before writing buffers.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "space",
+      "whitespace",
+      "trail",
+      "trailing"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-autotrim"
+  },
+  {
+    "slug": "bookmarks",
+    "name": "bookmarks",
+    "description": "bookmark lines of code to return to later",
+    "category": "navigation",
+    "configuration": [
+      {
+        "title": "bookmark-character \"                       \" [ ▓ ]",
+        "body": "the character displayed in the gutter to indicate a bookmark"
+      },
+      {
+        "title": "bookmark-use-line-numbers \"                \" [ (0) / 1 ]",
+        "body": "enable or disable line numbers in the gutter"
+      },
+      {
+        "title": "bookmark-color \"                           \" [ &blue ]",
+        "body": "the color used for the bookmark indicator in the gutter"
+      },
+      {
+        "title": "bookmark-path-color \"                      \" [ &green ]",
+        "body": "the color used for file paths in the bookmarks list buffer"
+      },
+      {
+        "title": "bookmark-row-color \"                       \" [ &purple ]",
+        "body": "the color used for row numbers in the bookmarks list buffer"
+      },
+      {
+        "title": "bookmark-line-color \"                      \" [ &gray ]",
+        "body": "the color used for line contents in the bookmarks list buffer"
+      },
+      {
+        "title": "bookmark-update-period \"                   \" [ 5 ]",
+        "body": "how often (in seconds) the bookmarks list buffer refreshes"
+      },
+      {
+        "title": "bookmarks-file \"                           \" [ unset ]",
+        "body": "path (relative to cwd) to the file used for persisting bookmarks"
+      },
+      {
+        "title": "bookmark-highlight-line \"                  \" [ (0) / 1 ]",
+        "body": "enable or disable highlighting the entire bookmarked line"
+      },
+      {
+        "title": "bookmark-highlight-line-color \"            \" [ &blue swap ]",
+        "body": "the color used for highlighting bookmarked lines"
+      },
+      {
+        "title": "line-number-scomp \"                        \" [ code-comment ]",
+        "body": "style component used for line numbers"
+      }
+    ],
+    "commands": [
+      {
+        "title": "set-bookmark(row)",
+        "body": "set a new bookmark at the given row"
+      },
+      {
+        "title": "remove-bookmark(row)",
+        "body": "remove the bookmark at the given row"
+      },
+      {
+        "title": "set-bookmark-on-line",
+        "body": "set a new bookmark at the current cursor line"
+      },
+      {
+        "title": "remove-bookmark-on-line",
+        "body": "remove the bookmark at the current cursor line"
+      },
+      {
+        "title": "toggle-bookmark-on-line",
+        "body": "toggle a bookmark at the current cursor line"
+      },
+      {
+        "title": "remove-all-bookmarks-in-buffer",
+        "body": "remove all bookmarks in the current buffer"
+      },
+      {
+        "title": "remove-all-bookmarks",
+        "body": "remove all bookmarks across all buffers"
+      },
+      {
+        "title": "goto-next-bookmark",
+        "body": "move the cursor to the next bookmark across all buffers"
+      },
+      {
+        "title": "goto-prev-bookmark",
+        "body": "move the cursor to the previous bookmark across all buffers"
+      },
+      {
+        "title": "goto-next-bookmark-in-buffer",
+        "body": "move the cursor to the next bookmark in the current buffer"
+      },
+      {
+        "title": "goto-prev-bookmark-in-buffer",
+        "body": "move the cursor to the previous bookmark in the current buffer"
+      },
+      {
+        "title": "bookmarks",
+        "body": "open the *bookmarks-list special buffer"
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*bookmarks-list -- a read-only buffer listing all bookmarks, press Enter to jump to a bookmark",
+        "body": ""
+      }
+    ],
+    "notes": "### Bookmarks pointing past the end of a file are automatically removed when the file is loaded.",
+    "version": "0.0.1",
+    "keywords": [
+      "bookmarks",
+      "line_numbers"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/bookmarks"
+  },
+  {
+    "slug": "brace_hl",
+    "name": "brace_hl",
+    "description": "Highlight matching curly braces.",
+    "category": "ui",
+    "configuration": [
+      {
+        "title": "brace-hl-max-line-length",
+        "body": "When scanning for matching braces, if a line exceeds brace-hl-max-line-length, stop scanning."
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "Uses the \"attention\" style component.",
+    "version": "0.0.1",
+    "keywords": [
+      "highlight",
+      "curly",
+      "brace",
+      "braces",
+      "match"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-brace_hl"
+  },
+  {
+    "slug": "builder",
+    "name": "builder",
+    "description": "Run build commands in the background. Jump to error if it fails.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "builder-build-command <command>",
+        "body": "The command to run when you run builder-start."
+      },
+      {
+        "title": "builder-error-parse-command <command>",
+        "body": "The command responsible for parsing error locations from the command output.\nThe default value can parse error locations from most C/C++ compilers."
+      },
+      {
+        "title": "builder-popup-rg [yes/no]",
+        "body": "Sets the builder popup to be either green or red on success or failure.\n\nSee NOTES."
+      },
+      {
+        "title": "builder-notify-command <command>",
+        "body": "A command that can be run when the build command finishes.\nA small popup will display momentarily if this is unset.\n\nSee NOTES."
+      }
+    ],
+    "commands": [
+      {
+        "title": "builder-start",
+        "body": "Start the builder-build-command in the background."
+      },
+      {
+        "title": "builder-jump-to-error",
+        "body": "Jump to the error location parsed from the command output."
+      },
+      {
+        "title": "builder-print-error",
+        "body": "Print the error text on the command line if the build failed."
+      },
+      {
+        "title": "builder-view-output",
+        "body": "Focus the *builder-output buffer."
+      },
+      {
+        "title": "builder-view-echo-status",
+        "body": "Print the status of the build on the command line."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*builder-output",
+        "body": ""
+      }
+    ],
+    "notes": "### Parsing Errors\n\nThe builder-error-parse-command should be a shell command that, when invoked with the builder-build-command's output on STDIN, produces output lines of the format FILE:LINE:COLUMN:ERROR for lines that report an error.\nThe default value of builder-error-parse-command is given below as an example:\n\n```\n    awk -F':' '\n        /:( fatal)? error:/     { print $0; }\n        /: undefined reference/ { printf(\"%s:%s:1:%s\\n\", $1, $2, $3); }'\n```\n### Notification\nThe builder-notify-command should be a shell command with a non-backslash-escaped % symbol which will be replaced by the status of the build.\nFor example:\n\n```\n    ./email_builder_status '%'\n```",
+    "version": "0.0.1",
+    "keywords": [
+      "compile",
+      "make",
+      "run",
+      "build",
+      "background",
+      "process",
+      "command",
+      "error",
+      "jump"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-builder"
+  },
+  {
+    "slug": "calc",
+    "name": "calc",
+    "description": "An interactive calculator in the special buffer *calc.",
+    "category": "tools",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "calc",
+        "body": "Focus the *calc buffer."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*calc",
+        "body": ""
+      }
+    ],
+    "notes": "Each expression typed into the calculator is added to the history list and can be reused by its ans_* name.\nVariables can be set by typing an expression of the form \"name = expression\".",
+    "version": "0.0.1",
+    "keywords": [
+      "calc",
+      "calculator",
+      "math",
+      "expression",
+      "bc"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-calc"
+  },
+  {
+    "slug": "command-history",
+    "name": "command-history",
+    "description": "Saves commands between one use of YED and another.",
+    "category": "configuration",
+    "configuration": [
+      {
+        "title": "command-history-limit <limit>",
+        "body": "The number of commands to be saved for command history. The maximum allowed is 10,000."
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "The file that this plugin uses to store the command history is in your config directory..",
+    "version": "0.0.1",
+    "keywords": [
+      "save",
+      "command",
+      "history"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/spatel38305/command-history"
+  },
+  {
+    "slug": "comment",
+    "name": "comment",
+    "description": "Toggles commenting of lines of code.",
+    "category": "editing",
+    "configuration": [
+      {
+        "title": "<FT>-style-comments \"PREFIX [SUFFIX]\"",
+        "body": "This plugin will look for variables of this pattern to decide how to comment different filetypes.\nFor example, for C-comment-style \"/* */\", lines will be surrounded by the \"/* \" prefix and \" */\" suffix.\nAlternatively, C-comment-style \"//\", will simply prefix lines with \"// \"."
+      }
+    ],
+    "commands": [
+      {
+        "title": "comment-toggle",
+        "body": "Toggles the current line. If there is a selection, toggles every line in the selection."
+      }
+    ],
+    "buffers": [],
+    "notes": "FT plugins should set the corresponding variables. However, users can also override these.",
+    "version": "0.0.1",
+    "keywords": [
+      "toggle",
+      "comment"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-comment"
+  },
+  {
+    "slug": "completer",
+    "name": "completer",
+    "description": "A basic completion plugin activated on TAB.",
+    "category": "editing",
+    "configuration": [
+      {
+        "title": "completer-sources [ sources... ]",
+        "body": "Space-delimited list of completion sources to use. Default is \"word\"."
+      },
+      {
+        "title": "completer-popup [ yes / no ]",
+        "body": "Whether or not do display the popup menu for completion results.\nDefault value is \"yes\"."
+      },
+      {
+        "title": "completer-popup-size [ int ]",
+        "body": "The size in lines of the popup menu.\n Default value is 8."
+      },
+      {
+        "title": "completer-auto [ yes / no ]",
+        "body": "Whether or not the popup should come up automatically as you type in an \"autocomplete\" fashion.\nDefault value is \"no\"."
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "Completer uses the word ([a-Z0-9_]+) before the cursor as the search string.",
+    "version": "0.0.1",
+    "keywords": [
+      "complete",
+      "completion",
+      "auto",
+      "autocomplete",
+      "popup",
+      "tab",
+      "TAB"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-completer"
+  },
+  {
+    "slug": "confirm-quit",
+    "name": "confirm-quit",
+    "description": "Check for unsaved buffers before quitting.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "no-confirm-quit",
+        "body": "Force quit without checking for modified buffers. Changed in unsaved buffers will be lost."
+      }
+    ],
+    "buffers": [],
+    "notes": "This overrides the built-in quit command.",
+    "version": "0.0.2",
+    "keywords": [
+      "quit",
+      "confirm",
+      "save",
+      "write",
+      "modified"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/spatel38305/confirm-quit"
+  },
+  {
+    "slug": "convert",
+    "name": "convert",
+    "description": "converts numbers between types or converts strings",
+    "category": "tools",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "convert-number [ template-name ]",
+        "body": "When this command is run the current word the currsor is on will be parsed.\nIf it is a number, a popup will show and allow the user to replace the current word with a conversion.\nConverts numbers between Decimal, Hex, Octal, Binary.\nIf the current word is a string.\nA popup will show and allow the user to swap between Uppercase, Lowercase, Snakecase, and Camelcase."
+      }
+    ],
+    "buffers": [],
+    "notes": "The formats are as follows, Decimal is any number less than '18446744073709551615' and greater than '-9223372036854775808', Hex must start with '0x' or '0X', Binary must start with '0b', and Octal must start with '0'",
+    "version": "0.0.1",
+    "keywords": [
+      "convert",
+      "int",
+      "hex",
+      "octal",
+      "binary",
+      "uppercase",
+      "lowercase",
+      "snakecase",
+      "camelcase",
+      "replace."
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/convert"
+  },
+  {
+    "slug": "ctags",
+    "name": "ctags",
+    "description": "ctags integration for yed. Provides symbol generation, highlighting, completion, searching, and jumping.",
+    "category": "navigation",
+    "configuration": [
+      {
+        "title": "ctags-tags-file [ path ]",
+        "body": "The name of the tags file to use/generate. Default is \"tags\"."
+      },
+      {
+        "title": "ctags-flags [ flags ]",
+        "body": "Specifies the flags to pass to ctags when running ctags-gen."
+      },
+      {
+        "title": "ctags-additional-paths [ path... ]",
+        "body": "A list of extra files/directories to produce tags for. This is useful if, for example, you want to include library header files."
+      },
+      {
+        "title": "ctags-fallback-autogen [ yes / no ]",
+        "body": "If this variable is true, temporary tags will be automatically generated if a tags file does not exist and you have not run ctags-gen yourself. The files in the current working directory, any files in ./src, and any open buffers will be used as the sources of the tags."
+      },
+      {
+        "title": "ctags-regen-on-write [ yes / no ]",
+        "body": "If this variable is true, tags will be automatically regenerated when you write a buffer."
+      },
+      {
+        "title": "ctags-auto-show-function-hint [ yes / no ]",
+        "body": "If this variable is true, function argument hints will pop up automatically."
+      },
+      {
+        "title": "ctags-auto-dismiss-function-hint [ yes / no ]",
+        "body": "If this variable is true, function argument hints go away when your cursor leaves the function call."
+      },
+      {
+        "title": "ctags-formatting-limit [ int ]",
+        "body": "The maximum number of tags entries in *ctags-find before it stops trying to format the buffer."
+      },
+      {
+        "title": "ctags-enable-extra-highlighting [ yes / no ]",
+        "body": "Whether or not tags found in buffers should be highlighted."
+      },
+      {
+        "title": "ctags-compl [ yes / no ]",
+        "body": "Whether or not to create a completion source for tags."
+      }
+    ],
+    "commands": [
+      {
+        "title": "ctags-gen",
+        "body": "Run \"ctags <ctags-flags>\" as a subprocess in the background to generate/update a tags file."
+      },
+      {
+        "title": "ctags-find",
+        "body": "An interactive command that searches through the loaded tags in the *ctags-find buffer.\nAfter filtering tags, ENTER can be pressed in the buffer to jump to the selected tag."
+      },
+      {
+        "title": "ctags-jump-to-definition",
+        "body": "Jumps to the file and line containing the definition of the tag under your cursor."
+      },
+      {
+        "title": "ctags-show-function-hint",
+        "body": "If the cursor is in the parentheses of a function call, try to lookup the function in the tags and show argument hints."
+      },
+      {
+        "title": "ctags-dismiss-function-hint",
+        "body": "Dismiss the current function argument hint popup."
+      },
+      {
+        "title": "ctags-reparse",
+        "body": "If ctags-enable-extra-highlighting or ctags-compl is enabled, this command reparses the tags file to refresh the list of tags."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*ctags-find",
+        "body": ""
+      }
+    ],
+    "notes": "ctags must be installed on your system for this plugin to work.",
+    "version": "0.0.1",
+    "keywords": [
+      "tag",
+      "tags",
+      "ctags",
+      "jump",
+      "search",
+      "find",
+      "project",
+      "navigate",
+      "navigation",
+      "definition",
+      "function",
+      "hint"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-ctags"
+  },
+  {
+    "slug": "cursor_word_hl",
+    "name": "cursor_word_hl",
+    "description": "Highlight occurences of the word under the cursor.",
+    "category": "ui",
+    "configuration": [
+      {
+        "title": "cursor-word-hl-idle-threshold-ms <ms>",
+        "body": "The number of milliseconds the cursor can be idle before the word under the cursor is highlighted."
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "Uses the \"associate\" style component.",
+    "version": "0.0.1",
+    "keywords": [
+      "color",
+      "highlight",
+      "word",
+      "cursor",
+      "occurence"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-cursor_word_hl"
+  },
+  {
+    "slug": "custom_frames",
+    "name": "custom_frames",
+    "description": "Gives a configurable framework to attach custom frames and special animations to special buffers",
+    "category": "ui",
+    "configuration": [
+      {
+        "title": "see commands",
+        "body": ""
+      }
+    ],
+    "commands": [
+      {
+        "title": "float",
+        "body": ""
+      },
+      {
+        "title": "set-custom-buffer-frame (frame-name[\"\"]) (split/float['f']) (close-after[0/1]) (max-x[0.0/1.0]) (max-y[0.0/1.0]) (max-width[0.0/1.0]) (max-height[0.0/1.0])",
+        "body": "(use-animation[0/1]) (min-x[0.0/1.0]) (min-y[0.0/1.0]) (min-width[0.0/1.0]) (min-height[0.0/1.0]) (speed[int]) (buff-arr[\"*buff *buff *buff\"])"
+      },
+      {
+        "title": "split",
+        "body": ""
+      },
+      {
+        "title": "set-custom-buffer-frame (frame-name[\"\"]) (split/float['s']) (close-after[0/1]) (max-split['h'/'v']) (max-loc[('t'/'b')/('l'/'r')]) (max-use-root['r'/'a'])",
+        "body": "(max-size[0.0/1.0]) (max-heirarchy[int]) (use-animation[0/1]) (min-size[0.0/1.0]) (speed[int]) (buff-arr[\"*buff *buff *buff\"])"
+      },
+      {
+        "title": "special-buffer-prepare-focus-custom \"*buffer_name\" Overloading this function allows the user to manipulate the default way a new frame is opened for a *buffer.",
+        "body": ""
+      },
+      {
+        "title": "special-buffer-prepare-focus \"*buffer_name\" This function is overloaded and must not be manipulated elsewhere.",
+        "body": ""
+      },
+      {
+        "title": "special-buffer-prepare-jump-focus \"*buffer_name\" This function is overloaded and must not be manipulated elsewhere.",
+        "body": ""
+      },
+      {
+        "title": "special-buffer-prepare-unfocus \"*buffer_name\" This function is overloaded and must not be manipulated elsewhere.",
+        "body": ""
+      }
+    ],
+    "buffers": [],
+    "notes": "The way that you use this plugin is as follows. Add a configuration line in your yedrc for every frame that you want to behave a certain way.\nYou then can set up the parameters of how that frame should function and then what buffers you want to open in that type of frame. I will describe\nthe parameters now.\n### frame-name: \"\" [\"\"] \"      \" The new frame's name that will behave in a specific pattern when a linked buffer is opened or activated.\n### split/float: ['s' / 'f'] Wether you want the new frame to be a split of a frame or a new \"floating\" frame.\n### close-after: [0 / 1] \"   \" Wether you want to close the frame when another frame is activated.\n### --------------------\n### if split/float == 'f'\n### \"    \" max-x: \"    \" [0.0 - 1.0] The starting x position of the \"full sized\" frame. 0.0 is far left and 1.0 is far right.\n### \"    \" max-y: \"    \" [0.0 - 1.0] The starting y position of the \"full sized\" frame. 0.0 is far left and 1.0 is far right.\n### \"    \" max-width: \"\" [0.0 - 1.0] The width of the \"full sized\" frame.\n### \"    \" max-height: [0.0 - 1.0] The height of the \"full sized\" frame.\n### --------------------\n### if split/float == 's'\n### \"    \" max-split: ['h' / 'v'] Wether the split will be along the 'h' horizontal or 'v' vertical axis.\n### \"    \" --------------------\n### \"    \" if max-split == 'h'\n### \"    \" \"    \" max-loc: ['t' / 'b'] Wether you want to set the new frame in the 't' top or 'b' bottom of the new horizontal split.\n### \"    \" --------------------\n### \"    \" if max-split == 'v'\n### \"    \" \"    \" max-loc: ['l' / 'r'] Wether you want to set the new frame in the 'l' left or 'r' right of the new vertical split.\n### \"    \" --------------------\n### \"    \" max-use-root: \"\" ['r' / 'a'] Wether you want the split to be off of the 'r' root frame or the 'a' active frame.\n### \"    \" max-size: \"    \" [0.0 - 1.0] The width or height of the \"full sized\" split frame based on the max size of the root frame.\n### \"    \" max-heirarchy: [int] \"     \" This sets the precidence for frame overlap. The lower the number the higher the precidence. A frame with heirarchy of 0 will allways overlap one with 1.\n### --------------------\n### use-animation: [0 / 1] Wether or not you want to make the frame use animations.\n### --------------------\n### if use-animation == 1\n### \"    \" if split/float == 'f'\n### \"    \" \"    \" min-x: \"    \" [0.0 - 1.0] The starting x position of the \"minimum sized\" frame. 0.0 is far left and 1.0 is far right.\n### \"    \" \"    \" min-y: \"    \" [0.0 - 1.0] The starting y position of the \"minimum sized\" frame. 0.0 is far left and 1.0 is far right.\n### \"    \" \"    \" min-width: \"\" [0.0 - 1.0] The width of the \"minimum sized\" frame.\n### \"    \" \"    \" min-height: [0.0 - 1.0] The height of the \"minimum sized\" frame.\n### \"    \" --------------------\n### \"    \" if split/float == 's'\n### \"    \" \"    \" min-size: \" \" [0.0 - 1.0] The width or height of the \"minimum sized\" split frame based on the min size of the root frame.\n### \"    \" --------------------\n### \"    \" speed: [int] The speed at which the animation will occur. This is in Hz.\n### --------------------\n### buff-arr: [\"\"] A string of buffer names that are separated by a space. This is what links together a custom frame and the buffers.",
+    "version": "0.0.1",
+    "keywords": [
+      "custom_frames",
+      "custom",
+      "frame",
+      "special",
+      "buffers",
+      "animations"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/custom_frames"
+  },
+  {
+    "slug": "diff",
+    "name": "diff",
+    "description": "interactive diff for two buffers",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "diff-multi-line-compare-algorithm \"         \" [ \"myers\" / \"myers_linear\" / \"patience\" / (\"histogram\")]",
+        "body": "sets the algorithm for comparing the file line by line"
+      },
+      {
+        "title": "diff-line-compare-algorithm \"               \" [ \"myers\" / \"myers_linear\" / \"patience\" / (\"histogram\")]",
+        "body": "sets the algorithm for comparing two like lines in the file"
+      },
+      {
+        "title": "diff-min-lines-big-file \"                   \" [ 5000 ]",
+        "body": "sets the min number of lines that dictates when the algorithm-big-file is used instead"
+      },
+      {
+        "title": "diff-multi-line-compare-algorithm-big-file \"\" [ \"myers\" / \"myers_linear\" / \"patience\" / (\"histogram\")]",
+        "body": "sets the algorithm for comparing the file line by line when a big file is used"
+      },
+      {
+        "title": "diff-insert-color \"                         \" [ &active &blue swap ]",
+        "body": "sets the background color for an inserted line"
+      },
+      {
+        "title": "diff-insert-dashes-color \"                  \" [ &active &cyan swap ]",
+        "body": "sets the background color for the inserted dashed line opposite an insert"
+      },
+      {
+        "title": "diff-delete-color \"                         \" [ &active &blue swap ]",
+        "body": "sets the background color for a deleted line"
+      },
+      {
+        "title": "diff-delete-dashes-color \"                  \" [ &active &cyan swap ]",
+        "body": "sets the background color for the inserted dashed line opposite a delete"
+      },
+      {
+        "title": "diff-inner-compare-color \"                  \" [ &active &magenta swap ]",
+        "body": "sets the background color two lines that are close to the same"
+      },
+      {
+        "title": "diff-inner-compare-char-color \"             \" [ &active &attention swap ]",
+        "body": "sets the background color for the characters that are inserted/deleted in the lines that are close (inner-compare)"
+      },
+      {
+        "title": "diff-truncate-lines \"                       \" [ (yes) / no ]",
+        "body": "if you want to truncate lines that are the same between both files"
+      },
+      {
+        "title": "diff-truncate-lines-min-num \"               \" [ 12 ]",
+        "body": "the minimum number of lines that need to be the same contiguously before truncation starts"
+      },
+      {
+        "title": "diff-trunc-color \"                          \" [ &active &cyan ]",
+        "body": "the color of the added line showing the number of lines that has been truncated in this section"
+      },
+      {
+        "title": "diff-post-del-before-ins \"                 \" [ (yes) / no ]",
+        "body": "reorder adjacent INS/DEL entries so all DELs come before INS within each change block"
+      },
+      {
+        "title": "diff-post-slide-down \"                     \" [ (yes) / no ]",
+        "body": "slide ambiguous edits downward within runs of identical lines"
+      },
+      {
+        "title": "diff-post-indent-heuristic \"               \" [ (yes) / no ]",
+        "body": "shift hunk boundaries to land on the least-indented line (blank lines, closing braces)"
+      },
+      {
+        "title": "diff-post-blank-line-gravity \"             \" [ (yes) / no ]",
+        "body": "prefer hunk boundaries that land on blank lines"
+      },
+      {
+        "title": "diff-post-hunk-coalescence \"               \" [ (yes) / no ]",
+        "body": "merge change blocks separated by a small number of equal lines into a single block"
+      },
+      {
+        "title": "diff-post-hunk-coalescence-max-gap \"       \" [ 3 ]",
+        "body": "maximum number of equal lines between two change blocks before they are merged"
+      },
+      {
+        "title": "diff-post-semantic-cleanup \"               \" [ (yes) / no ]",
+        "body": "merge change blocks when the equal gap between them is shorter than the smaller block"
+      }
+    ],
+    "commands": [
+      {
+        "title": "diff(buffer1, buffer2) interactive diff for two buffers",
+        "body": ""
+      },
+      {
+        "title": "diff-expand-truncated-lines expands truncated section",
+        "body": ""
+      },
+      {
+        "title": "diff-contract-truncated-lines contracts truncated section",
+        "body": ""
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*diff:buffer1 -- a buffer used by diff so that the original is not mutated",
+        "body": ""
+      },
+      {
+        "title": "*diff:buffer2 -- a buffer used by diff so that the original is not mutated",
+        "body": ""
+      }
+    ],
+    "notes": "### If you want to run this command from the terminal insert this into your .bashrc\n### function yeddiff { yed -c \\/\"diff $1 $2\\/\"; }",
+    "version": "0.0.1",
+    "keywords": [
+      "diff",
+      "yeddiff",
+      "compare"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/diff"
+  },
+  {
+    "slug": "drill",
+    "name": "drill",
+    "description": "Modal editing a la kakoune, but lamer.",
+    "category": "editor-styles",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "drill-bind <mode> <keys> <command>",
+        "body": "Bind <keys> to <command> when in <mode>."
+      },
+      {
+        "title": "drill-unbind <mode> <keys>",
+        "body": "Unbind <keys> in <mode>."
+      },
+      {
+        "title": "drill-exit-insert",
+        "body": "Leave insert mode and return to normal mode."
+      },
+      {
+        "title": "w",
+        "body": ""
+      },
+      {
+        "title": "W",
+        "body": "Alias for write-buffer."
+      },
+      {
+        "title": "q",
+        "body": ""
+      },
+      {
+        "title": "Q",
+        "body": "If you're in the only frame, quit.\nOtherwise, close the frame."
+      },
+      {
+        "title": "wq",
+        "body": ""
+      },
+      {
+        "title": "Wq",
+        "body": "write-buffer, then do q from above."
+      }
+    ],
+    "buffers": [],
+    "notes": "### Recommended config\nbind \"ctrl-o\" jump-stack-pop\n\ndrill-bind normal \"g d\" multi jump-stack-push ctags-jump-to-definition\n\ndrill-bind normal \"g e\" 'cursor-buffer-end'\n\ndrill-bind normal \"g g\" 'cursor-buffer-begin'",
+    "version": "1000.0.1",
+    "keywords": [
+      "key",
+      "bind",
+      "binding",
+      "edit",
+      "mode",
+      "modal",
+      "vim",
+      "vi",
+      "emacs"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/uniquepointer/yed-drill"
+  },
+  {
+    "slug": "extension_mapper",
+    "name": "extension_mapper",
+    "description": "Map file extensions to file types.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "map-extension EXT FT",
+        "body": "Assign file type FT to buffers with extension EXT."
+      }
+    ],
+    "buffers": [],
+    "notes": "The file type must exist.\n\nExamples:\n    map-extension CC C++\n    map-extension json Config",
+    "version": "0.0.1",
+    "keywords": [
+      "file",
+      "type",
+      "ft",
+      "map",
+      "extension",
+      "name"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-extension_mapper"
+  },
+  {
+    "slug": "find_bracket",
+    "name": "find_bracket",
+    "description": "finds the connecting bracket to the on you are on",
+    "category": "navigation",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "brace-goto-other",
+        "body": "When the cursor is on a brace, this command finds the brace that connects to it and moves the cursor there."
+      }
+    ],
+    "buffers": [],
+    "notes": "This plugin is much like the % command in vim.",
+    "version": "0.0.1",
+    "keywords": [
+      "bracket",
+      "goto",
+      "find"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/find_bracket"
+  },
+  {
+    "slug": "find_file",
+    "name": "find_file",
+    "description": "Search for files in your current directory tree.",
+    "category": "navigation",
+    "configuration": [
+      {
+        "title": "find-file-prg <command>",
+        "body": "The command to run where a non-backslash-escaped % is replaced with the search string.\nThe default value is \"find . -path ./.git -prune -o -type f -name '*%*' -print\"."
+      }
+    ],
+    "commands": [
+      {
+        "title": "find-file [string]",
+        "body": "If string is provided, run the find-file-prg with the string and put results in *find-file-list.\nIf string is not provided, find-file will be run interactively as you type the string on the command line.\nHitting ENTER on an item in *find-file-list will jump to that match."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*find-file-list",
+        "body": ""
+      }
+    ],
+    "notes": "Be careful when running find-file in high-level directories with many files.\nFor example you should probably avoid running find-file in your home directory because it can take a long time to search.",
+    "version": "0.0.1",
+    "keywords": [
+      "find",
+      "file",
+      "buffer",
+      "search",
+      "open",
+      "project"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-find_file"
+  },
+  {
+    "slug": "flame_graph",
+    "name": "flame_graph",
+    "description": "View and browse flame graphs.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "flame-graph-bind-mouse [ yes / no ]",
+        "body": "Whether or not to bind mouse press events for flame graph actions. Default: yes"
+      }
+    ],
+    "commands": [
+      {
+        "title": "flame-graph [PATH]",
+        "body": "Load the flame graph file at PATH for presentation.\nThis file must be of the same format that flamegraph.pl accepts.\nA special buffer *flame-graph:PATH will be created and displayed."
+      },
+      {
+        "title": "flame-graph-zoom",
+        "body": "Zooms in on the frame under the cursor. Bound to the ENTER key or mouse left button press (if enabled)."
+      },
+      {
+        "title": "flame-graph-reset-zoom",
+        "body": "Reset the zoom of the flame graph. Bound to the ESC key."
+      },
+      {
+        "title": "flame-graph-return-zoom",
+        "body": "Return to the previous zoom level. Bound to the BACKSPACE key or mouse left button press on empty space (if enabled)."
+      },
+      {
+        "title": "flame-graph-frame-info",
+        "body": "Display a popup with information for the frame under the cursor. Bound to the SPACE key or mouse right button press (if enabled)."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*flame-graph:PATH",
+        "body": ""
+      }
+    ],
+    "notes": "See https://www.brendangregg.com/flamegraphs.html\n\nThis implementation of flame graphs is different in one significant way: frames\nare sorted left to right in descending order of sample count rather than\nalphabetically. This can make it easier to quickly scan for problem paths.\nAdditionally, since this is drawn in the terminal, some information loss is\ninevitable (it makes an effort to draw every a flame for every code path, but\nthere are a limited number of columns to work with). This sorting order reduces\nthe likelyhood that important (read high sample count) frames are lost.\n\nAssumes truecolor support.",
+    "version": "0.0.1",
+    "keywords": [
+      "flame",
+      "graph",
+      "flamegraph",
+      "profile",
+      "performance",
+      "stack"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-flame_graph"
+  },
+  {
+    "slug": "formatter",
+    "name": "formatter",
+    "description": "automatically formats C and C++ files with a self compiled version of astyle.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "formatter-auto [ yes / no ]",
+        "body": ""
+      }
+    ],
+    "commands": [
+      {
+        "title": "run-formatter",
+        "body": "Formats C and C++ files."
+      }
+    ],
+    "buffers": [],
+    "notes": "This plugin is much like the gg=G command in vim. If you desire to specify a formatting style\nLook at the man page for astyle the file that defines this is .astylerc and is located inside of $HOME",
+    "version": "0.0.1",
+    "keywords": [
+      "automatic",
+      "format",
+      "c",
+      "cpp",
+      "c++",
+      "formatting",
+      "files"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/formatter"
+  },
+  {
+    "slug": "fstyle",
+    "name": "fstyle",
+    "description": "Create and activate styles in plaintext.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "fstyle [PATH]",
+        "body": "If PATH is provided, load the style from the file at PATH and activate it. Otherwise, use the PATH of the current buffer."
+      },
+      {
+        "title": "fstyle-export",
+        "body": "If the buffer in the active frame is an fstyle buffer, export the style as C code that can be compiled into a plugin.\nIf the style is named, for example, \"test.fstyle\", the exported file will be called \"test.c\"."
+      },
+      {
+        "title": "fstyle-from STYLE [PATH]",
+        "body": "Convert the style loaded with the name STYLE to an fstyle file at PATH if provided, otherwise at STYLE.fstyle."
+      }
+    ],
+    "buffers": [],
+    "notes": "Creates the fstyle file type.\nWhen fstyle files are edited in yed with this plugin loaded, the buffer shows each line in the attributes it is setting and updates them as you edit.\nHere is an example of the syntax:\n\n```\n    active               fg c9bfb6    bg 113537\n    active-border        fg 7180ac    bg 113537\n    active-gutter        fg c9bfb6    bg 113537\n    inactive             fg c9bfb6    bg 113537\n    inactive-border      fg 7180ac    bg 113537\n    inactive-gutter      fg c9bfb6    bg 113537\n    cursor-line                       bg 355070\n    selection                         bg 355070\n    search               fg 49d45c    bg 170326    inverse\n    search-cursor        fg d4495c    bg 170326    inverse\n    attention            fg c00000                 bold\n    associate            fg c9bfb6    bg 900040\n    status-line          fg 252730    bg 7180ac    bold\n    command-line         fg c9bfb6    bg 113537\n    popup                fg c9bfb6    bg 900040\n    popup-alt            fg c9bfb6    bg 900040    inverse\n    good                 fg 009000\n    bad                  fg e00000\n    code-comment         fg 909090                 bold\n    code-keyword         fg 8bbeb2\n    code-control-flow    fg 8bbeb2\n    code-typename        fg f2af29\n    code-preprocessor    fg 6153cc                 bold\n    code-fn-call         fg 8cBcd9\n    code-number          fg e56b6f\n    code-constant        fg 6153cc                 bold\n    code-field           fg a99fc6\n    code-variable        fg a99fc6\n    code-string          fg dcccff\n    code-character       fg dcccff\n    code-escape          fg ef009f\n```\n\nWhen the style is loaded, the basename of its file will be used as the name.\nFor example, ~/.config/yed/styles/cubic.fstyle will be named \"cubic\".",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "colors",
+      "live",
+      "create",
+      "attributes"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-fstyle"
+  },
+  {
+    "slug": "git_variables",
+    "name": "git_variables",
+    "description": "A plugin that makes variables for your current git repository properties",
+    "category": "configuration",
+    "configuration": [
+      {
+        "title": "git-variables-update-interval \" \" [positive int miliseconds]",
+        "body": "Milisecond interval to update on."
+      },
+      {
+        "title": "git-variables-branch-icon \" \" [string]",
+        "body": "String to append to the beginning of the branch variable."
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "Creates variable git-variables-branch which contains the current branch name.Also creates git-variables-repo-name with the repository name.",
+    "version": "0.0.1",
+    "keywords": [
+      "git",
+      "status"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/JacobMalloy/yed-git_variables"
+  },
+  {
+    "slug": "go_menu",
+    "name": "go_menu",
+    "description": "A quick buffer jump menu.",
+    "category": "navigation",
+    "configuration": [
+      {
+        "title": "go-menu-persistent-items [ paths... ]",
+        "body": "A space-delimited list of paths that should always be in the go-menu, whether they're open in buffers or not.\nThese items are always shown at the bottom of the menu."
+      },
+      {
+        "title": "go-menu-modified [YES / NO]",
+        "body": "If you want to display the modified tag next to go-menu items."
+      }
+    ],
+    "commands": [
+      {
+        "title": "go-menu",
+        "body": "Open the go-menu in a new frame. The frame is acquired by calling special-buffer-prepare-focus."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*go-menu",
+        "body": ""
+      }
+    ],
+    "notes": "When the destination buffer is a special buffer, the buffer will be opened in the frame containing the go-menu.\nWhen the destination buffer is not special, it will be opened in the frame that was active before go-menu was called.",
+    "version": "0.0.1",
+    "keywords": [
+      "jump",
+      "buffer",
+      "menu",
+      "recent",
+      "open"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-go_menu"
+  },
+  {
+    "slug": "lang-tools-gofmt",
+    "name": "gofmt",
+    "description": "Automatically format Go files with gofmt on save.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "gofmt-auto <\"yes|no\"> - Automatically format buffers, off by default.",
+        "body": ""
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "",
+    "keywords": [],
+    "extraSections": {},
+    "repoUrl": "https://github.com/uniquepointer/yed-lang-tools-gofmt"
+  },
+  {
+    "slug": "grep",
+    "name": "grep",
+    "description": "Search for matches to regular expressions in files in your current directory.",
+    "category": "navigation",
+    "configuration": [
+      {
+        "title": "grep-prg <command>",
+        "body": "The grep command to run where a non-backslash-escaped % is replaced with the search string.\nThe default value is \"grep --exclude-dir={.git} -RHnIs '%' .\""
+      }
+    ],
+    "commands": [
+      {
+        "title": "grep [regex]",
+        "body": "If regex is provided, run the grep-prg with the regex and put results in *grep-list.\nIf regex is not provided, grep will be run interactively as you type the regex on the command line.\nHitting ENTER on an item in *grep-list will jump to that match."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*grep-list",
+        "body": ""
+      }
+    ],
+    "notes": "Be careful when running grep in high-level directories with many files.\nFor example you should probably avoid running grep in your home directory because it can take a long time to search.",
+    "version": "0.0.1",
+    "keywords": [
+      "grep",
+      "search",
+      "find",
+      "regex",
+      "jump",
+      "pattern"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-grep"
+  },
+  {
+    "slug": "hook",
+    "name": "hook",
+    "description": "Run commands on editor events.",
+    "category": "tools",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "hook [options] <event> <command>",
+        "body": "Run <command> when <event> fires."
+      },
+      {
+        "title": "hook-list-options",
+        "body": "Print the available options to *log."
+      },
+      {
+        "title": "hook-list-events",
+        "body": "Print the available events to the command line."
+      }
+    ],
+    "buffers": [],
+    "notes": "This plugin is just a proof of concept at this point, but should be developed out more eventually.",
+    "version": "0.0.1",
+    "keywords": [
+      "when",
+      "event",
+      "hook",
+      "pre",
+      "post",
+      "command",
+      "callback",
+      "handler"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-hook"
+  },
+  {
+    "slug": "indent_c",
+    "name": "indent_c",
+    "description": "Automatic indentation based on C-style languages.",
+    "category": "editing",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "indent",
+        "body": "Move the selected line(s) to the right one indentation level."
+      },
+      {
+        "title": "unindent",
+        "body": "Move the selected line(s) to the left one indentation level."
+      }
+    ],
+    "buffers": [],
+    "notes": "Uses the variable tab-width.\n\nindent_c automatically increases and decreases the indentation level based on curly braces.",
+    "version": "0.0.1",
+    "keywords": [
+      "indent",
+      "dedent",
+      "unindent",
+      "indentation"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-indent_c"
+  },
+  {
+    "slug": "julie",
+    "name": "julie",
+    "description": "Interactive editing/execution of the Julie programming language.",
+    "category": "editing",
+    "configuration": [
+      {
+        "title": "julie-interactive-file <path>",
+        "body": "Path to the file that this plugin will watch for edits.\nDefault value is '<your yed config path>/julie.j'."
+      },
+      {
+        "title": "julie-live-update <yes/no>",
+        "body": "If truthy, this plugin will watch for edits to julie-interactive-file and\nattempt to execute the script after a short period of inactivity (500 ms).\nOtherwise, the script will be executed on buffer-write."
+      }
+    ],
+    "commands": [],
+    "buffers": [
+      {
+        "title": "*julie-output",
+        "body": ""
+      }
+    ],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "execute",
+      "compile",
+      "run",
+      "script",
+      "julie",
+      "Julie",
+      "lisp",
+      "LISP",
+      "interactive"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-julie"
+  },
+  {
+    "slug": "jump_stack",
+    "name": "jump_stack",
+    "description": "Adds buffer locations to a stack so that they can be jumped back through later.",
+    "category": "navigation",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "jump-stack-push",
+        "body": "Push the current cursor location to the jump stack."
+      },
+      {
+        "title": "jump-stack-pop",
+        "body": "Pop the top location from the stack and jump to it."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "jump",
+      "cursor",
+      "location",
+      "stack",
+      "line",
+      "remember"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-jump_stack"
+  },
+  {
+    "slug": "lang-c",
+    "name": "lang/c",
+    "description": "Filetype for C.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"C\".\nMatches file extensions .c and .h.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "c",
+      "C"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-c"
+  },
+  {
+    "slug": "lang-conf",
+    "name": "lang/conf",
+    "description": "Filetype for basic config files.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Config\".\nMatches file extensions .conf and .config.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "conf",
+      "config"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-conf"
+  },
+  {
+    "slug": "lang-cpp",
+    "name": "lang/cpp",
+    "description": "Filetype for C++.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"C++\".\nMatches file extensions .cpp, .cxx, .hpp, .hxx, and .h.\nIf the extension is .h, a quick scan of the buffer see if it \"looks like\" C++ before setting the filetype to C++.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "c++",
+      "c++",
+      "cpp",
+      "C++",
+      "cxx",
+      "CXX"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-cpp"
+  },
+  {
+    "slug": "lang-csharp",
+    "name": "lang/csharp",
+    "description": "Filetype for C#.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"C#\".\nMatches the file extensions .cs.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "c",
+      "C",
+      "sharp",
+      "c#",
+      "C#"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-csharp"
+  },
+  {
+    "slug": "lang-glsl",
+    "name": "lang/glsl",
+    "description": "Filetype for GLSL.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"GLSL\".\nMatches file extension .glsl.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "glsl",
+      "GLSL",
+      "opengl",
+      "shader"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-glsl"
+  },
+  {
+    "slug": "lang-javascript",
+    "name": "lang/javascript",
+    "description": "Filetype for JavaScript.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"JavaScript\".\nMatches file extension .js.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "javascript",
+      "JavaScript"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/spatel38305/yed-lang-javascript"
+  },
+  {
+    "slug": "lang-jgraph",
+    "name": "lang/jgraph",
+    "description": "Filetype for Jgraph.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Jgraph\".\nMatches file extension .jgr.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "jgraph",
+      "graph",
+      "plot",
+      "chart"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-jgraph"
+  },
+  {
+    "slug": "lang-jule",
+    "name": "lang/jule",
+    "description": "Filetype for Jule.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Jule\".\nMatches the file extensions .j.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "jule",
+      "Jule",
+      "lisp",
+      "LISP",
+      "justified"
+    ],
+    "extraSections": {},
+    "repoUrl": ""
+  },
+  {
+    "slug": "lang-julie",
+    "name": "lang/julie",
+    "description": "Filetype for Julie.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Julie\".\nMatches the file extensions .j.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "julie",
+      "Julie",
+      "lisp",
+      "LISP",
+      "justified"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-julie"
+  },
+  {
+    "slug": "lang-latex",
+    "name": "lang/latex",
+    "description": "Filetype for LaTeX.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"LaTeX\".\nMatches file extensions .tex and .cls.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "tex",
+      "Tex",
+      "latex",
+      "LaTeX"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-latex"
+  },
+  {
+    "slug": "lang-linker",
+    "name": "lang/linker",
+    "description": "Filetype for linker scripts.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Linker\".\nMatches file extension .lds.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "ld",
+      "lds",
+      "linker",
+      "script"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-linker"
+  },
+  {
+    "slug": "lang-make",
+    "name": "lang/make",
+    "description": "Filetype for Makefiles.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Make\".\nMatches buffer names Makefile, makefile, GNUMakefile, Makefile.*, makefile.*.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "make",
+      "makefile",
+      "Makefile"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-make"
+  },
+  {
+    "slug": "lang-man",
+    "name": "lang/man",
+    "description": "Filetype for manpage (roff/troff) files.",
+    "category": "language",
+    "configuration": [
+      {
+        "title": "lang-man-extensions: a space separated string of additional extensions that are considered a manpage file.",
+        "body": ""
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Man\".\nMatches buffer names *.1 through *.9.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "man",
+      "manpage",
+      "roff",
+      "troff",
+      "groff"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/yed-lang-man"
+  },
+  {
+    "slug": "lang-nickel",
+    "name": "lang/nickel",
+    "description": "Filetype for Nickel.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Nickel\".\nMatches the file extensions .nickel.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "nickel",
+      "Nickel",
+      "lisp",
+      "LISP"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-nickel"
+  },
+  {
+    "slug": "lang-python",
+    "name": "lang/python",
+    "description": "Filetype for Python.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Python\".\nMatches file extension .py.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "python",
+      "Python"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-python"
+  },
+  {
+    "slug": "lang-rust",
+    "name": "lang/rust",
+    "description": "Filetype for Rust.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Rust\".\nMatches file extensions .rs.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "rust",
+      "Rust",
+      "RUST"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/jacobmalloy/yed-lang-rust"
+  },
+  {
+    "slug": "lang-bpftrace",
+    "name": "lang/s",
+    "description": "Filetype for bpftrace files.",
+    "category": "language",
+    "configuration": [
+      {
+        "title": "lang-bpftrace-extensions: a space separated string of all extensions that are considered a bpftrace file.",
+        "body": ""
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"S\".\nMatches buffer names *.S",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "bpf",
+      "ebpf",
+      "bfptrace"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/yed-lang-bpftrace"
+  },
+  {
+    "slug": "lang-go",
+    "name": "lang/scheme",
+    "description": "Filetype for Go.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Go\".\nMatches the file extensions .go.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "go",
+      "golang",
+      "google"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-go"
+  },
+  {
+    "slug": "lang-scheme",
+    "name": "lang/scheme",
+    "description": "Filetype for Scheme.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Scheme\".\nMatches the file extensions .scm.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "scheme",
+      "Scheme",
+      "lisp",
+      "LISP"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-scheme"
+  },
+  {
+    "slug": "lang-sh",
+    "name": "lang/sh",
+    "description": "Filetype for Shell.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Shell\".\nMatches file extension .sh.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "sh",
+      "shell",
+      "Shell",
+      "bash",
+      "BASH",
+      "zsh"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-sh"
+  },
+  {
+    "slug": "lang-simon",
+    "name": "lang/simon",
+    "description": "Filetype for Simon.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Simon\".\nMatches the file extensions .si.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "simon",
+      "si"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-simon"
+  },
+  {
+    "slug": "lang-syntax-bpftrace",
+    "name": "lang/syntax/bpftrace",
+    "description": "Syntax highlighting for the bpftrace filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "bpf",
+      "ebpf",
+      "bpftrace"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/yed-lang-syntax-bpftrace"
+  },
+  {
+    "slug": "lang-syntax-c",
+    "name": "lang/syntax/c",
+    "description": "Syntax highlighting for the C filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "c",
+      "C"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-c"
+  },
+  {
+    "slug": "lang-syntax-conf",
+    "name": "lang/syntax/conf",
+    "description": "Syntax highlighting for the Conf filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "conf",
+      "Conf"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-conf"
+  },
+  {
+    "slug": "lang-syntax-cpp",
+    "name": "lang/syntax/cpp",
+    "description": "Syntax highlighting for the C++ filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "cpp",
+      "Cpp",
+      "c++",
+      "C++"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-cpp"
+  },
+  {
+    "slug": "lang-syntax-csharp",
+    "name": "lang/syntax/csharp",
+    "description": "Syntax highlighting for the C# filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "c",
+      "C",
+      "sharp",
+      "c#",
+      "C#"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-csharp"
+  },
+  {
+    "slug": "lang-syntax-go",
+    "name": "lang/syntax/csharp",
+    "description": "Syntax highlighting for the Go filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "go",
+      "golang",
+      "google"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-go"
+  },
+  {
+    "slug": "lang-syntax-diff_hl",
+    "name": "lang/syntax/diff_hl",
+    "description": "Syntax highlighting for the diff files.",
+    "category": "syntax",
+    "configuration": [
+      {
+        "title": "diff-hl-on \"     \" [ yes / no ]",
+        "body": ""
+      },
+      {
+        "title": "diff-hl-location the color to highlight the location line, defaults to \"fg !6\"",
+        "body": ""
+      },
+      {
+        "title": "diff-hl-add \"    \" the color to highlight the add line, defaults to \"fg !2\"",
+        "body": ""
+      },
+      {
+        "title": "diff-hl-remove \" \" the color to highlight the remove line, defaults to \"fg !1\"",
+        "body": ""
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "syntax",
+      "highlight",
+      "diff"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/diff_hl"
+  },
+  {
+    "slug": "lang-syntax-glsl",
+    "name": "lang/syntax/glsl",
+    "description": "Syntax highlighting for the GLSL filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "opengl",
+      "glsl",
+      "GLSL",
+      "shader"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-glsl"
+  },
+  {
+    "slug": "lang-syntax-javascript",
+    "name": "lang/syntax/javascript",
+    "description": "Syntax highlighting for the JavaScript filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.2",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "javascript",
+      "JavaScript"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/spatel38305/yed-lang-syntax-javascript"
+  },
+  {
+    "slug": "lang-syntax-jgraph",
+    "name": "lang/syntax/jgraph",
+    "description": "Syntax highlighting for the Jgraph filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "jgraph",
+      "Jgraph",
+      "graph",
+      "plot",
+      "chart"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-jgraph"
+  },
+  {
+    "slug": "lang-syntax-jule",
+    "name": "lang/syntax/jule",
+    "description": "Syntax highlighting for the Jule filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "jule",
+      "Jule",
+      "lisp",
+      "LISP",
+      "justified"
+    ],
+    "extraSections": {},
+    "repoUrl": ""
+  },
+  {
+    "slug": "lang-syntax-julie",
+    "name": "lang/syntax/julie",
+    "description": "Syntax highlighting for the Julie filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "julie",
+      "Julie",
+      "lisp",
+      "LISP",
+      "justified"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-julie"
+  },
+  {
+    "slug": "lang-syntax-latex",
+    "name": "lang/syntax/latex",
+    "description": "Syntax highlighting for the LaTeX filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "tex",
+      "Tex",
+      "latex",
+      "LaTeX"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-latex"
+  },
+  {
+    "slug": "lang-syntax-linker",
+    "name": "lang/syntax/linker",
+    "description": "Syntax highlighting for the Linker filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "ld",
+      "lds",
+      "linker",
+      "script"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-linker"
+  },
+  {
+    "slug": "lang-syntax-make",
+    "name": "lang/syntax/make",
+    "description": "Syntax highlighting for the Make filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "make",
+      "makefile",
+      "Makefile"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/yed-make"
+  },
+  {
+    "slug": "lang-syntax-man",
+    "name": "lang/syntax/man",
+    "description": "Syntax highlighting for the Man filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "man",
+      "manpage",
+      "troff",
+      "groff"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/yed-lang-syntax-man"
+  },
+  {
+    "slug": "lang-syntax-nickel",
+    "name": "lang/syntax/nickel",
+    "description": "Syntax highlighting for the Nickel filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "nickel",
+      "Nickel",
+      "lisp",
+      "LISP"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-nickel"
+  },
+  {
+    "slug": "lang-syntax-python",
+    "name": "lang/syntax/python",
+    "description": "Syntax highlighting for the Python filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "python",
+      "Python"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-python"
+  },
+  {
+    "slug": "lang-syntax-rust",
+    "name": "lang/syntax/rust",
+    "description": "Syntax highlighting for the Rust filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "rust",
+      "Rust",
+      "RUST"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/jacobmalloy/yed-lang-syntax-rust"
+  },
+  {
+    "slug": "lang-syntax-scheme",
+    "name": "lang/syntax/scheme",
+    "description": "Syntax highlighting for the Scheme filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "scheme",
+      "Scheme",
+      "lisp",
+      "LISP"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-scheme"
+  },
+  {
+    "slug": "lang-syntax-sh",
+    "name": "lang/syntax/sh",
+    "description": "Syntax highlighting for the Shell filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "sh",
+      "shell",
+      "Shell",
+      "bash",
+      "BASH",
+      "zsh"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-sh"
+  },
+  {
+    "slug": "lang-syntax-simon",
+    "name": "lang/syntax/simon",
+    "description": "Syntax highlighting for the Simon filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "simon",
+      "si"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-simon"
+  },
+  {
+    "slug": "lang-syntax-yedrc",
+    "name": "lang/syntax/yedrc",
+    "description": "Syntax highlighting for the yedrc filetype.",
+    "category": "syntax",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "syntax",
+      "highlight",
+      "yedrc"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-yedrc"
+  },
+  {
+    "slug": "lang-tools-latex",
+    "name": "lang/tools/latex",
+    "description": "Commands to compile and view the LaTeX file you're editing.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "latex-comp-prg <command>",
+        "body": "The compile command to run where a non-backslash-escaped % is replaced with the current buffer name."
+      },
+      {
+        "title": "latex-view-prg <command>",
+        "body": "The shell command used to launch a pdf viewer."
+      },
+      {
+        "title": "latex-update-view-prg <command>",
+        "body": "The command used to tell the viewer to update."
+      }
+    ],
+    "commands": [
+      {
+        "title": "latex-compile-current-file",
+        "body": "Run latex-comp-prg and then latex-update-view-prg for the current file."
+      },
+      {
+        "title": "latex-view-current-file",
+        "body": "Run latex-view-prg for the current file."
+      }
+    ],
+    "buffers": [],
+    "notes": "Requires the LaTeX filetype to be available (generally from lang/latex).",
+    "version": "0.0.1",
+    "keywords": [
+      "latex",
+      "LaTeX",
+      "tex",
+      "Tex",
+      "compile",
+      "view",
+      "pdf"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-tools-latex"
+  },
+  {
+    "slug": "lang-yedrc",
+    "name": "lang/yedrc",
+    "description": "Filetype for yedrc.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"yedrc\".\nMatches file extension .yedrc.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "yedrc"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lang-yedrc"
+  },
+  {
+    "slug": "line_numbers",
+    "name": "line_numbers",
+    "description": "Show line numbers in the left frame gutter.",
+    "category": "ui",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "Uses the \"code_comment\" style component to highlight numbers.",
+    "version": "0.0.1",
+    "keywords": [
+      "frame",
+      "gutter",
+      "line",
+      "number",
+      "numbers"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-line_numbers"
+  },
+  {
+    "slug": "loc_history",
+    "name": "loc_history",
+    "description": "saves cursor location between one use of YED and another.",
+    "category": "navigation",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The file that this plugin uses to store the cursor locations is ~/.yed/my_loc_hitstory.txt.",
+    "version": "0.0.1",
+    "keywords": [
+      "save",
+      "location",
+      "history",
+      "cursor"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/loc_history"
+  },
+  {
+    "slug": "log_hl",
+    "name": "log_hl",
+    "description": "Highlight the special buffer *log.",
+    "category": "ui",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "color",
+      "highlight",
+      "log"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-log_hl"
+  },
+  {
+    "slug": "lsp",
+    "name": "lsp",
+    "description": "Language Server Protocol client controller plugin.",
+    "category": "lsp",
+    "configuration": [
+      {
+        "title": "lsp-debug-log [ON/OFF]",
+        "body": "Whether or not to log debug messages. Defaults to \"OFF\"."
+      }
+    ],
+    "commands": [
+      {
+        "title": "lsp-define-server NAME CMD FT...",
+        "body": "Define a server configuration named NAME.\nThe server will be started by running CMD.\nFiles matching any of those in FT will be managed by this server connection.\nExample, using ccls for C and C++ buffers:\n\n```\n    lsp-define-server CCLS ccls C C++\n```"
+      }
+    ],
+    "buffers": [],
+    "notes": "### For users:\n\nThis plugin (or an alternative LSP controller plugin) is required for LSP-based feature plugins to function.\nThis plugin does not provide features such as completion, jump to definition, etc.\n### For LSP feature plugin authors:\n\nThis plugin makes use of EVENT_PLUGIN_MESSAGE to communicate on behalf of LSP feature plugins to and from the language server.\nWhen the server sends a notification, they will be broadcast with event->plugin_message.plugin_id of \"lsp\" and\na event->plugin_message.message_id corresponding to the LSP method received from the server.\n\nIf your feature plugin would like to make a request to the server and get the response back, you may send an EVENT_PLUGIN_MESSAGE\nwith a event->plugin_message.message_id of \"lsp-request:METHOD\" where METHOD is the server method defined by LSP.\nThis plugin will respond in another EVENT_PLUGIN_MESSAGE with event->plugin_message.plugin_id of \"lsp\" and the corresponding\nmethod in event->plugin_message.message_id. Example flow:\n\n```\n    your plugin     -> EVENT_PLUGIN_MESSAGE{ plugin_id: \"lsp_info_popup\", message_id: \"lsp-request:textDocument/hover\" } -> this plugin\n    this plugin     -> JSON request                                                                                      -> language server\n    language server -> JSON response                                                                                     -> this plugin\n    this plugin     -> EVENT_PLUGIN_MESSAGE{ plugin_id: \"lsp\", message_id: \"textDocument/hover\" }                        -> broadcast\n```\n\nThe response from the server will be in found as a JSON string in event->plugin_message.string_data.\nIn most cases, you should cancel the event with the response corresponding to the request you made.\nOtherwise, another plugin may recieve that event and duplicate behavior (this may be desired).",
+    "version": "0.0.1",
+    "keywords": [
+      "lsp",
+      "LSP",
+      "language",
+      "server",
+      "protocol",
+      "client",
+      "controller",
+      "vscode"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lsp"
+  },
+  {
+    "slug": "lsp_diagnostics",
+    "name": "lsp_diagnostics",
+    "description": "Error reporting/linting via language servers.",
+    "category": "lsp",
+    "configuration": [
+      {
+        "title": "lsp-diagnostics-show-message [ never, cursor, or always ]",
+        "body": "When to show diagnostic messages next the the offending line(s).\n\n\"never\": Never show the diagnostics in the frame.\n\n\"cursor\": Show messages when the cursor is within the offending region.\n\n\"always\": Always show messages.\n\nDefaults to \"always\"."
+      }
+    ],
+    "commands": [],
+    "buffers": [
+      {
+        "title": "*lsp-diagnostics",
+        "body": "A jumpable list of locations with a corresponding diagnostic."
+      }
+    ],
+    "notes": "Requires an LSP controller plugin.",
+    "version": "0.0.1",
+    "keywords": [
+      "lsp",
+      "LSP",
+      "language",
+      "server",
+      "protocol",
+      "lint",
+      "error",
+      "analyzer",
+      "check",
+      "problems"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lsp_diagnostics"
+  },
+  {
+    "slug": "lsp_info_popup",
+    "name": "lsp_info_popup",
+    "description": "LSP-provided information about a source location in a popup.",
+    "category": "lsp",
+    "configuration": [
+      {
+        "title": "lsp-info-popup-idle-threshold-ms MILLISECONDS",
+        "body": "Automatically popup information after the cursor has been idle for MILLISECONDS.\n\n< 0: Never automatically show the popup.\n\n0: Always show the popup.\n\n> 0: Show the popup after the cursor has been idle for this amount of time.\n\nDefaults to 1500 (1.5 seconds)."
+      }
+    ],
+    "commands": [
+      {
+        "title": "lsp-info",
+        "body": "Summon the popup for the current location (cursor)."
+      }
+    ],
+    "buffers": [],
+    "notes": "Requires an LSP controller plugin.",
+    "version": "0.0.1",
+    "keywords": [
+      "lsp",
+      "LSP",
+      "language",
+      "server",
+      "protocol",
+      "info",
+      "popup",
+      "hover",
+      "help"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-lsp_info_popup"
+  },
+  {
+    "slug": "lsp_symbol_buffer",
+    "name": "lsp-symbol-buffer",
+    "description": "interactive buffer for viewing declaration, definition, and references of a symbol",
+    "category": "lsp",
+    "configuration": [
+      {
+        "title": "lsp-symbol-menu-function-color [ &magenta ]",
+        "body": "The color for functions in the menu."
+      },
+      {
+        "title": "lsp-symbol-menu-symbol-color [ &red swap ]",
+        "body": "The color for symbols in the menu."
+      },
+      {
+        "title": "lsp-symbol-menu-declaration-color [ &gray swap ]",
+        "body": "The color for declarations in the menu."
+      },
+      {
+        "title": "lsp-symbol-menu-definition-color [ &gray swap ]",
+        "body": "The color for definitions in the menu."
+      },
+      {
+        "title": "lsp-symbol-menu-reference-color [ &gray swap ]",
+        "body": "The color for references in the menu."
+      }
+    ],
+    "commands": [
+      {
+        "title": "lsp-search-symbol",
+        "body": "Place the cursor over a symbol and run this command.\nQueries the LSP server for the declaration, definition, and all references of the symbol under the cursor.\nResults are displayed in the *symbol-menu buffer.\nHitting ENTER on a result line jumps to that location."
+      },
+      {
+        "title": "lsp-search-txt <name>",
+        "body": "Search for a symbol by name rather than by cursor position.\nSends a workspace/symbol query to the LSP server, populates the definition directly from the result, then queries for declaration and references.\nResults are displayed in the *symbol-menu buffer.\nTab completion is available and draws from LSP symbol names and words in the current buffer."
+      },
+      {
+        "title": "lsp-find-symbol",
+        "body": "Opens an interactive search interface in the *lsp-find-symbol buffer.\nType characters to filter the list of known symbols and buffer words.\nOnly symbols whose names begin with the typed prefix are shown, sorted alphabetically.\nHitting ENTER sends the typed text to lsp-search-txt.\nHitting ESC or Ctrl-C cancels and closes the buffer."
+      },
+      {
+        "title": "lsp-goto-declaration",
+        "body": "Navigate directly to the declaration of the symbol under the cursor."
+      },
+      {
+        "title": "lsp-goto-definition",
+        "body": "Navigate directly to the definition of the symbol under the cursor."
+      },
+      {
+        "title": "lsp-find-references",
+        "body": "Find all references of the symbol under the cursor and populate *symbol-menu."
+      },
+      {
+        "title": "lsp-goto-next-reference",
+        "body": "After running lsp-find-references, jump to the next reference in the cycle."
+      },
+      {
+        "title": "lsp-goto-prev-reference",
+        "body": "After running lsp-find-references, jump to the previous reference in the cycle."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*symbol-menu",
+        "body": "Displays the declaration, definition, and references for the most recently searched symbol.\nLayout: rows 6-7 = Declaration, rows 9-10 = Definition, rows 12+ = References.\nHitting ENTER on a result line jumps to that location."
+      },
+      {
+        "title": "*lsp-find-symbol",
+        "body": "Interactive search buffer used by lsp-find-symbol.\nShows up to 50 matching symbol names as you type, sorted alphabetically."
+      }
+    ],
+    "notes": "This plugin requires the yed-lsp plugin to be loaded and an LSP server to be configured for the current file type.\nUse lsp-define-server to configure an LSP server.\n\nFor C and C++ files, clangd with --background-index is recommended.\nA compile_commands.json file in the project root is required for clangd to index the project.\nUse bear -- make (or cmake with -DCMAKE_EXPORT_COMPILE_COMMANDS=1) to generate it.\n\nlsp-search-txt and lsp-find-symbol query workspace/symbol to locate symbols by name.\nThe definition is populated directly from the workspace/symbol result.\nDeclaration and references are queried separately and may be empty if the LSP server has not fully indexed the project.",
+    "version": "0.0.2",
+    "keywords": [
+      "lsp",
+      "menu",
+      "definition",
+      "declaration",
+      "references",
+      "symbol",
+      "search"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/lsp_symbol_buffer"
+  },
+  {
+    "slug": "macro",
+    "name": "macro",
+    "description": "Record keystrokes and play them back.",
+    "category": "editing",
+    "configuration": [
+      {
+        "title": "macro-stop-key [key-string]",
+        "body": "The key designated to mean \"stop recording the macro\".\nDefault value is ctrl-e."
+      },
+      {
+        "title": "macro-instant-playback [ yes / no ]",
+        "body": "When this variable is set to \"yes\", keystrokes will be replayed instantly -- i.e. you won't see them happen.\nDefault value is \"no\".\nOtherwise keystrokes will be replayed once per editor pump."
+      }
+    ],
+    "commands": [
+      {
+        "title": "macro-record",
+        "body": "Start recording a macro."
+      },
+      {
+        "title": "macro-play [ N ]",
+        "body": "If N is provided, play the macro N times.\nOtherwise play the macro once for each line selected (once if no selection)."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "key",
+      "record",
+      "macro",
+      "play",
+      "playback",
+      "repeat"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-macro"
+  },
+  {
+    "slug": "make-tab",
+    "name": "make-tab",
+    "description": "Insert real tabs into makefiles.",
+    "category": "editing",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "make",
+      "tab",
+      "build",
+      "makefile"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/spatel38305/make-tab"
+  },
+  {
+    "slug": "man",
+    "name": "man",
+    "description": "Open and view man pages in the special buffer *man-page.",
+    "category": "tools",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "man <arguments>",
+        "body": "Run \"man <arguments>\" as a subprocess and collect the output in the special buffer *man-page."
+      },
+      {
+        "title": "man-word",
+        "body": "Equivalent to running \"man word-under-cursor\"."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*man-page",
+        "body": ""
+      }
+    ],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "man",
+      "manual",
+      "page",
+      "cursor",
+      "help"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-man"
+  },
+  {
+    "slug": "mouse",
+    "name": "mouse",
+    "description": "Gives basic mouse support to yed",
+    "category": "ui",
+    "configuration": [
+      {
+        "title": "mouse-cursor-scroll",
+        "body": "Sets whether or not the scrolling affects the cursor or not."
+      },
+      {
+        "title": "mouse-scroll-num-lines",
+        "body": "Sets the number of lines each movent of the scroll wheel moves the cursor."
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "This plugin adds left click support to include selecting a location in a buffer as well as activating a frame. It also allows the user to scrol the buffer. If you double click it will hit enter on the cursor location.",
+    "version": "0.0.1",
+    "keywords": [
+      "mouse",
+      "click",
+      "select",
+      "left",
+      "support"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/mouse"
+  },
+  {
+    "slug": "mouse_frame_control",
+    "name": "mouse_frame_control",
+    "description": "allows the user to move and resize frames with the middle mouse button",
+    "category": "ui",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "Clicking in the lower right corner with the middle button allows the user to drag to resize the frame. Clicking anywhere elese on the frame allows the user to move it.",
+    "version": "0.0.1",
+    "keywords": [
+      "middle",
+      "mouse",
+      "click",
+      "select",
+      "middle",
+      "control",
+      "move",
+      "frame"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/mouse_frame_control"
+  },
+  {
+    "slug": "mouse_menu",
+    "name": "mouse-menu",
+    "description": "Gives a configurable menu on right click",
+    "category": "ui",
+    "configuration": [
+      {
+        "title": "mouse-menu-on-word",
+        "body": "This configuration sets the menu when right clicking on a word and takes a string of space separated tuples where the first thing is the name of the line in the menu and the second thing is the command it will run such as \"Paste paste-yank-buffer\""
+      },
+      {
+        "title": "mouse-menu-on-selection",
+        "body": "This configuration sets the menu when right clicking and a selection is active and takes a string of space separated tuples where the first thing is the name of the line in the menu and the second thing is the command it will run such as \"Copy yank-selection\""
+      },
+      {
+        "title": "mouse-menu-on-nothing",
+        "body": "This configuration sets the menu when right clicking on the background and takes a string of space separated tuples where the first thing is the name of the line in the menu and the second thing is the command it will run such as \"'Frame New' frame-new\""
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "mouse",
+      "click",
+      "select",
+      "right",
+      "support",
+      "menu"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/mouse_menu"
+  },
+  {
+    "slug": "lang-nix",
+    "name": "nix",
+    "description": "Filetype for Nix.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Nix\".\nMatches file extension .nix.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "nix"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/uniquepointer/yed-lang-nix"
+  },
+  {
+    "slug": "paren_hl",
+    "name": "paren_hl",
+    "description": "Highlight matching parentheses.",
+    "category": "ui",
+    "configuration": [
+      {
+        "title": "paren-hl-max-line-length",
+        "body": "When scanning for matching parens, if a line exceeds paren-hl-max-line-length, stop scanning."
+      }
+    ],
+    "commands": [],
+    "buffers": [],
+    "notes": "Uses the \"associate\" style component.",
+    "version": "0.0.1",
+    "keywords": [
+      "highlight",
+      "parentheses",
+      "match"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-paren_hl"
+  },
+  {
+    "slug": "pastebin",
+    "name": "pastebin",
+    "description": "Simple plugin for uploading your selection to a pastebin service.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "pastebin-fav - Specify which service to use, the current options are listed next.",
+        "body": "\\h'-04'\\(bu\\h'+03'\\c\n\\(bu 4. \nixio - Uses ix.io\n\\h'-04'\\(bu\\h'+03'\\c\n\\(bu 4. \npaste-rs - Uses https://paste.rs\n\\h'-04'\\(bu\\h'+03'\\c\n\\(bu 4. \ndpaste - Uses https://dpaste.org/\n\\h'-04'\\(bu\\h'+03'\\c\n\\(bu 4. \nmozilla - Uses https://paste.mozilla.org/\n\npastebin-url - Variable that shows the last url returned by pastebin."
+      }
+    ],
+    "commands": [
+      {
+        "title": "pastebin",
+        "body": "Uploads selection to pastebin."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "None.",
+        "body": ""
+      }
+    ],
+    "notes": "Defaults to paste.rs",
+    "version": "1012.83",
+    "keywords": [
+      "pastebin",
+      "paste",
+      "text"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/uniquepointer/yed-pastebin"
+  },
+  {
+    "slug": "profile",
+    "name": "profile",
+    "description": "Generate a profile report of the time spent in yed commands.",
+    "category": "tools",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "profile-start",
+        "body": "Begin profiling yed commands."
+      },
+      {
+        "title": "profile-end",
+        "body": "Stop profiling yed commands."
+      },
+      {
+        "title": "profile-report",
+        "body": "Focus the *profile buffer."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*profile",
+        "body": ""
+      }
+    ],
+    "notes": "The time reported for each command does only does not include the time spent in commands called within the first command unless they are the same command.\nThis plugin is useful for finding out which parts of your yed configuration are taking up time in, for example, startup.",
+    "version": "0.0.1",
+    "keywords": [
+      "profile",
+      "start",
+      "startup",
+      "time",
+      "slow"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-profile"
+  },
+  {
+    "slug": "save_layout",
+    "name": "save_layout",
+    "description": "Saves the layout of the current frame / buffer configuration to a file.",
+    "category": "ui",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "save-current-yed-layout saves the current frame / buffer configuration to the file my_yed_layout.yedrc in ~/.config/yed.",
+        "body": ""
+      },
+      {
+        "title": "save-current-yed-layout-local saves the current frame / buffer configuration to the file my_yed_layout.yedrc in the local directory.",
+        "body": ""
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "save_layout",
+      "frame",
+      "special",
+      "buffers",
+      "layout"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/save_layout"
+  },
+  {
+    "slug": "scroll_buffer",
+    "name": "scroll_buffer",
+    "description": "Move the buffer up/down lines while keeping the cursor in place.",
+    "category": "editing",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "scroll-buffer <int>",
+        "body": "Scroll the buffer some number of lines. If the argument is negative, the buffer is scrolled up. Positive down."
+      }
+    ],
+    "buffers": [],
+    "notes": "The cursor must always be in frame, so if the desired scroll would take the cursor out of view in the frame, the cursor is moved as well.",
+    "version": "0.0.1",
+    "keywords": [
+      "scroll",
+      "cursor",
+      "view",
+      "frame",
+      "buffer",
+      "cursor"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-scroll_buffer"
+  },
+  {
+    "slug": "shell_run",
+    "name": "shell_run",
+    "description": "Run a shell command in the background and collect its output in the special buffer *shell-output.",
+    "category": "tools",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "shell-run <command>",
+        "body": "Run <command> in the background and focus *shell-output."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*shell-output",
+        "body": ""
+      }
+    ],
+    "notes": "Interactive commands should not be run with this command because the command will not receive any input.\nAdditionally, terminal escape codes in the command's output will not be interpreted as such.",
+    "version": "0.0.1",
+    "keywords": [
+      "shell",
+      "run",
+      "command",
+      "bash",
+      "program",
+      "background"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-shell_run"
+  },
+  {
+    "slug": "style_pack",
+    "name": "style_pack",
+    "description": "A collection of most available styles in a single plugin.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "styles",
+      "color",
+      "colors",
+      "pack"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style_pack"
+  },
+  {
+    "slug": "style_picker",
+    "name": "style_picker",
+    "description": "An interactive buffer *style-picker-list that allows you to test styles that you have loaded.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "style-picker",
+        "body": "Focuses *style-picker-list.\nPressing ENTER on a style will activate the style.\nLeaving the frame will revert back to the style activated before style-picker was run."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "picker",
+      "menu",
+      "color",
+      "colors",
+      "theme",
+      "preview"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style_picker"
+  },
+  {
+    "slug": "style_use_term_bg",
+    "name": "style_use_term_bg",
+    "description": "Load/change styles to use the background color specified in your terminal. Useful for semi-transparent terminal backgrounds.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "style-use-term-bg",
+        "body": "Change the current style to use the terminal background color."
+      },
+      {
+        "title": "style-term-bg <style>",
+        "body": "Activate <style>, but change it to use the terminal background color."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "terminal",
+      "color",
+      "background",
+      "transparent",
+      "alpha",
+      "opacity"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style_use_term_bg"
+  },
+  {
+    "slug": "styles-acme",
+    "name": "styles/acme",
+    "description": "A truecolor style called acme.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-acme"
+  },
+  {
+    "slug": "styles-alchemist",
+    "name": "styles/alchemist",
+    "description": "A truecolor style called alchemist.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-alchemist"
+  },
+  {
+    "slug": "styles-blue",
+    "name": "styles/blue",
+    "description": "A 16-color style called blue.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-blue"
+  },
+  {
+    "slug": "styles-bold",
+    "name": "styles/bold",
+    "description": "Two 256-color styles called bold-dark and bold-light.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-bold"
+  },
+  {
+    "slug": "styles-book",
+    "name": "styles/book",
+    "description": "A 16-color style called book.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-book"
+  },
+  {
+    "slug": "styles-bullet",
+    "name": "styles/bullet",
+    "description": "A truecolor style called bullet.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-bullet"
+  },
+  {
+    "slug": "styles-cadet",
+    "name": "styles/cadet",
+    "description": "A truecolor style called cadet.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-cadet"
+  },
+  {
+    "slug": "styles-casey",
+    "name": "styles/casey",
+    "description": "A truecolor style called casey.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-casey"
+  },
+  {
+    "slug": "styles-crunchy_leaves",
+    "name": "styles/crunchy_leaves",
+    "description": "A true-color style called crunchy_leaves.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/imml3457/crunchy_leaves"
+  },
+  {
+    "slug": "styles-dalton",
+    "name": "styles/dalton",
+    "description": "A truecolor style called dalton.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-dalton"
+  },
+  {
+    "slug": "styles-disco",
+    "name": "styles/disco",
+    "description": "A truecolor style called disco.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-disco"
+  },
+  {
+    "slug": "styles-doug",
+    "name": "styles/doug",
+    "description": "A truecolor style called doug.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-doug"
+  },
+  {
+    "slug": "styles-dracula",
+    "name": "styles/dracula",
+    "description": "A truecolor style called dracula.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-dracula"
+  },
+  {
+    "slug": "styles-drift",
+    "name": "styles/drift",
+    "description": "A truecolor style called drift.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-drift"
+  },
+  {
+    "slug": "styles-elise",
+    "name": "styles/elise",
+    "description": "A truecolor style called elise.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-elise"
+  },
+  {
+    "slug": "styles-elly",
+    "name": "styles/elly",
+    "description": "A truecolor style called elly.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-elly"
+  },
+  {
+    "slug": "styles-embark",
+    "name": "styles/embark",
+    "description": "A truecolor style called embark.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-embark"
+  },
+  {
+    "slug": "styles-first",
+    "name": "styles/first",
+    "description": "Two truecolor styles called first-dark and first-light. The first styles made for yed!",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-first"
+  },
+  {
+    "slug": "styles-forest",
+    "name": "styles/forest",
+    "description": "A truecolor style called forest.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-forest"
+  },
+  {
+    "slug": "styles-gruvbox",
+    "name": "styles/gruvbox",
+    "description": "A truecolor style called gruvbox.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-gruvbox"
+  },
+  {
+    "slug": "styles-hat",
+    "name": "styles/hat",
+    "description": "A truecolor style called hat.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-hat"
+  },
+  {
+    "slug": "styles-heather",
+    "name": "styles/heather",
+    "description": "A true-color style called heather.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/imml3457/heather"
+  },
+  {
+    "slug": "styles-humanoid",
+    "name": "styles/humanoid",
+    "description": "Two truecolor styles called humanoid-dark and humanoid-light.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-humanoid"
+  },
+  {
+    "slug": "styles-lab",
+    "name": "styles/lab",
+    "description": "A 16-color style called lab.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-lab"
+  },
+  {
+    "slug": "styles-midnight",
+    "name": "styles/midnight",
+    "description": "A soft on the eyes dark theme, inspired by VN-Night.nvim",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/uniquepointer/yed-style-midnight"
+  },
+  {
+    "slug": "styles-monokai",
+    "name": "styles/monokai",
+    "description": "A 256-color style called monokai.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-monokai"
+  },
+  {
+    "slug": "styles-mordechai",
+    "name": "styles/mordechai",
+    "description": "A truecolor style called mordechai.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-mordechai"
+  },
+  {
+    "slug": "styles-moss",
+    "name": "styles/moss",
+    "description": "A truecolor style called moss.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-moss"
+  },
+  {
+    "slug": "styles-mrjantz",
+    "name": "styles/mrjantz",
+    "description": "A 256-color style called mrjantz.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-mrjantz"
+  },
+  {
+    "slug": "styles-nord",
+    "name": "styles/nord",
+    "description": "A truecolor style called nord.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-nord"
+  },
+  {
+    "slug": "styles-olive",
+    "name": "styles/olive",
+    "description": "A truecolor style called olive.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-olive"
+  },
+  {
+    "slug": "styles-papercolor",
+    "name": "styles/papercolor",
+    "description": "A truecolor style called papercolor.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-papercolor"
+  },
+  {
+    "slug": "styles-pastel",
+    "name": "styles/pastel",
+    "description": "A true-color style called pastel.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/imml3457/pastel"
+  },
+  {
+    "slug": "styles-river",
+    "name": "styles/river",
+    "description": "A truecolor style called river.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-river"
+  },
+  {
+    "slug": "styles-sammy",
+    "name": "styles/sammy",
+    "description": "A truecolor style called sammy.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-sammy"
+  },
+  {
+    "slug": "styles-skyfall",
+    "name": "styles/skyfall",
+    "description": "A 256-color style called skyfall.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-skyfall"
+  },
+  {
+    "slug": "styles-solarized",
+    "name": "styles/solarized",
+    "description": "Two truecolor styles called solarized-dark and solarized-light.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-solarized"
+  },
+  {
+    "slug": "styles-tempus_future",
+    "name": "styles/tempus_future",
+    "description": "A truecolor style called tempus-future.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-tempus_future"
+  },
+  {
+    "slug": "styles-vt",
+    "name": "styles/vt",
+    "description": "A 16-color style called vt.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-vt"
+  },
+  {
+    "slug": "styles-vt_light",
+    "name": "styles/vt_light",
+    "description": "A 16-color style called vt-light.",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-style-vt_light"
+  },
+  {
+    "slug": "styles-zulu",
+    "name": "styles/zulu",
+    "description": "A truecolor style called zulu!",
+    "category": "style",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "style",
+      "color",
+      "theme"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/mickidymick/yed-style-zulu"
+  },
+  {
+    "slug": "sysclip",
+    "name": "sysclip",
+    "description": "Copy yed yank buffer contents to the system clipboard.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "Variables",
+        "body": "\\h'-04'\\(bu\\h'+03'\\c\n\\(bu 4. \nsys-clip - Specify your system clipboard."
+      }
+    ],
+    "commands": [
+      {
+        "title": "y2s - Stands for yank2system, yanks to your specified system clipboard defaults to xsel.",
+        "body": ""
+      }
+    ],
+    "buffers": [
+      {
+        "title": "None.",
+        "body": ""
+      }
+    ],
+    "notes": "Clipboards that fork will hang, like wl-clipboard, so do not use them, or at least turn off the forking if possible.",
+    "version": "1000.00",
+    "keywords": [
+      "clipboard",
+      "yank",
+      "copy",
+      "system",
+      "kill-ring",
+      "kill",
+      "ring"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/uniquepointer/yed-sysclip"
+  },
+  {
+    "slug": "terminal",
+    "name": "terminal",
+    "description": "A terminal emulator in a yed buffer.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "terminal-shell",
+        "body": "The child process to start. Defaults to the value of $SHELL."
+      },
+      {
+        "title": "terminal-termvar",
+        "body": "This determines what the value of $TERM is to child process.\nThe default value is xterm-256color.\nIt is not advised to change this unless you know what you're doing."
+      },
+      {
+        "title": "terminal-scrollback",
+        "body": "The number of lines to hold as available scrollback in the terminal buffer.\nThe default value is 10000."
+      },
+      {
+        "title": "terminal-max-block-size",
+        "body": "The maximum number of bytes that can be read from the child process before forcing an update\nto the buffer.\nThe default value is 16384."
+      },
+      {
+        "title": "terminal-read-chunk-size",
+        "body": "The size of the buffer used to read the child process's output.\nThe default value is 1024."
+      },
+      {
+        "title": "terminal-auto-term-mode",
+        "body": "If this variable is truthy, term mode will be automatically turned back on when activating a frame with a terminal buffer in it.\nDefaults to ON."
+      },
+      {
+        "title": "terminal-show-welcome",
+        "body": "If this variable is truthy, the YED TERMINAL message will be printed when a new terminal starts.\nDefaults to yes."
+      },
+      {
+        "title": "terminal-debug-log",
+        "body": "If this variable is truthy, debug log messages will be printed about terminal state and control sequences.\nDefaults to OFF."
+      },
+      {
+        "title": "terminal-color0",
+        "body": "Attribute string to use for color0. Defaults to &black."
+      },
+      {
+        "title": "terminal-color1",
+        "body": "Attribute string to use for color1. Defaults to &red."
+      },
+      {
+        "title": "terminal-color2",
+        "body": "Attribute string to use for color2. Defaults to &green."
+      },
+      {
+        "title": "terminal-color3",
+        "body": "Attribute string to use for color3. Defaults to &yellow."
+      },
+      {
+        "title": "terminal-color4",
+        "body": "Attribute string to use for color4. Defaults to &blue."
+      },
+      {
+        "title": "terminal-color5",
+        "body": "Attribute string to use for color5. Defaults to &magenta."
+      },
+      {
+        "title": "terminal-color6",
+        "body": "Attribute string to use for color6. Defaults to &cyan."
+      },
+      {
+        "title": "terminal-color7",
+        "body": "Attribute string to use for color7. Defaults to &gray."
+      },
+      {
+        "title": "terminal-color8",
+        "body": "Attribute string to use for color8. Defaults to &gray."
+      },
+      {
+        "title": "terminal-color9",
+        "body": "Attribute string to use for color9. Defaults to &red."
+      },
+      {
+        "title": "terminal-color10",
+        "body": "Attribute string to use for color10. Defaults to &green."
+      },
+      {
+        "title": "terminal-color11",
+        "body": "Attribute string to use for color11. Defaults to &yellow."
+      },
+      {
+        "title": "terminal-color12",
+        "body": "Attribute string to use for color12. Defaults to &blue."
+      },
+      {
+        "title": "terminal-color13",
+        "body": "Attribute string to use for color13. Defaults to &magenta."
+      },
+      {
+        "title": "terminal-color14",
+        "body": "Attribute string to use for color14. Defaults to &cyan."
+      },
+      {
+        "title": "terminal-color15",
+        "body": "Attribute string to use for color15. Defaults to &white."
+      },
+      {
+        "title": "terminal-color-default",
+        "body": "Attribute string to use for deafult text. Defaults to &active."
+      },
+      {
+        "title": "terminal-color-default-inactive",
+        "body": "Attribute string to use for deafult text when the terminal is not in the active frame. Defaults to &inactive."
+      }
+    ],
+    "commands": [
+      {
+        "title": "term-new",
+        "body": "Open a new terminal buffer. New terminal buffers are named *term#, where # is a positive integer starting at 0."
+      },
+      {
+        "title": "term-open [#]",
+        "body": "Opens a terminal buffer and displays in a frame acquired by calling special-buffer-prepare-focus.\nIf # is provided, use *term# (creating it if it doesn't exist).\nOtherwise, a new terminal is created."
+      },
+      {
+        "title": "term-open-no-frame [#]",
+        "body": "This command behaves the same as term-open, but does not call special-buffer-prepare-focus and instead uses the currently active frame."
+      },
+      {
+        "title": "toggle-term-mode",
+        "body": "Turn term mode ON/OFF for the current terminal buffer. See NOTES for information about term mode."
+      },
+      {
+        "title": "term-mode-off BUFFER",
+        "body": "Turn term mode OFF for the terminal buffer BUFFER."
+      },
+      {
+        "title": "term-mode-on BUFFER",
+        "body": "Turn term mode ON for the terminal buffer BUFFER."
+      },
+      {
+        "title": "term-feed-keys BUFFER KEYS...",
+        "body": "Send each key in KEYS to the terminal buffer BUFFER.\n\nExample: term-feed-keys *term0 l s enter"
+      },
+      {
+        "title": "term-feed-text BUFFER TEXT",
+        "body": "Send each character in TEXT to the terminal buffer BUFFER.\n\nExample: term-feed-text *term0 \"ls\\\\n\""
+      },
+      {
+        "title": "term-bind KEY CMD ARGS...",
+        "body": "Bind KEY to execute CMD ARGS... when in a terminal and in term mode."
+      },
+      {
+        "title": "term-unbind KEY",
+        "body": "Remove terminal key binding for KEY."
+      }
+    ],
+    "buffers": [],
+    "notes": "Notable Features:\ntab(@);\n| c | c |\n| l | l |.\n_\nSUPPORTED@UNSUPPORTED\n_\nTruecolor@SGR Mouse Reporting\nBracketed Paste Mode@Italic text\nOSC 52 pass-through@Sixel Graphics\n_\n\nA terminal buffer in \"term mode\" behaves less like a yed buffer and more like a terminal.\nKeys presses go through the terminal's input handling and mostly bypass other yed/plugin functionality.\nIf term mode is turned off via toggle-term-mode, the buffer behaves like a normal yed buffer that can\nbe scrolled, yanked from, searched, and all the other nice things that you can do with yed buffers.\nNote, however, that the terminal buffers are read-only (only the terminal plugin modifies the buffers),\nbecause manipulating the contents otherwise would desynchronize the state of the terminal with the\nprograms running in it.\n\nBy default, ctrl-t is bound in the terminal to toggle-term-mode.\n\nKey bindings are inserted into a new keymap called \"terminal\".",
+    "version": "0.0.1",
+    "keywords": [
+      "terminal",
+      "shell",
+      "term",
+      "command"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-terminal"
+  },
+  {
+    "slug": "tree_view",
+    "name": "tree_view",
+    "description": "A buffer that shows a tree view of all files.",
+    "category": "navigation",
+    "configuration": [
+      {
+        "title": "tree-view-update-period",
+        "body": "Number of seconds between automatic filesystem refresh. Default is 5."
+      },
+      {
+        "title": "tree-view-hidden-items",
+        "body": "Space-separated list of substrings. Any file or directory whose name contains\none of these substrings will be hidden from the tree view."
+      },
+      {
+        "title": "tree-view-image-extensions",
+        "body": "Space-separated list of additional file extensions to treat as image files,\nsupplementing the built-in list. Example: \".raw .nef\""
+      },
+      {
+        "title": "tree-view-archive-extensions",
+        "body": "Space-separated list of additional file extensions to treat as archive files,\nsupplementing the built-in list. Example: \".squashfs .zst\""
+      },
+      {
+        "title": "tree-view-child-char-l",
+        "body": "Character used for the corner connector in the tree, default is \"└\" (└)."
+      },
+      {
+        "title": "tree-view-child-char-i",
+        "body": "Character used for the vertical line in the tree, default is \"│\" (│)."
+      },
+      {
+        "title": "tree-view-child-char-t",
+        "body": "Character used for the branch connector in the tree, default is \"├\" (├)."
+      },
+      {
+        "title": "tree-view-directory-color",
+        "body": "Attribute string for coloring directories. Default is \"&blue\"."
+      },
+      {
+        "title": "tree-view-exec-color",
+        "body": "Attribute string for coloring executable files. Default is \"&green\"."
+      },
+      {
+        "title": "tree-view-symbolic-link-color",
+        "body": "Attribute string for coloring symbolic links. Default is \"&cyan\"."
+      },
+      {
+        "title": "tree-view-device-color",
+        "body": "Attribute string for coloring device files. Default is \"&black swap &yellow.fg\"."
+      },
+      {
+        "title": "tree-view-graphic-image-color",
+        "body": "Attribute string for coloring image files. Default is \"&magenta\"."
+      },
+      {
+        "title": "tree-view-archive-color",
+        "body": "Attribute string for coloring archive files. Default is \"&red\"."
+      },
+      {
+        "title": "tree-view-broken-link-color",
+        "body": "Attribute string for coloring broken symbolic links. Default is \"&black swap &red.fg\"."
+      }
+    ],
+    "commands": [
+      {
+        "title": "tree-view",
+        "body": "Opens the\n**tree-view-list*\nbuffer. If the tree has not been built yet it will be initialized first.\nPress\n**Enter**\non a directory to expand or collapse it. Press\n**Enter**\non a file to open it in the editor."
+      }
+    ],
+    "buffers": [
+      {
+        "title": "*tree-view-list",
+        "body": "The interactive file tree. Read-only; modified internally by the plugin."
+      },
+      {
+        "title": "*tree-view-preview*",
+        "body": "Ephemeral preview buffer. Populated on demand when hovering over a file and\ncleared when the cursor leaves the file. Should not be written to directly."
+      }
+    ],
+    "notes": "Extension matching is case-insensitive and anchored to the end of the filename.",
+    "version": "0.0.2",
+    "keywords": [
+      "tree_view",
+      "special",
+      "buffers",
+      "preview"
+    ],
+    "extraSections": {
+      "PREVIEW": "When the cursor is on a file in\n**tree-view-list,*\na preview of that file is shown in a split pane to the right. Only as many\nlines as fit in the preview frame are read from the file; large files are\nnever fully loaded. The preview buffer is read-only and is not tracked as a\nnormal file.\n\nMoving the cursor to a directory or any non-regular entry closes the preview\npane automatically.",
+      "FILE TYPE DETECTION": "Files are classified in the following priority order:\n1.. \nDirectory\n2.. \nSymbolic link (valid or broken)\n3.. \nDevice file (block or character)\n4.. \nExecutable (owner execute bit set)\n5.. \nArchive (by extension)\n6.. \nImage (by extension)\n7.. \nRegular file"
+    },
+    "repoUrl": "https://github.com/mickidymick/tree_view"
+  },
+  {
+    "slug": "universal_clipboard",
+    "name": "universal_clipboard",
+    "description": "A plugin that can copy a selection to the systems clipboard using OSC 52.",
+    "category": "tools",
+    "configuration": [
+      {
+        "title": "universal-copy-on-yank [yes/no]",
+        "body": "When truthy the selection will copy to the system keyboard on any yank-selection command."
+      },
+      {
+        "title": "universal-clipboard-trim-nl [yes/no]",
+        "body": "When truthy a trailing new line will be removed from the text that is copied to the systems clipboard."
+      }
+    ],
+    "commands": [
+      {
+        "title": "copy-to-universal-clipboard",
+        "body": "Copies the selection the system clipboard."
+      }
+    ],
+    "buffers": [],
+    "notes": "In order for this plugin to work your terminal emulator must support the osc 52 escape sequence. To test this paste the following line into a shell, if hello world is now in your clipboard, then your terminal is supported.\n\nprintf \"\\\\033]52;c;$(printf \"%s\" \"hello world\" | base64)\\\\a\"\n\nMultiplexers such as screen and tmux can hinder operation. Tmux does work if you put the following two commands into your ~/.tmux.conf .\n\nset -g set-clipboard on\n\nset-option -ag terminal-overrides \",*:Ms=\\\\\\\\E]52;c;%p2%s\\\\\\\\7\"",
+    "version": "0.0.1",
+    "keywords": [
+      "clipboard",
+      "system",
+      "osc52",
+      "yank"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/jacobmalloy/yed-universal_clipboard"
+  },
+  {
+    "slug": "vimish",
+    "name": "vimish",
+    "description": "A modal editor experience that is like vim, but different.",
+    "category": "editor-styles",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "vimish-bind <mode> <keys> <command>",
+        "body": "Bind <keys> to <command> when in <mode>."
+      },
+      {
+        "title": "vimish-unbind <mode> <keys>",
+        "body": "Unbind <keys> in <mode>."
+      },
+      {
+        "title": "vimish-exit-insert",
+        "body": "Leave insert mode and return to normal mode."
+      },
+      {
+        "title": "w",
+        "body": ""
+      },
+      {
+        "title": "W",
+        "body": "Alias for write-buffer."
+      },
+      {
+        "title": "q",
+        "body": ""
+      },
+      {
+        "title": "Q",
+        "body": "If you're in the only frame, quit.\nOtherwise, close the frame."
+      },
+      {
+        "title": "wq",
+        "body": ""
+      },
+      {
+        "title": "Wq",
+        "body": "write-buffer, then do q from above."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "key",
+      "bind",
+      "binding",
+      "edit",
+      "mode",
+      "modal",
+      "vim",
+      "vi",
+      "emacs"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-vimish"
+  },
+  {
+    "slug": "whence_you_came",
+    "name": "whence_you_came",
+    "description": "Focus the previously focused buffer in a frame.",
+    "category": "navigation",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "whence-you-came",
+        "body": "Focus the buffer that was previously focused in the active frame."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "buffer",
+      "focus",
+      "whence",
+      "alt",
+      "alternate",
+      "return",
+      "jump",
+      "switch"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-whence_you_came"
+  },
+  {
+    "slug": "word_wrap",
+    "name": "word_wrap",
+    "description": "Wrap all selected lines to a given number of characters.",
+    "category": "editing",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "word-wrap <int>",
+        "body": "Wrap all selected lines to <int> characters.\nMost useful for writing prose: preserves paragraphs."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "word",
+      "wrap",
+      "prose"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/matthew-olson-intel/word_wrap"
+  },
+  {
+    "slug": "xul",
+    "name": "xul",
+    "description": "A modal editor experience inspired by vim and kakoune. Walking selection, vim-like motions, useful operators.",
+    "category": "editor-styles",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "xul-bind <mode> <keys> <command>",
+        "body": "Bind <keys> to <command> when in <mode>."
+      },
+      {
+        "title": "xul-unbind <mode> <keys>",
+        "body": "Unbind <keys> in <mode>."
+      },
+      {
+        "title": "xul-exit-insert",
+        "body": "Leave insert mode and return to normal mode."
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "xul",
+      "key",
+      "bind",
+      "binding",
+      "edit",
+      "mode",
+      "modal",
+      "vim",
+      "vi",
+      "emacs",
+      "kakoune"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-xul"
+  },
+  {
+    "slug": "yedrc",
+    "name": "yedrc",
+    "description": "Load text files containing yed commands and execute them.",
+    "category": "configuration",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "yedrc-load <path>",
+        "body": "Load the file <path> and execute each line as a yed command."
+      }
+    ],
+    "buffers": [],
+    "notes": "This plugin is useful for easy configuration and editor settings.\nTypical usage involves loading a file like ~/.config/yed/yedrc at startup.\n\nyedrc-load can be called again from yedrc files since it is just another command.\nThis allows you to have your configuration split into multiple files and have project-local configurations such as a .yedrc file in your project directory.\n\nThe syntax/quoting rules for each command are the same as they are on yed's command line except that you can\nsplit commands into multiple lines with trailing backslashes.\n\nyedrc-load will not recursively execute files.\n\nFT and syntax are by default provided by the lang/yedrc and lang/syntax/yedrc plugins.",
+    "version": "0.0.1",
+    "keywords": [
+      "rc",
+      "rcfile",
+      "config",
+      "file",
+      "configuration",
+      "commands",
+      "start"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-yedrc"
+  },
+  {
+    "slug": "yule_2021",
+    "name": "yule_2021",
+    "description": "❅  Let it snow! ❅",
+    "category": "fun",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "let-it-snow",
+        "body": ""
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "yule",
+      "snow",
+      "new",
+      "year",
+      "christmas",
+      "holiday",
+      "merry",
+      "2021"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-yule_2021"
+  },
+  {
+    "slug": "yule_2022",
+    "name": "yule_2022",
+    "description": "❅  Ho ho hop! ❅",
+    "category": "fun",
+    "configuration": [],
+    "commands": [
+      {
+        "title": "ho-ho-hop",
+        "body": ""
+      }
+    ],
+    "buffers": [],
+    "notes": "",
+    "version": "0.0.1",
+    "keywords": [
+      "yule",
+      "snow",
+      "new",
+      "year",
+      "christmas",
+      "holiday",
+      "merry",
+      "2022",
+      "santa",
+      "roof",
+      "chimney",
+      "jump",
+      "hop"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/kammerdienerb/yed-yule_2022"
+  },
+  {
+    "slug": "lang-zig",
+    "name": "zig",
+    "description": "Filetype for Zig.",
+    "category": "language",
+    "configuration": [],
+    "commands": [],
+    "buffers": [],
+    "notes": "The filetype is called \"Zig\".\nMatches file extension .zig.",
+    "version": "0.0.1",
+    "keywords": [
+      "lang",
+      "language",
+      "filetype",
+      "file",
+      "type",
+      "zig"
+    ],
+    "extraSections": {},
+    "repoUrl": "https://github.com/uniquepointer/yed-lang-zig"
+  }
+]

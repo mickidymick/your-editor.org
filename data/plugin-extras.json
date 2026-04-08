@@ -1,0 +1,654 @@
+{
+  "vimish": {
+    "summary": "Vim-style modal editing for yed. Adds normal, insert, visual, and visual-line modes with familiar keybindings. If you're coming from vim, this is the plugin that makes yed feel like home — motions, operators, and mode indicators all work as you'd expect.",
+    "related": ["completer", "lsp", "ctags", "find_file", "grep"],
+    "exampleConfig": "plugin-load 'vimish'\n\n# Optional: show mode in status line\nset vimish-insert-cursor-line  'yes'"
+  },
+  "lsp": {
+    "summary": "The core Language Server Protocol client for yed. Connects to language servers (clangd, pyright, gopls, etc.) to provide IDE features like go-to-definition, hover info, and diagnostics. This is the controller plugin — pair it with feature plugins like completer, lsp_diagnostics, and lsp_info_popup for the full experience.",
+    "related": ["completer", "lsp_diagnostics", "lsp_info_popup", "lsp_symbol_buffer"],
+    "exampleConfig": "plugin-load 'lsp'\n\n# Define a C/C++ language server\nlsp-define-server clangd 'clangd' C C++\n\n# Define a Python language server\nlsp-define-server pyright 'pyright-langserver --stdio' Python"
+  },
+  "completer": {
+    "summary": "Inline completion popup for yed. Shows context-aware suggestions as you type, drawing from LSP servers, buffer words, or both. Completions appear automatically and can be accepted with a single keystroke.",
+    "related": ["lsp", "lsp_info_popup", "lsp_diagnostics"],
+    "exampleConfig": "plugin-load 'completer'\n\nset compl-sources            'lsp compl-words'\nset compl-auto               'yes'\nset compl-words-buffer-max-lines '5000'"
+  },
+  "tree_view": {
+    "summary": "A file tree browser sidebar for yed. Opens a navigable directory listing in a side frame, letting you browse your project structure and open files without leaving the editor. Supports expanding/collapsing directories and works well with frame splits.",
+    "related": ["find_file", "grep", "bookmarks"],
+    "exampleConfig": "plugin-load 'tree_view'"
+  },
+  "ctags": {
+    "summary": "Jump to definitions using ctags. Generates and queries tags files to let you jump straight to function definitions, struct declarations, and other symbols across your project. Works with universal-ctags and other ctags-compatible tools.",
+    "related": ["lsp", "jump_stack", "grep", "find_file"],
+    "exampleConfig": "plugin-load 'ctags'\n\n# Generate tags for the project\n# Run from command line: ctags -R ."
+  },
+  "grep": {
+    "summary": "Project-wide text search from within yed. Runs grep (or a compatible tool like ripgrep) and presents results in a navigable buffer. Jump directly to matches in your codebase without leaving the editor.",
+    "related": ["find_file", "ctags", "jump_stack"],
+    "exampleConfig": "plugin-load 'grep'\n\n# Use ripgrep for faster searches\nset grep-cmd 'rg --vimgrep'"
+  },
+  "find_file": {
+    "summary": "Fuzzy file finder for yed. Quickly open any file in your project by typing part of its name. Results narrow as you type, making it fast to jump to any file without navigating directory trees.",
+    "related": ["grep", "tree_view", "go_menu"],
+    "exampleConfig": "plugin-load 'find_file'"
+  },
+  "comment": {
+    "summary": "Toggle line and block comments with a single command. Automatically uses the correct comment syntax for the current filetype — // for C, # for Python, etc. Works on single lines or visual selections.",
+    "related": ["vimish", "auto_paren"],
+    "exampleConfig": "plugin-load 'comment'"
+  },
+  "terminal": {
+    "summary": "Embedded terminal emulator inside yed. Run shell commands, build tools, or interactive programs without leaving the editor. The terminal runs in a buffer that can be placed in any frame, so you can have your code and terminal side by side.",
+    "related": ["builder", "shell_run"],
+    "exampleConfig": "plugin-load 'terminal'"
+  },
+  "builder": {
+    "summary": "Run build commands and parse compiler errors from within yed. Executes your build tool (make, cargo, go build, etc.) and presents errors in a navigable list. Jump directly to the file and line of each error.",
+    "related": ["terminal", "lsp", "lsp_diagnostics"],
+    "exampleConfig": "plugin-load 'builder'\n\nset builder-cmd 'make -j$(nproc)'"
+  },
+  "diff": {
+    "summary": "View git diffs directly in yed. Shows inline markers for added, modified, and removed lines in the gutter, so you always know what you've changed relative to the last commit.",
+    "related": ["line_numbers", "bookmarks"],
+    "exampleConfig": "plugin-load 'diff'"
+  },
+  "bookmarks": {
+    "summary": "Set and jump between named bookmarks across files. Mark important locations in your codebase and return to them instantly, even across editing sessions.",
+    "related": ["jump_stack", "loc_history", "ctags"],
+    "exampleConfig": "plugin-load 'bookmarks'"
+  },
+  "go_menu": {
+    "summary": "A searchable command palette for yed. Brings up a menu of all available commands that you can filter by typing. Great for discovering commands or running ones you don't have bound to a key.",
+    "related": ["find_file", "vimish"],
+    "exampleConfig": "plugin-load 'go_menu'"
+  },
+  "loc_history": {
+    "summary": "Tracks your cursor location history and lets you jump back and forward through positions you've visited. Like browser back/forward buttons for your code.",
+    "related": ["jump_stack", "bookmarks", "ctags"],
+    "exampleConfig": "plugin-load 'loc_history'"
+  },
+  "mouse": {
+    "summary": "Enables mouse support in yed. Click to position the cursor, scroll with the wheel, and select text by clicking and dragging. Makes yed approachable if you're not used to keyboard-only navigation.",
+    "related": ["mouse_menu", "mouse_frame_control"],
+    "exampleConfig": "plugin-load 'mouse'"
+  },
+  "mouse_menu": {
+    "summary": "Right-click context menu for yed. Provides quick access to common operations like cut, copy, paste, and go-to-definition through a mouse-driven popup menu.",
+    "related": ["mouse", "mouse_frame_control", "go_menu"],
+    "exampleConfig": "plugin-load 'mouse_menu'"
+  },
+  "line_numbers": {
+    "summary": "Displays line numbers in the left gutter. Supports absolute, relative, and hybrid numbering modes. Relative line numbers are especially useful with vim-style motions.",
+    "related": ["diff", "vimish", "cursor_word_hl"],
+    "exampleConfig": "plugin-load 'line_numbers'\n\n# Use relative line numbers\nset line-number-mode 'relative'"
+  },
+  "man": {
+    "summary": "Read man pages from within yed. Look up documentation for system calls, library functions, or command-line tools without leaving the editor. Renders man page content in a readable buffer.",
+    "related": ["terminal", "go_menu"],
+    "exampleConfig": "plugin-load 'man'"
+  },
+  "calc": {
+    "summary": "An inline calculator for yed. Evaluate math expressions directly in the editor and insert the result. Handy for quick arithmetic without switching to another tool.",
+    "related": ["convert", "terminal"],
+    "exampleConfig": "plugin-load 'calc'"
+  },
+  "lsp_diagnostics": {
+    "summary": "Shows LSP diagnostic messages (errors, warnings) inline in your buffers. Underlines problematic code and displays messages in the status area so you can fix issues as you write.",
+    "related": ["lsp", "completer", "lsp_info_popup", "builder"],
+    "exampleConfig": "plugin-load 'lsp_diagnostics'"
+  },
+  "lsp_info_popup": {
+    "summary": "Displays hover information from your language server in a popup. See function signatures, type info, and documentation by hovering over or moving the cursor to a symbol.",
+    "related": ["lsp", "completer", "lsp_diagnostics", "lsp_symbol_buffer"],
+    "exampleConfig": "plugin-load 'lsp_info_popup'"
+  },
+  "lsp_symbol_buffer": {
+    "summary": "Shows a navigable list of symbols (functions, types, variables) in the current file using LSP. Gives you a quick overview of the file's structure and lets you jump to any symbol.",
+    "related": ["lsp", "ctags", "lsp_info_popup"],
+    "exampleConfig": "plugin-load 'lsp_symbol_buffer'"
+  },
+  "xul": {
+    "summary": "A modal editing style inspired by both vim and kakoune. Provides an alternative to vimish with a different take on selection-first editing.",
+    "related": ["vimish", "drill", "completer"],
+    "exampleConfig": "plugin-load 'xul'"
+  },
+  "drill": {
+    "summary": "Kakoune-style modal editing for yed. Emphasizes selection-first editing where you select text before acting on it, rather than the vim approach of action-then-motion.",
+    "related": ["vimish", "xul", "completer"],
+    "exampleConfig": "plugin-load 'drill'"
+  },
+  "auto_paren": {
+    "summary": "Automatically inserts matching closing brackets, parentheses, and quotes as you type. Keeps your delimiters balanced without extra keystrokes.",
+    "related": ["completer", "comment", "indent_c"],
+    "exampleConfig": "plugin-load 'auto_paren'"
+  },
+  "yedrc": {
+    "summary": "Loads a plain-text configuration file of yed commands at startup. This is where most users put their keybindings, variable settings, and plugin-load commands. Simpler than writing a C init plugin — just one command per line.",
+    "related": ["command-history", "style_pack"],
+    "exampleConfig": "# ~/.config/yed/yedrc\nset truecolor          'yes'\nplugin-load            'ypm'\nstyle                  'gruvbox'"
+  },
+  "formatter": {
+    "summary": "Run code formatters on the current buffer. Integrates with tools like clang-format, gofmt, black, and others to automatically format your code on save or on demand.",
+    "related": ["builder", "lsp"],
+    "exampleConfig": "plugin-load 'formatter'\n\nset formatter-C      'clang-format'\nset formatter-Python 'black -'"
+  },
+  "jump_stack": {
+    "summary": "Maintains a stack of cursor positions so you can jump to a definition and then pop back to where you were. Works with ctags, LSP go-to-definition, and other navigation commands.",
+    "related": ["ctags", "lsp", "loc_history", "bookmarks"],
+    "exampleConfig": "plugin-load 'jump_stack'"
+  },
+
+  "add_template": {
+    "summary": "Paste predefined text templates at the cursor position. Store reusable boilerplate snippets (file headers, license blocks, function skeletons) in your templates directory and insert them by name.",
+    "related": ["macro", "comment"],
+    "exampleConfig": "plugin-load 'add_template'\n\n# Place template files in ~/.yed/templates/\n# e.g. ~/.yed/templates/license.txt"
+  },
+  "align": {
+    "summary": "Align text across multiple lines by a given character or string. Select a block of lines and align them on '=', ':', or any delimiter for clean, readable formatting.",
+    "related": ["indent_c", "comment"],
+    "exampleConfig": "plugin-load 'align'"
+  },
+  "auto-save": {
+    "summary": "Automatically saves modified buffers at a configurable interval. No more losing work to forgotten saves. Also overrides quit to save all buffers before exiting.",
+    "related": ["confirm-quit", "autotrim"],
+    "exampleConfig": "plugin-load 'auto-save'\n\n# Save every 30 seconds\nset auto-save-frequency-ms '30000'"
+  },
+  "autotrim": {
+    "summary": "Automatically removes trailing whitespace whenever a buffer is saved. Keeps your files clean without thinking about it.",
+    "related": ["auto-save", "indent_c"],
+    "exampleConfig": "plugin-load 'autotrim'"
+  },
+  "brace_hl": {
+    "summary": "Highlights the matching curly brace when your cursor is on one. Makes it easy to see where blocks begin and end in C-style languages.",
+    "related": ["paren_hl", "find_bracket", "cursor_word_hl"],
+    "exampleConfig": "plugin-load 'brace_hl'"
+  },
+  "command-history": {
+    "summary": "Persists your command history between yed sessions. Commands you've typed are available the next time you open yed, so you can recall and reuse previous commands with arrow keys.",
+    "related": ["yedrc", "go_menu"],
+    "exampleConfig": "plugin-load 'command-history'\n\n# Limit saved history entries\nset command-history-limit '500'"
+  },
+  "confirm-quit": {
+    "summary": "Prompts for confirmation before quitting if you have unsaved buffers. Prevents accidental data loss when you hit quit with modified files open.",
+    "related": ["auto-save", "yedrc"],
+    "exampleConfig": "plugin-load 'confirm-quit'"
+  },
+  "convert": {
+    "summary": "Convert numbers between decimal, hex, binary, and octal formats, or transform strings between uppercase, lowercase, snake_case, and camelCase. A quick utility for format conversions without leaving the editor.",
+    "related": ["calc", "terminal"],
+    "exampleConfig": "plugin-load 'convert'"
+  },
+  "cursor_word_hl": {
+    "summary": "Highlights all occurrences of the word under your cursor throughout the visible buffer. Useful for quickly seeing where a variable or function name is used.",
+    "related": ["brace_hl", "paren_hl", "line_numbers"],
+    "exampleConfig": "plugin-load 'cursor_word_hl'\n\n# Adjust delay before highlighting\nset cursor-word-hl-idle-threshold-ms '250'"
+  },
+  "custom_frames": {
+    "summary": "Advanced frame management for special buffers. Configure how plugin buffers (like tree_view, log, etc.) open — as floating windows or splits — with precise control over position and size.",
+    "related": ["tree_view", "save_layout"],
+    "exampleConfig": "plugin-load 'custom_frames'"
+  },
+  "extension_mapper": {
+    "summary": "Map custom file extensions to existing filetypes. If you have files with non-standard extensions that should be treated as a known language, this plugin handles it.",
+    "related": ["yedrc"],
+    "exampleConfig": "plugin-load 'extension_mapper'\n\nmap-extension CC C++\nmap-extension json Config"
+  },
+  "find_bracket": {
+    "summary": "Jump to the matching bracket. Place your cursor on any bracket character and jump to its partner — like vim's % command.",
+    "related": ["brace_hl", "paren_hl", "vimish"],
+    "exampleConfig": "plugin-load 'find_bracket'"
+  },
+  "flame_graph": {
+    "summary": "View and interactively browse flame graphs inside yed. Load profiling data, zoom into hot paths, and inspect individual stack frames — all without leaving the editor.",
+    "related": ["profile", "terminal"],
+    "exampleConfig": "plugin-load 'flame_graph'"
+  },
+  "fstyle": {
+    "summary": "Create and edit yed color themes in a simple plaintext format. See your style update live as you edit — each line displays in the colors it defines. You can also export existing styles to the fstyle format.",
+    "related": ["style_picker", "style_pack"],
+    "exampleConfig": "plugin-load 'fstyle'"
+  },
+  "git_variables": {
+    "summary": "Exposes git repository information as yed variables. Automatically sets variables for the current branch name and repository name, which you can display in your status line.",
+    "related": ["diff", "yedrc"],
+    "exampleConfig": "plugin-load 'git_variables'\n\n# Show branch in status line\nset status-line-left '%f %m [%(git-variables-branch)]'"
+  },
+  "lang-tools-gofmt": {
+    "summary": "Automatically formats Go source files using gofmt when you save. Keeps your Go code consistently formatted without manual intervention.",
+    "related": ["formatter", "builder"],
+    "exampleConfig": "plugin-load 'lang/tools/gofmt'\n\n# Enable auto-format on save\nset gofmt-auto 'yes'"
+  },
+  "hook": {
+    "summary": "Run yed commands in response to editor events. Set up hooks that trigger automatically — for example, run a linter on save or switch styles based on filetype.",
+    "related": ["yedrc", "builder"],
+    "exampleConfig": "plugin-load 'hook'"
+  },
+  "indent_c": {
+    "summary": "Automatic indentation for C-style languages. Adjusts indentation level based on curly braces as you type, keeping your code properly formatted without manual tab management.",
+    "related": ["auto_paren", "comment", "align"],
+    "exampleConfig": "plugin-load 'indent_c'"
+  },
+  "julie": {
+    "summary": "Interactive editing and execution of the Julie programming language inside yed. Edit Julie code and see results update live as you type.",
+    "related": ["terminal"],
+    "exampleConfig": "plugin-load 'julie'"
+  },
+  "lang-tools-latex": {
+    "summary": "Compile and view LaTeX documents from within yed. Run your LaTeX compiler and open the PDF viewer without leaving the editor.",
+    "related": ["builder", "terminal"],
+    "exampleConfig": "plugin-load 'lang/tools/latex'\n\nset latex-comp-prg 'pdflatex'\nset latex-view-prg 'zathura'"
+  },
+  "log_hl": {
+    "summary": "Adds syntax highlighting to yed's *log buffer, making debug and status messages easier to read.",
+    "related": ["cursor_word_hl"],
+    "exampleConfig": "plugin-load 'log_hl'"
+  },
+  "macro": {
+    "summary": "Record a sequence of keystrokes and play them back any number of times. Great for repetitive edits — record once, replay as many times as you need.",
+    "related": ["vimish", "comment"],
+    "exampleConfig": "plugin-load 'macro'"
+  },
+  "make-tab": {
+    "summary": "Ensures real tab characters are inserted when editing Makefiles, since Make requires tabs for recipe indentation. Overrides any soft-tab settings for Makefile buffers.",
+    "related": ["indent_c"],
+    "exampleConfig": "plugin-load 'make-tab'"
+  },
+  "mouse_frame_control": {
+    "summary": "Move and resize frames using the middle mouse button. Click and drag to reposition frames, or drag from the corner to resize them.",
+    "related": ["mouse", "mouse_menu", "custom_frames"],
+    "exampleConfig": "plugin-load 'mouse_frame_control'"
+  },
+  "paren_hl": {
+    "summary": "Highlights the matching parenthesis when your cursor is on one. Works alongside brace_hl for full delimiter matching visibility.",
+    "related": ["brace_hl", "find_bracket", "cursor_word_hl"],
+    "exampleConfig": "plugin-load 'paren_hl'"
+  },
+  "pastebin": {
+    "summary": "Upload your current selection to a pastebin service directly from yed. Quickly share code snippets without switching to a browser.",
+    "related": ["sysclip", "universal_clipboard"],
+    "exampleConfig": "plugin-load 'pastebin'"
+  },
+  "profile": {
+    "summary": "Profile the time spent in yed commands to find performance bottlenecks. Start a profiling session, use the editor normally, then generate a report showing which commands are slowest.",
+    "related": ["flame_graph"],
+    "exampleConfig": "plugin-load 'profile'"
+  },
+  "save_layout": {
+    "summary": "Save your current frame and buffer arrangement to a file so you can restore it later. Useful for maintaining a consistent workspace layout across sessions.",
+    "related": ["custom_frames", "yedrc"],
+    "exampleConfig": "plugin-load 'save_layout'"
+  },
+  "scroll_buffer": {
+    "summary": "Scroll the buffer view without moving the cursor. Shift the visible content up or down while your cursor stays in place — useful for peeking at nearby code.",
+    "related": ["vimish"],
+    "exampleConfig": "plugin-load 'scroll_buffer'"
+  },
+  "shell_run": {
+    "summary": "Run a shell command in the background and capture its output in a special buffer. Useful for quick one-off commands when you don't need a full terminal.",
+    "related": ["terminal", "builder"],
+    "exampleConfig": "plugin-load 'shell_run'"
+  },
+  "style_pack": {
+    "summary": "A convenience plugin that bundles most available yed styles into a single install. Load it to have a wide selection of themes available without installing each one individually.",
+    "related": ["style_picker", "fstyle"],
+    "exampleConfig": "plugin-load 'style_pack'\n\n# Then activate any style\nstyle 'gruvbox'"
+  },
+  "style_picker": {
+    "summary": "An interactive style browser. Opens a list of all loaded styles and lets you preview each one by selecting it — try out themes without editing your config.",
+    "related": ["style_pack", "fstyle", "style_use_term_bg"],
+    "exampleConfig": "plugin-load 'style_picker'"
+  },
+  "style_use_term_bg": {
+    "summary": "Makes yed styles use your terminal's background color instead of their own. Useful if you have a semi-transparent terminal and want yed to blend with your desktop.",
+    "related": ["style_picker", "style_pack", "fstyle"],
+    "exampleConfig": "plugin-load 'style_use_term_bg'"
+  },
+  "sysclip": {
+    "summary": "Copy yed's yank buffer contents to the system clipboard using xsel. Bridge the gap between yed's internal clipboard and your system clipboard for pasting into other applications.",
+    "related": ["universal_clipboard", "vimish"],
+    "exampleConfig": "plugin-load 'sysclip'"
+  },
+  "universal_clipboard": {
+    "summary": "Copy selections to the system clipboard using OSC 52 escape sequences. Works over SSH and in terminals that support OSC 52, making it a more portable alternative to sysclip.",
+    "related": ["sysclip", "vimish"],
+    "exampleConfig": "plugin-load 'universal_clipboard'\n\n# Auto-copy yanks to system clipboard\nset universal-copy-on-yank 'yes'"
+  },
+  "whence_you_came": {
+    "summary": "Quickly switch back to the previously focused buffer in the current frame. A fast way to toggle between two files you're working on.",
+    "related": ["loc_history", "jump_stack", "bookmarks"],
+    "exampleConfig": "plugin-load 'whence_you_came'"
+  },
+  "word_wrap": {
+    "summary": "Wrap selected lines to a given character width. Useful for reformatting prose, comments, or commit messages to a consistent line length.",
+    "related": ["align", "comment"],
+    "exampleConfig": "plugin-load 'word_wrap'"
+  },
+  "yule_2021": {
+    "summary": "A festive holiday plugin that makes it snow in your editor. Because even terminal editors deserve a little holiday cheer.",
+    "related": ["yule_2022"],
+    "exampleConfig": "plugin-load 'yule_2021'\n\nlet-it-snow"
+  },
+  "yule_2022": {
+    "summary": "Another holiday plugin — this time Santa hops across rooftops in your editor. A fun seasonal treat from the yed community.",
+    "related": ["yule_2021"],
+    "exampleConfig": "plugin-load 'yule_2022'\n\nho-ho-hop"
+  },
+
+  "lang-c": {
+    "summary": "Registers the C filetype for .c and .h files. Load this alongside lang/syntax/c for syntax highlighting."
+  },
+  "lang-conf": {
+    "summary": "Registers a filetype for basic configuration files (.conf, .config). Pair with lang/syntax/conf for highlighting."
+  },
+  "lang-cpp": {
+    "summary": "Registers the C++ filetype for .cpp, .cxx, .hpp, .hxx files. Intelligently detects C++ in .h files by scanning for C++ constructs."
+  },
+  "lang-csharp": {
+    "summary": "Registers the C# filetype for .cs files."
+  },
+  "lang-glsl": {
+    "summary": "Registers the GLSL filetype for .glsl shader files."
+  },
+  "lang-javascript": {
+    "summary": "Registers the JavaScript filetype for .js files."
+  },
+  "lang-jgraph": {
+    "summary": "Registers the Jgraph filetype for .jgr graph description files."
+  },
+  "lang-jule": {
+    "summary": "Registers the Jule filetype for .j files (Jule programming language)."
+  },
+  "lang-julie": {
+    "summary": "Registers the Julie filetype for .j files (Julie programming language)."
+  },
+  "lang-latex": {
+    "summary": "Registers the LaTeX filetype for .tex and .cls files. Pair with lang/tools/latex for compilation support.",
+    "related": ["lang-tools-latex"]
+  },
+  "lang-linker": {
+    "summary": "Registers the Linker filetype for .lds linker script files."
+  },
+  "lang-make": {
+    "summary": "Registers the Make filetype for Makefile and makefile buffer names.",
+    "related": ["make-tab"]
+  },
+  "lang-man": {
+    "summary": "Registers the Man filetype for roff/troff man page files (.1 through .9)."
+  },
+  "lang-nickel": {
+    "summary": "Registers the Nickel filetype for .nickel configuration language files."
+  },
+  "lang-python": {
+    "summary": "Registers the Python filetype for .py files."
+  },
+  "lang-rust": {
+    "summary": "Registers the Rust filetype for .rs files."
+  },
+  "lang-bpftrace": {
+    "summary": "Registers the bpftrace filetype for .S bpftrace script files."
+  },
+  "lang-go": {
+    "summary": "Registers the Go filetype for .go files.",
+    "related": ["lang-tools-gofmt"]
+  },
+  "lang-scheme": {
+    "summary": "Registers the Scheme filetype for .scm files."
+  },
+  "lang-sh": {
+    "summary": "Registers the Shell filetype for .sh files."
+  },
+  "lang-simon": {
+    "summary": "Registers the Simon filetype for .si files (Simon programming language)."
+  },
+  "lang-yedrc": {
+    "summary": "Registers the yedrc filetype for .yedrc configuration files. Pair with lang/syntax/yedrc for syntax highlighting of your config.",
+    "related": ["yedrc"]
+  },
+  "lang-nix": {
+    "summary": "Registers the Nix filetype for .nix files."
+  },
+  "lang-zig": {
+    "summary": "Registers the Zig filetype for .zig files."
+  },
+
+  "lang-syntax-bpftrace": {
+    "summary": "Adds syntax highlighting for bpftrace scripts. Requires the lang/bpftrace filetype plugin."
+  },
+  "lang-syntax-c": {
+    "summary": "Adds syntax highlighting for C source files. Highlights keywords, types, preprocessor directives, strings, and comments. Requires the lang/c filetype plugin.",
+    "related": ["lang-c"]
+  },
+  "lang-syntax-conf": {
+    "summary": "Adds syntax highlighting for configuration files. Requires the lang/conf filetype plugin."
+  },
+  "lang-syntax-cpp": {
+    "summary": "Adds syntax highlighting for C++ source files. Requires the lang/cpp filetype plugin.",
+    "related": ["lang-cpp"]
+  },
+  "lang-syntax-csharp": {
+    "summary": "Adds syntax highlighting for C# source files. Requires the lang/csharp filetype plugin."
+  },
+  "lang-syntax-go": {
+    "summary": "Adds syntax highlighting for Go source files. Requires the lang/go filetype plugin.",
+    "related": ["lang-go", "lang-tools-gofmt"]
+  },
+  "lang-syntax-diff_hl": {
+    "summary": "Adds syntax highlighting for diff/patch files. Makes added, removed, and context lines visually distinct."
+  },
+  "lang-syntax-glsl": {
+    "summary": "Adds syntax highlighting for GLSL shader files. Requires the lang/glsl filetype plugin."
+  },
+  "lang-syntax-javascript": {
+    "summary": "Adds syntax highlighting for JavaScript source files. Requires the lang/javascript filetype plugin."
+  },
+  "lang-syntax-jgraph": {
+    "summary": "Adds syntax highlighting for Jgraph files. Requires the lang/jgraph filetype plugin."
+  },
+  "lang-syntax-jule": {
+    "summary": "Adds syntax highlighting for Jule source files. Requires the lang/jule filetype plugin."
+  },
+  "lang-syntax-julie": {
+    "summary": "Adds syntax highlighting for Julie source files. Requires the lang/julie filetype plugin."
+  },
+  "lang-syntax-latex": {
+    "summary": "Adds syntax highlighting for LaTeX documents. Highlights commands, environments, math mode, and comments. Requires the lang/latex filetype plugin."
+  },
+  "lang-syntax-linker": {
+    "summary": "Adds syntax highlighting for linker script files. Requires the lang/linker filetype plugin."
+  },
+  "lang-syntax-make": {
+    "summary": "Adds syntax highlighting for Makefiles. Highlights targets, variables, and shell commands. Requires the lang/make filetype plugin."
+  },
+  "lang-syntax-man": {
+    "summary": "Adds syntax highlighting for roff/troff man page source files. Requires the lang/man filetype plugin."
+  },
+  "lang-syntax-nickel": {
+    "summary": "Adds syntax highlighting for Nickel configuration language files. Requires the lang/nickel filetype plugin."
+  },
+  "lang-syntax-python": {
+    "summary": "Adds syntax highlighting for Python source files. Highlights keywords, decorators, strings, and comments. Requires the lang/python filetype plugin."
+  },
+  "lang-syntax-rust": {
+    "summary": "Adds syntax highlighting for Rust source files. Highlights keywords, macros, lifetimes, and attributes. Requires the lang/rust filetype plugin."
+  },
+  "lang-syntax-scheme": {
+    "summary": "Adds syntax highlighting for Scheme source files. Requires the lang/scheme filetype plugin."
+  },
+  "lang-syntax-sh": {
+    "summary": "Adds syntax highlighting for shell scripts. Highlights variables, builtins, and string interpolation. Requires the lang/sh filetype plugin."
+  },
+  "lang-syntax-simon": {
+    "summary": "Adds syntax highlighting for Simon source files. Requires the lang/simon filetype plugin."
+  },
+  "lang-syntax-yedrc": {
+    "summary": "Adds syntax highlighting for yedrc configuration files. Makes your yed config easier to read by highlighting commands and values.",
+    "related": ["yedrc", "lang-yedrc"]
+  },
+
+  "styles-acme": {
+    "summary": "A truecolor theme inspired by the Plan 9 Acme editor. Light, warm tones with a distinctive yellow background.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'acme'"
+  },
+  "styles-alchemist": {
+    "summary": "A truecolor dark theme with rich, alchemical tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'alchemist'"
+  },
+  "styles-blue": {
+    "summary": "A 16-color blue-toned theme. Works in terminals without truecolor support.",
+    "exampleConfig": "style 'blue'"
+  },
+  "styles-bold": {
+    "summary": "Two 256-color themes — bold-dark and bold-light — with strong, vivid syntax colors.",
+    "exampleConfig": "style 'bold-dark'\n# or\nstyle 'bold-light'"
+  },
+  "styles-book": {
+    "summary": "A 16-color theme with a muted, book-like feel. Works in terminals without truecolor support.",
+    "exampleConfig": "style 'book'"
+  },
+  "styles-bullet": {
+    "summary": "A truecolor dark theme with sharp, high-contrast syntax highlighting.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'bullet'"
+  },
+  "styles-cadet": {
+    "summary": "A truecolor theme with cool, military-inspired blue-grey tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'cadet'"
+  },
+  "styles-casey": {
+    "summary": "A truecolor theme inspired by Casey Muratori's Handmade Hero stream colors.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'casey'"
+  },
+  "styles-crunchy_leaves": {
+    "summary": "A truecolor autumn-inspired theme with warm, earthy tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'crunchy_leaves'"
+  },
+  "styles-dalton": {
+    "summary": "A truecolor dark theme with balanced, comfortable colors.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'dalton'"
+  },
+  "styles-disco": {
+    "summary": "A truecolor theme with vibrant, colorful syntax highlighting.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'disco'"
+  },
+  "styles-doug": {
+    "summary": "A truecolor dark theme with a distinctive color palette.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'doug'"
+  },
+  "styles-dracula": {
+    "summary": "The popular Dracula dark theme ported to yed. Truecolor with purple accents and soft contrast.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'dracula'"
+  },
+  "styles-drift": {
+    "summary": "A truecolor theme with cool, drifting blue and green tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'drift'"
+  },
+  "styles-elise": {
+    "summary": "A truecolor theme with elegant, refined colors.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'elise'"
+  },
+  "styles-elly": {
+    "summary": "A truecolor dark theme with warm, muted tones and gentle contrast.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'elly'"
+  },
+  "styles-embark": {
+    "summary": "A truecolor theme with deep purple and blue tones, inspired by space exploration.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'embark'"
+  },
+  "styles-first": {
+    "summary": "The very first styles made for yed! Two truecolor themes — first-dark and first-light — with historical significance to the project.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'first-dark'\n# or\nstyle 'first-light'"
+  },
+  "styles-forest": {
+    "summary": "A truecolor theme inspired by deep forest greens and natural tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'forest'"
+  },
+  "styles-gruvbox": {
+    "summary": "The popular Gruvbox retro groove color scheme ported to yed. Truecolor with warm, earthy tones and excellent readability.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'gruvbox'"
+  },
+  "styles-hat": {
+    "summary": "A truecolor dark theme with a unique color palette.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'hat'"
+  },
+  "styles-heather": {
+    "summary": "A truecolor theme with soft purple and heather-inspired tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'heather'"
+  },
+  "styles-humanoid": {
+    "summary": "Two truecolor themes — humanoid-dark and humanoid-light — with carefully designed colors for comfortable extended use.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'humanoid-dark'\n# or\nstyle 'humanoid-light'"
+  },
+  "styles-lab": {
+    "summary": "A 16-color theme with a scientific, lab-inspired feel. Works in terminals without truecolor support.",
+    "exampleConfig": "style 'lab'"
+  },
+  "styles-midnight": {
+    "summary": "A soft-on-the-eyes dark theme inspired by VN-Night.nvim. Designed for comfortable late-night coding sessions.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'midnight'"
+  },
+  "styles-monokai": {
+    "summary": "The classic Monokai color scheme ported to yed. A 256-color theme with vibrant syntax colors that work in most terminals.",
+    "exampleConfig": "style 'monokai'"
+  },
+  "styles-mordechai": {
+    "summary": "A truecolor dark theme with distinctive, carefully chosen colors.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'mordechai'"
+  },
+  "styles-moss": {
+    "summary": "A truecolor theme with mossy greens and natural, organic tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'moss'"
+  },
+  "styles-mrjantz": {
+    "summary": "A 256-color theme with a personal touch from its creator.",
+    "exampleConfig": "style 'mrjantz'"
+  },
+  "styles-nord": {
+    "summary": "The popular Nord color scheme ported to yed. Truecolor with arctic, north-bluish tones designed for clean, uncluttered interfaces.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'nord'"
+  },
+  "styles-olive": {
+    "summary": "A truecolor theme with warm olive and earth tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'olive'"
+  },
+  "styles-papercolor": {
+    "summary": "The PaperColor theme ported to yed. A truecolor light-inspired theme with clean, paper-like aesthetics.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'papercolor'"
+  },
+  "styles-pastel": {
+    "summary": "A truecolor theme with soft, pastel syntax colors. Easy on the eyes for long coding sessions.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'pastel'"
+  },
+  "styles-river": {
+    "summary": "A truecolor theme with flowing blue and aquatic tones.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'river'"
+  },
+  "styles-sammy": {
+    "summary": "A truecolor dark theme with a unique, personality-driven color palette.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'sammy'"
+  },
+  "styles-skyfall": {
+    "summary": "A 256-color theme with deep blues and atmospheric tones.",
+    "exampleConfig": "style 'skyfall'"
+  },
+  "styles-solarized": {
+    "summary": "The popular Solarized color scheme by Ethan Schoonover ported to yed. Two truecolor themes — solarized-dark and solarized-light — with precisely calibrated colors.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'solarized-dark'\n# or\nstyle 'solarized-light'"
+  },
+  "styles-tempus_future": {
+    "summary": "A truecolor theme from the Tempus Themes collection with a futuristic dark aesthetic.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'tempus-future'"
+  },
+  "styles-vt": {
+    "summary": "A 16-color theme with a retro VT terminal feel. Works in any terminal.",
+    "exampleConfig": "style 'vt'"
+  },
+  "styles-vt_light": {
+    "summary": "A light variant of the VT theme. 16-color retro terminal aesthetics with a light background.",
+    "exampleConfig": "style 'vt-light'"
+  },
+  "styles-zulu": {
+    "summary": "A truecolor dark theme with bold, energetic colors.",
+    "exampleConfig": "set truecolor 'yes'\nstyle 'zulu'"
+  }
+}
