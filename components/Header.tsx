@@ -11,6 +11,8 @@ const NAV_LINKS = [
   { href: '/user-guide', label: 'User Guide' },
   { href: '/ypm', label: 'YPM Guide' },
   { href: '/plugins', label: 'Plugins' },
+  { href: '/example-configs', label: 'Configs' },
+  { href: '/lsp-setup', label: 'LSP Setup' },
   { href: '/faq', label: 'FAQ' },
   { href: '/dev-manual', label: 'Dev Manual' },
   { href: '/reference/commands', label: 'Reference' },

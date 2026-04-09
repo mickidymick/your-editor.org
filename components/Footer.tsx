@@ -17,6 +17,8 @@ const FOOTER_LINKS = [
     title: 'Documentation',
     links: [
       { href: '/user-guide', label: 'User Guide' },
+      { href: '/example-configs', label: 'Example Configs' },
+      { href: '/lsp-setup', label: 'LSP Setup' },
       { href: '/ypm', label: 'YPM Guide' },
       { href: '/dev-manual', label: 'Dev Manual' },
       { href: '/faq', label: 'FAQ' },

@@ -11,6 +11,8 @@ const STATIC_PAGES = [
   '/user-guide',
   '/ypm',
   '/plugins',
+  '/example-configs',
+  '/lsp-setup',
   '/faq',
   '/dev-manual',
   '/reference/commands',
