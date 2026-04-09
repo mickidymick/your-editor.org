@@ -181,12 +181,12 @@
   {
     "slug": "autotrim",
     "name": "autotrim",
-    "description": "Remove trailing whitespace before writing buffers.",
+    "description": "Automatically removes trailing whitespace from lines whenever you save a buffer, keeping your files clean.",
     "category": "configuration",
     "configuration": [],
     "commands": [],
     "buffers": [],
-    "notes": "",
+    "notes": "This plugin runs automatically on every buffer write. No configuration needed — just load it and trailing whitespace is handled.",
     "version": "0.0.1",
     "keywords": [
       "space",
@@ -316,7 +316,7 @@
   {
     "slug": "brace_hl",
     "name": "brace_hl",
-    "description": "Highlight matching curly braces.",
+    "description": "Visually highlights the matching curly brace when your cursor is on one, useful for tracking scope in C-style languages.",
     "category": "ui",
     "configuration": [
       {
@@ -408,7 +408,7 @@
   {
     "slug": "calc",
     "name": "calc",
-    "description": "An interactive calculator in the special buffer *calc.",
+    "description": "An interactive calculator in a special buffer with expression history, custom variables, and common math operations.",
     "category": "tools",
     "configuration": [],
     "commands": [
@@ -461,7 +461,7 @@
   {
     "slug": "comment",
     "name": "comment",
-    "description": "Toggles commenting of lines of code.",
+    "description": "Toggle line comments on and off with a single command. Automatically detects the correct comment syntax for your filetype.",
     "category": "editing",
     "configuration": [
       {
@@ -488,7 +488,7 @@
   {
     "slug": "completer",
     "name": "completer",
-    "description": "A basic completion plugin activated on TAB.",
+    "description": "An inline completion popup that shows suggestions as you type, drawing from buffer words, ctags, and LSP sources.",
     "category": "editing",
     "configuration": [
       {
@@ -552,7 +552,7 @@
   {
     "slug": "convert",
     "name": "convert",
-    "description": "converts numbers between types or converts strings",
+    "description": "Convert numbers between decimal, hex, octal, and binary formats, or convert strings between different encodings.",
     "category": "tools",
     "configuration": [],
     "commands": [
@@ -764,7 +764,7 @@
   {
     "slug": "diff",
     "name": "diff",
-    "description": "interactive diff for two buffers",
+    "description": "Interactively compare two buffers side-by-side with color-coded insertions, deletions, and inline character-level diffs.",
     "category": "tools",
     "configuration": [
       {
@@ -1031,7 +1031,7 @@
   {
     "slug": "flame_graph",
     "name": "flame_graph",
-    "description": "View and browse flame graphs.",
+    "description": "View and browse flame graph files directly in yed, useful for profiling and performance analysis.",
     "category": "tools",
     "configuration": [
       {
@@ -1175,7 +1175,7 @@
   {
     "slug": "go_menu",
     "name": "go_menu",
-    "description": "A quick buffer jump menu.",
+    "description": "A popup menu listing all open buffers for quickly jumping between them. Supports persistent items that always appear in the list.",
     "category": "navigation",
     "configuration": [
       {
@@ -1269,7 +1269,7 @@
   {
     "slug": "hook",
     "name": "hook",
-    "description": "Run commands on editor events.",
+    "description": "Run yed commands automatically in response to editor events like buffer writes, frame changes, or mode switches.",
     "category": "tools",
     "configuration": [],
     "commands": [
@@ -2535,12 +2535,12 @@
   {
     "slug": "log_hl",
     "name": "log_hl",
-    "description": "Highlight the special buffer *log.",
+    "description": "Adds color highlighting to the *log special buffer, making it easier to read editor messages and debug output.",
     "category": "ui",
     "configuration": [],
     "commands": [],
     "buffers": [],
-    "notes": "",
+    "notes": "This plugin activates automatically. Open the log with buffer *log to see highlighted output.",
     "version": "0.0.1",
     "keywords": [
       "color",
@@ -2553,7 +2553,7 @@
   {
     "slug": "lsp",
     "name": "lsp",
-    "description": "Language Server Protocol client controller plugin.",
+    "description": "The core Language Server Protocol client for yed. Connects to language servers to enable IDE features like go-to-definition, hover info, and diagnostics.",
     "category": "lsp",
     "configuration": [
       {
@@ -2586,7 +2586,7 @@
   {
     "slug": "lsp_diagnostics",
     "name": "lsp_diagnostics",
-    "description": "Error reporting/linting via language servers.",
+    "description": "Displays inline errors, warnings, and linting messages from language servers directly in your code as you type.",
     "category": "lsp",
     "configuration": [
       {
@@ -2655,7 +2655,7 @@
   {
     "slug": "lsp_symbol_buffer",
     "name": "lsp-symbol-buffer",
-    "description": "interactive buffer for viewing declaration, definition, and references of a symbol",
+    "description": "Jump to declarations, definitions, and references via LSP. Includes an interactive symbol search with tab completion and a symbol menu showing all results in one view.",
     "category": "lsp",
     "configuration": [
       {
@@ -2740,7 +2740,7 @@
   {
     "slug": "macro",
     "name": "macro",
-    "description": "Record keystrokes and play them back.",
+    "description": "Record a sequence of keystrokes and play them back to repeat complex editing operations across your buffer.",
     "category": "editing",
     "configuration": [
       {
@@ -2779,12 +2779,12 @@
   {
     "slug": "make-tab",
     "name": "make-tab",
-    "description": "Insert real tabs into makefiles.",
+    "description": "Automatically inserts real tab characters instead of spaces when editing Makefiles, which require tabs for indentation.",
     "category": "editing",
     "configuration": [],
     "commands": [],
     "buffers": [],
-    "notes": "",
+    "notes": "This plugin activates automatically for files with the Make filetype. No configuration needed.",
     "version": "0.0.1",
     "keywords": [
       "make",
@@ -2832,7 +2832,7 @@
   {
     "slug": "mouse",
     "name": "mouse",
-    "description": "Gives basic mouse support to yed",
+    "description": "Adds basic mouse support to yed — click to place the cursor, scroll to navigate, and interact with UI elements.",
     "category": "ui",
     "configuration": [
       {
@@ -2884,7 +2884,7 @@
   {
     "slug": "mouse_menu",
     "name": "mouse-menu",
-    "description": "Gives a configurable menu on right click",
+    "description": "Adds a configurable right-click context menu to yed with customizable actions for words, selections, and empty space.",
     "category": "ui",
     "configuration": [
       {
@@ -2939,7 +2939,7 @@
   {
     "slug": "paren_hl",
     "name": "paren_hl",
-    "description": "Highlight matching parentheses.",
+    "description": "Visually highlights the matching parenthesis when your cursor is on one, making it easy to navigate nested expressions.",
     "category": "ui",
     "configuration": [
       {
@@ -3119,12 +3119,12 @@
   {
     "slug": "style_pack",
     "name": "style_pack",
-    "description": "A collection of most available styles in a single plugin.",
+    "description": "A convenient bundle of most available color themes in a single plugin. Install this to get a wide selection of styles to try.",
     "category": "configuration",
     "configuration": [],
     "commands": [],
     "buffers": [],
-    "notes": "",
+    "notes": "After loading, use the style command or the style_picker plugin to browse and activate themes. All bundled styles support truecolor.",
     "version": "0.0.1",
     "keywords": [
       "style",
@@ -3197,7 +3197,7 @@
   {
     "slug": "styles-acme",
     "name": "styles/acme",
-    "description": "A truecolor style called acme.",
+    "description": "A light truecolor theme inspired by the Plan 9 Acme editor. Warm cream background with clean, readable colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3215,7 +3215,7 @@
   {
     "slug": "styles-alchemist",
     "name": "styles/alchemist",
-    "description": "A truecolor style called alchemist.",
+    "description": "A dark truecolor theme with deep teal tones and a mysterious, muted palette.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3233,7 +3233,7 @@
   {
     "slug": "styles-blue",
     "name": "styles/blue",
-    "description": "A 16-color style called blue.",
+    "description": "A classic 16-color theme with a blue background. Works in any terminal.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3251,7 +3251,7 @@
   {
     "slug": "styles-bold",
     "name": "styles/bold",
-    "description": "Two 256-color styles called bold-dark and bold-light.",
+    "description": "Two 256-color themes (bold-dark and bold-light) with strong contrast and vivid syntax colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3269,7 +3269,7 @@
   {
     "slug": "styles-book",
     "name": "styles/book",
-    "description": "A 16-color style called book.",
+    "description": "A 16-color theme with a muted gray background, easy on the eyes for long reading sessions.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3287,7 +3287,7 @@
   {
     "slug": "styles-bullet",
     "name": "styles/bullet",
-    "description": "A truecolor style called bullet.",
+    "description": "A dark truecolor theme with a near-black background and sharp, high-contrast syntax colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3305,7 +3305,7 @@
   {
     "slug": "styles-cadet",
     "name": "styles/cadet",
-    "description": "A truecolor style called cadet.",
+    "description": "A dark truecolor theme with deep navy tones and cool blue accents.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3323,7 +3323,7 @@
   {
     "slug": "styles-casey",
     "name": "styles/casey",
-    "description": "A truecolor style called casey.",
+    "description": "A dark truecolor theme with warm, earthy tones inspired by Handmade Hero.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3341,7 +3341,7 @@
   {
     "slug": "styles-crunchy_leaves",
     "name": "styles/crunchy_leaves",
-    "description": "A true-color style called crunchy_leaves.",
+    "description": "A dark truecolor theme with warm autumn colors — oranges, browns, and deep reds.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3359,7 +3359,7 @@
   {
     "slug": "styles-dalton",
     "name": "styles/dalton",
-    "description": "A truecolor style called dalton.",
+    "description": "A dark truecolor theme with a deep purple-black background and vibrant accents.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3377,7 +3377,7 @@
   {
     "slug": "styles-disco",
     "name": "styles/disco",
-    "description": "A truecolor style called disco.",
+    "description": "A dark truecolor theme with deep blue tones and colorful syntax highlighting.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3395,7 +3395,7 @@
   {
     "slug": "styles-doug",
     "name": "styles/doug",
-    "description": "A truecolor style called doug.",
+    "description": "A dark truecolor theme with a slate-gray background and balanced, comfortable colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3413,7 +3413,7 @@
   {
     "slug": "styles-dracula",
     "name": "styles/dracula",
-    "description": "A truecolor style called dracula.",
+    "description": "A dark truecolor theme based on the popular Dracula color scheme. Purple, pink, and cyan on a dark background.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3431,7 +3431,7 @@
   {
     "slug": "styles-drift",
     "name": "styles/drift",
-    "description": "A truecolor style called drift.",
+    "description": "A dark truecolor theme with a deep navy background and subtle, cool-toned syntax colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3449,7 +3449,7 @@
   {
     "slug": "styles-elise",
     "name": "styles/elise",
-    "description": "A truecolor style called elise.",
+    "description": "A dark truecolor theme with a teal-tinted background and soft, muted colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3467,7 +3467,7 @@
   {
     "slug": "styles-elly",
     "name": "styles/elly",
-    "description": "A truecolor style called elly.",
+    "description": "A dark truecolor theme with a deep blue-gray background and gentle contrast.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3485,7 +3485,7 @@
   {
     "slug": "styles-embark",
     "name": "styles/embark",
-    "description": "A truecolor style called embark.",
+    "description": "A dark truecolor theme with rich purple undertones and vibrant accents.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3503,7 +3503,7 @@
   {
     "slug": "styles-first",
     "name": "styles/first",
-    "description": "Two truecolor styles called first-dark and first-light. The first styles made for yed!",
+    "description": "The original yed themes — first-dark and first-light. The dark variant uses deep navy with teal and cream.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3521,7 +3521,7 @@
   {
     "slug": "styles-forest",
     "name": "styles/forest",
-    "description": "A truecolor style called forest.",
+    "description": "A dark truecolor theme with deep green tones, like coding in a quiet forest.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3539,7 +3539,7 @@
   {
     "slug": "styles-gruvbox",
     "name": "styles/gruvbox",
-    "description": "A truecolor style called gruvbox.",
+    "description": "A dark truecolor theme based on the popular Gruvbox color scheme. Warm, retro colors with good contrast.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3557,7 +3557,7 @@
   {
     "slug": "styles-hat",
     "name": "styles/hat",
-    "description": "A truecolor style called hat.",
+    "description": "A dark truecolor theme with a warm olive-brown background and earthy tones.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3575,7 +3575,7 @@
   {
     "slug": "styles-heather",
     "name": "styles/heather",
-    "description": "A true-color style called heather.",
+    "description": "A dark truecolor theme with a neutral gray background and soft purple accents.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3593,7 +3593,7 @@
   {
     "slug": "styles-humanoid",
     "name": "styles/humanoid",
-    "description": "Two truecolor styles called humanoid-dark and humanoid-light.",
+    "description": "Two truecolor themes (humanoid-dark and humanoid-light) with a carefully balanced, accessible color palette.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3611,7 +3611,7 @@
   {
     "slug": "styles-lab",
     "name": "styles/lab",
-    "description": "A 16-color style called lab.",
+    "description": "A dark truecolor theme with a pure black background and clean, laboratory-precise colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3629,7 +3629,7 @@
   {
     "slug": "styles-midnight",
     "name": "styles/midnight",
-    "description": "A soft on the eyes dark theme, inspired by VN-Night.nvim",
+    "description": "A dark truecolor theme with a deep indigo background and cool, calming syntax colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3647,7 +3647,7 @@
   {
     "slug": "styles-monokai",
     "name": "styles/monokai",
-    "description": "A 256-color style called monokai.",
+    "description": "A dark truecolor theme based on the classic Monokai color scheme. Bright, distinctive syntax colors on a dark background.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3665,7 +3665,7 @@
   {
     "slug": "styles-mordechai",
     "name": "styles/mordechai",
-    "description": "A truecolor style called mordechai.",
+    "description": "A dark truecolor theme with a near-black background and carefully chosen accent colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3683,7 +3683,7 @@
   {
     "slug": "styles-moss",
     "name": "styles/moss",
-    "description": "A truecolor style called moss.",
+    "description": "A dark truecolor theme with deep green-black tones and natural, organic colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3701,7 +3701,7 @@
   {
     "slug": "styles-mrjantz",
     "name": "styles/mrjantz",
-    "description": "A 256-color style called mrjantz.",
+    "description": "A dark truecolor theme with a pure black background and vivid, high-contrast syntax colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3719,7 +3719,7 @@
   {
     "slug": "styles-nord",
     "name": "styles/nord",
-    "description": "A truecolor style called nord.",
+    "description": "A dark truecolor theme based on the Nord color palette. Cool arctic blues and clean, frosty tones.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3737,7 +3737,7 @@
   {
     "slug": "styles-olive",
     "name": "styles/olive",
-    "description": "A truecolor style called olive.",
+    "description": "A dark truecolor theme with deep forest-green tones and warm olive accents.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3755,7 +3755,7 @@
   {
     "slug": "styles-papercolor",
     "name": "styles/papercolor",
-    "description": "A truecolor style called papercolor.",
+    "description": "A light truecolor theme based on the PaperColor color scheme. Clean and bright with good readability.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3773,7 +3773,7 @@
   {
     "slug": "styles-pastel",
     "name": "styles/pastel",
-    "description": "A true-color style called pastel.",
+    "description": "A dark truecolor theme with soft, muted pastel syntax colors on a dark gray background.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3791,7 +3791,7 @@
   {
     "slug": "styles-river",
     "name": "styles/river",
-    "description": "A truecolor style called river.",
+    "description": "A dark truecolor theme with steel-blue tones, like light reflecting off water.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3809,7 +3809,7 @@
   {
     "slug": "styles-sammy",
     "name": "styles/sammy",
-    "description": "A truecolor style called sammy.",
+    "description": "A dark truecolor theme with a deep blue-gray background and balanced, pleasant colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3827,7 +3827,7 @@
   {
     "slug": "styles-skyfall",
     "name": "styles/skyfall",
-    "description": "A 256-color style called skyfall.",
+    "description": "A dark truecolor theme with a near-black background and cool, understated syntax colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3845,7 +3845,7 @@
   {
     "slug": "styles-solarized",
     "name": "styles/solarized",
-    "description": "Two truecolor styles called solarized-dark and solarized-light.",
+    "description": "A dark truecolor theme based on the iconic Solarized color scheme by Ethan Schoonover.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3863,7 +3863,7 @@
   {
     "slug": "styles-tempus_future",
     "name": "styles/tempus_future",
-    "description": "A truecolor style called tempus-future.",
+    "description": "A dark truecolor theme with a futuristic, high-tech feel and sharp color contrast.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3881,7 +3881,7 @@
   {
     "slug": "styles-vt",
     "name": "styles/vt",
-    "description": "A 16-color style called vt.",
+    "description": "A dark truecolor theme styled after classic VT terminal aesthetics — green and amber on black.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3899,7 +3899,7 @@
   {
     "slug": "styles-vt_light",
     "name": "styles/vt_light",
-    "description": "A 16-color style called vt-light.",
+    "description": "A light truecolor theme with a vintage terminal feel and warm, readable colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3917,7 +3917,7 @@
   {
     "slug": "styles-zulu",
     "name": "styles/zulu",
-    "description": "A truecolor style called zulu!",
+    "description": "A dark truecolor theme with a deep background and bold, striking accent colors.",
     "category": "style",
     "configuration": [],
     "commands": [],
@@ -3972,7 +3972,7 @@
   {
     "slug": "terminal",
     "name": "terminal",
-    "description": "A terminal emulator in a yed buffer.",
+    "description": "A full terminal emulator running inside a yed buffer. Open a shell, run commands, and switch back to editing without leaving yed.",
     "category": "tools",
     "configuration": [
       {
@@ -4441,7 +4441,7 @@
   {
     "slug": "yule_2021",
     "name": "yule_2021",
-    "description": "❅  Let it snow! ❅",
+    "description": "A festive holiday plugin that makes it snow in your editor. Because even terminal editors deserve some holiday cheer.",
     "category": "fun",
     "configuration": [],
     "commands": [
@@ -4469,7 +4469,7 @@
   {
     "slug": "yule_2022",
     "name": "yule_2022",
-    "description": "❅  Ho ho hop! ❅",
+    "description": "Another festive holiday plugin with a hopping surprise. A fun seasonal treat for your terminal.",
     "category": "fun",
     "configuration": [],
     "commands": [

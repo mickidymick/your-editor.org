@@ -637,9 +637,6 @@
   "lang-jgraph": {
     "summary": "Registers the Jgraph filetype for .jgr graph description files."
   },
-  "lang-jule": {
-    "summary": "Registers the Jule filetype for .j files (Jule programming language)."
-  },
   "lang-julie": {
     "summary": "Registers the Julie filetype for .j files (Julie programming language)."
   },
@@ -739,9 +736,6 @@
   },
   "lang-syntax-jgraph": {
     "summary": "Adds syntax highlighting for Jgraph files. Requires the lang/jgraph filetype plugin."
-  },
-  "lang-syntax-jule": {
-    "summary": "Adds syntax highlighting for Jule source files. Requires the lang/jule filetype plugin."
   },
   "lang-syntax-julie": {
     "summary": "Adds syntax highlighting for Julie source files. Requires the lang/julie filetype plugin."

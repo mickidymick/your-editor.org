@@ -12,14 +12,14 @@ import styleColors from '../../../data/style-colors.json';
 const PLUGIN_IMAGES: Record<string, any> = {
   'calc': require('../../../assets/images/calc.png'),
   'diff': require('../../../assets/images/diff.png'),
-  'grep': require('../../../assets/images/grep.png'),
+  'grep': require('../../../assets/images/grep.gif'),
   'bookmarks': require('../../../assets/images/bookmarks.png'),
   'cursor_word_hl': require('../../../assets/images/cursor_word_hl.png'),
   'terminal': require('../../../assets/images/terminal.png'),
   'tree_view': require('../../../assets/images/tree_view.png'),
-  'find_file': require('../../../assets/images/find_file.png'),
-  'completer': require('../../../assets/images/completer.png'),
-  'style_picker': require('../../../assets/images/style_picker.png'),
+  'find_file': require('../../../assets/images/find_file.gif'),
+  'completer': require('../../../assets/images/completer.gif'),
+  'style_picker': require('../../../assets/images/style_picker.gif'),
   'lsp_info_popup': require('../../../assets/images/lsp_info_popup.png'),
   'fstyle': require('../../../assets/images/fstyle.png'),
   'lsp_diagnostics': require('../../../assets/images/lsp_diagnostics.png'),
@@ -27,6 +27,10 @@ const PLUGIN_IMAGES: Record<string, any> = {
   'builder': require('../../../assets/images/builder.png'),
   'mouse_menu': require('../../../assets/images/mouse_menu.png'),
   'line_numbers': require('../../../assets/images/line_numbers.png'),
+  'comment': require('../../../assets/images/comment.gif'),
+  'paren_hl': require('../../../assets/images/paren_hl.png'),
+  'brace_hl': require('../../../assets/images/brace_hl.png'),
+  'lsp_symbol_buffer': require('../../../assets/images/lsp_symbol_buffer.png'),
 };
 
 const styleColorData = styleColors as Record<string, {
