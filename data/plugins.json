@@ -1564,31 +1564,6 @@
     "repoUrl": "https://github.com/kammerdienerb/yed-lang-jgraph"
   },
   {
-    "slug": "lang-jule",
-    "name": "lang/jule",
-    "description": "Filetype for Jule.",
-    "category": "language",
-    "configuration": [],
-    "commands": [],
-    "buffers": [],
-    "notes": "The filetype is called \"Jule\".\nMatches the file extensions .j.",
-    "version": "0.0.1",
-    "keywords": [
-      "lang",
-      "language",
-      "filetype",
-      "file",
-      "type",
-      "jule",
-      "Jule",
-      "lisp",
-      "LISP",
-      "justified"
-    ],
-    "extraSections": {},
-    "repoUrl": ""
-  },
-  {
     "slug": "lang-julie",
     "name": "lang/julie",
     "description": "Filetype for Julie.",
@@ -2158,32 +2133,6 @@
     ],
     "extraSections": {},
     "repoUrl": "https://github.com/kammerdienerb/yed-lang-syntax-jgraph"
-  },
-  {
-    "slug": "lang-syntax-jule",
-    "name": "lang/syntax/jule",
-    "description": "Syntax highlighting for the Jule filetype.",
-    "category": "syntax",
-    "configuration": [],
-    "commands": [],
-    "buffers": [],
-    "notes": "",
-    "version": "0.0.1",
-    "keywords": [
-      "lang",
-      "language",
-      "filetype",
-      "file",
-      "syntax",
-      "highlight",
-      "jule",
-      "Jule",
-      "lisp",
-      "LISP",
-      "justified"
-    ],
-    "extraSections": {},
-    "repoUrl": ""
   },
   {
     "slug": "lang-syntax-julie",

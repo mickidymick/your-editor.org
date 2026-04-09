@@ -6,13 +6,13 @@ import { Typography } from '../constants/typography';
 
 const NAV_LINKS = [
   { href: '/install', label: 'Install' },
-  { href: '/update', label: 'Update' },
-  { href: '/changelog', label: 'Changelog' },
+  { href: '/example-configs', label: 'Configs' },
   { href: '/user-guide', label: 'User Guide' },
   { href: '/ypm', label: 'YPM Guide' },
   { href: '/plugins', label: 'Plugins' },
-  { href: '/example-configs', label: 'Configs' },
   { href: '/lsp-setup', label: 'LSP Setup' },
+  { href: '/update', label: 'Update' },
+  { href: '/changelog', label: 'Changelog' },
   { href: '/faq', label: 'FAQ' },
   { href: '/dev-manual', label: 'Dev Manual' },
   { href: '/reference/commands', label: 'Reference' },
@@ -27,6 +27,9 @@ export function Header() {
   const isActive = (href: string) => {
     if (href === '/reference/commands') {
       return pathname.startsWith('/reference');
+    }
+    if (href === '/plugins') {
+      return pathname.startsWith('/plugins');
     }
     return pathname === href;
   };

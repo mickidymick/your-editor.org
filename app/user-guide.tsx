@@ -113,13 +113,27 @@ export default function UserGuide() {
           <Text style={styles.code}>yed</Text> can be started by simply entering "yed" on the
           command line.
         </Text>
-        <CodeBlock>{'yed'}</CodeBlock>
+        <CodeBlock context="terminal">{'yed'}</CodeBlock>
+        <Callout type="note">
+          If you installed to a non-default path, make sure the directory containing the{' '}
+          <Text style={styles.code}>yed</Text> executable is in your <Text style={styles.code}>PATH</Text>.
+        </Callout>
 
         <SubSection title="Configuration">
           <Text style={styles.body}>
-            All configuration by default starts with items in{' '}
-            <Text style={styles.code}>~/.config/yed</Text>. On first run, you'll see a popup
-            asking to create the default configuration directory.
+            All configuration lives in{' '}
+            <Text style={styles.code}>~/.config/yed</Text>.
+          </Text>
+          <Text style={styles.body}>
+            If you already created this directory and added a{' '}
+            <Link href="/example-configs" style={styles.link}>starter config</Link>,
+            yed will load your <Text style={styles.code}>yedrc</Text> and
+            automatically install plugins from your{' '}
+            <Text style={styles.code}>ypm_list</Text> on the first run.
+          </Text>
+          <Text style={styles.body}>
+            If the directory doesn't exist yet, you'll see a popup asking to create it
+            with a default configuration:
           </Text>
           <View style={styles.imageContainer}>
             <Image
@@ -198,7 +212,7 @@ export default function UserGuide() {
           to customize key mappings. For example, to change the command prompt binding from{' '}
           <Text style={styles.code}>ctrl-y</Text> to <Text style={styles.code}>ctrl-x</Text>:
         </Text>
-        <CodeBlock>{'bind ctrl-x command-prompt\nunbind ctrl-y'}</CodeBlock>
+        <CodeBlock context="yed">{'bind ctrl-x command-prompt\nunbind ctrl-y'}</CodeBlock>
         <Callout type="note">
           Do the bind before the unbind so you can still access the command prompt to type the
           commands!
@@ -218,8 +232,8 @@ export default function UserGuide() {
           Buffers are units of text content, typically representing a file. Open a file from the
           command line or from within yed:
         </Text>
-        <CodeBlock>{'yed my_file.txt'}</CodeBlock>
-        <CodeBlock>{'buffer my_file.txt'}</CodeBlock>
+        <CodeBlock context="terminal">{'yed my_file.txt'}</CodeBlock>
+        <CodeBlock context="yed">{'buffer my_file.txt'}</CodeBlock>
         <Text style={styles.body}>
           Editing modifies the buffer, not the file on disk. Save with{' '}
           <Text style={styles.code}>write-buffer</Text> (default: <Text style={styles.code}>ctrl-w</Text>).
@@ -231,7 +245,7 @@ export default function UserGuide() {
             <Text style={styles.code}>*vars</Text>, <Text style={styles.code}>*yank</Text>,{' '}
             <Text style={styles.code}>*log</Text>.
           </Text>
-          <CodeBlock>{'buffer *log'}</CodeBlock>
+          <CodeBlock context="yed">{'buffer *log'}</CodeBlock>
           <Text style={styles.body}>
             Many plugins implement functionality through special buffers.
           </Text>
@@ -287,16 +301,15 @@ export default function UserGuide() {
           Activate a color theme using the <Text style={styles.code}>style</Text> command.
           Styles are provided by plugins.
         </Text>
-        <CodeBlock>{'style monokai'}</CodeBlock>
+        <CodeBlock context="yed">{'style monokai'}</CodeBlock>
         <Callout type="note">
           The only style available without plugins is "default".
         </Callout>
         <Text style={styles.body}>
-          Most styles support truecolor. Enable it before loading style plugins:
+          Most styles support truecolor. Enable it in your yedrc before setting a style:
         </Text>
-        <CodeBlock>{`set truecolor 'yes'
-plugin-load 'ypm'
-style 'gruvbox'`}</CodeBlock>
+        <CodeBlock context="yed">{`set truecolor "yes"
+style "gruvbox"`}</CodeBlock>
         <Text style={styles.body}>
           Browse all available themes on the{' '}
           <Link href={{ pathname: '/plugins', params: { category: 'style' } }} style={styles.link}>Styles</Link> plugin page.
@@ -306,27 +319,49 @@ style 'gruvbox'`}</CodeBlock>
       {/* Section 8 */}
       <Section number={8} title="Plugins">
         <Text style={styles.body}>
-          Almost all advanced functionality comes from plugins. Load and unload with{' '}
-          <Text style={styles.code}>plugin-load</Text> and{' '}
-          <Text style={styles.code}>plugin-unload</Text>. Use{' '}
-          <Text style={styles.code}>plugin-path</Text> to see where a plugin is loaded from.
+          Almost all advanced functionality comes from plugins. The recommended way to manage
+          plugins is through your{' '}
+          <Text style={styles.code}>ypm_list</Text> file — add plugin names to it and YPM
+          will install and load them automatically on startup.
         </Text>
 
         <SubSection title="YPM (yed plugin manager)">
           <Text style={styles.body}>
-            YPM can find, download, and manage plugins from a large collection. Use{' '}
-            <Text style={styles.code}>ypm-menu</Text> to browse available plugins. Installed
-            plugins are automatically loaded on startup.
+            YPM is included with yed and handles downloading, building, and loading plugins.
+            Use <Text style={styles.code}>ypm-menu</Text> to browse and install plugins
+            interactively, or add them directly to your{' '}
+            <Text style={styles.code}>~/.config/yed/ypm_list</Text> file.
           </Text>
           <Text style={styles.body}>
-            Learn more about YPM on the <Link href="/ypm" style={styles.link}>YPM Guide</Link> page.
-          </Text>
-          <Text style={styles.body}>
-            Browse all available plugins on the{' '}
-            <Link href="/plugins" style={styles.link}>Plugins</Link> page.
+            Learn more on the <Link href="/ypm" style={styles.link}>YPM Guide</Link> page.
           </Text>
         </SubSection>
+
+        <SubSection title="Manual loading">
+          <Text style={styles.body}>
+            You can also load plugins manually with{' '}
+            <Text style={styles.code}>plugin-load</Text> and unload with{' '}
+            <Text style={styles.code}>plugin-unload</Text>. This is useful for trying out
+            a plugin in your current session without permanently adding it to your{' '}
+            <Text style={styles.code}>ypm_list</Text>.
+          </Text>
+          <Callout type="tip">
+            Use <Text style={styles.code}>ypm_list</Text> for your permanent plugin setup.
+            Use <Text style={styles.code}>plugin-load</Text> for quick testing.
+          </Callout>
+        </SubSection>
+
+        <Text style={styles.body}>
+          Browse all available plugins on the{' '}
+          <Link href="/plugins" style={styles.link}>Plugins</Link> page.
+        </Text>
       </Section>
+
+      <Link href="/ypm" asChild>
+        <Pressable style={styles.guideCta}>
+          <Text style={styles.guideCtaText}>Next: Learn about YPM →</Text>
+        </Pressable>
+      </Link>
 
       <View style={styles.divider} />
 
@@ -413,6 +448,21 @@ const styles = StyleSheet.create({
     fontSize: Typography.fontSize.sm,
     color: Colors.link,
     lineHeight: Typography.fontSize.sm * 1.8,
+  },
+  guideCta: {
+    backgroundColor: Colors.heading,
+    borderRadius: 6,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    alignSelf: 'center',
+    marginTop: 32,
+  },
+  guideCtaText: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.md,
+    color: Colors.contentBg,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   divider: {
     height: 1,

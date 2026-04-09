@@ -13,7 +13,7 @@ export const Colors = {
   cardBg: '#112233',
   cardBorder: '#40798c',
   subtleText: '#8ba4b0',
-  keyword: '#d81e5b',
-  string: '#53aa6f',
-  comment: '#48b4eb',
+  keyword: '#70b8d0',
+  string: '#b8d068',
+  comment: '#506878',
 };

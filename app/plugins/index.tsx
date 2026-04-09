@@ -101,7 +101,7 @@ export default function PluginsIndex() {
 
   return (
     <View>
-      <SEO title="Plugins" description="Browse and search 155+ plugins available for the yed terminal editor." />
+      <SEO title="Plugins" description="Browse and search 153 plugins available for the yed terminal editor." />
       <Text style={styles.h1}>Plugins</Text>
       <Text style={styles.intro}>
         yed has {plugins.length} plugins available through YPM. Browse and search below, or

@@ -44,21 +44,21 @@ export default function Update() {
         <Text style={styles.body}>
           Navigate to your cloned repository and pull the latest source:
         </Text>
-        <CodeBlock>{`cd yed\ngit pull`}</CodeBlock>
+        <CodeBlock context="terminal">{`cd yed\ngit pull`}</CodeBlock>
       </Step>
 
       <Step number={2} title="Rebuild and install">
         <Text style={styles.body}>
           Run the install script with the same flags you used during your initial installation:
         </Text>
-        <CodeBlock>{'./install.sh'}</CodeBlock>
+        <CodeBlock context="terminal">{'./install.sh'}</CodeBlock>
         <Callout type="note">
           If you originally installed to a custom prefix, use the same flag. For example:
         </Callout>
         <Text style={styles.exampleLabel}>User-local install:</Text>
-        <CodeBlock>{'./install.sh -p ~/.local'}</CodeBlock>
+        <CodeBlock context="terminal">{'./install.sh -p ~/.local'}</CodeBlock>
         <Text style={styles.exampleLabel}>System-wide install:</Text>
-        <CodeBlock>{'sudo ./install.sh'}</CodeBlock>
+        <CodeBlock context="terminal">{'sudo ./install.sh'}</CodeBlock>
       </Step>
 
       {/* Updating Plugins */}
@@ -69,7 +69,7 @@ export default function Update() {
         If you're using YPM (the yed plugin manager), you can update all installed plugins from
         within yed:
       </Text>
-      <CodeBlock>{'ypm-update'}</CodeBlock>
+      <CodeBlock context="yed">{'ypm-update'}</CodeBlock>
       <Text style={styles.body}>
         This will fetch the latest versions of all plugins in your{' '}
         <Text style={styles.code}>ypm_list</Text> and rebuild them.
@@ -80,10 +80,10 @@ export default function Update() {
       <Text style={styles.h2}>Checking Your Version</Text>
 
       <Text style={styles.body}>From the command line:</Text>
-      <CodeBlock>{'yed --version'}</CodeBlock>
+      <CodeBlock context="terminal">{'yed --version'}</CodeBlock>
 
       <Text style={styles.body}>Or from within yed:</Text>
-      <CodeBlock>{'version'}</CodeBlock>
+      <CodeBlock context="yed">{'version'}</CodeBlock>
 
       <Text style={styles.body}>
         See the <Link href="/changelog" style={styles.link}>Changelog</Link> for details on
@@ -109,7 +109,7 @@ export default function Update() {
         <Link href="/plugins" asChild>
           <Pressable style={styles.nextCard}>
             <Text style={styles.nextCardTitle}>Plugins</Text>
-            <Text style={styles.nextCardDesc}>Browse 155+ available plugins</Text>
+            <Text style={styles.nextCardDesc}>Browse 153 available plugins</Text>
           </Pressable>
         </Link>
       </View>

@@ -6,6 +6,8 @@ import { Typography } from '../constants/typography';
 interface CodeBlockProps {
   children: string;
   lang?: 'c' | 'bash' | 'plain' | 'yedrc';
+  context?: 'terminal' | 'yed';
+  reserveSlug?: boolean;
 }
 
 interface Token {
@@ -185,10 +187,10 @@ const TOKEN_COLORS: Record<Token['type'], string> = {
   keyword: Colors.keyword,
   string: Colors.string,
   comment: Colors.comment,
-  preprocessor: '#d4a843',
-  number: '#c08040',
-  function: Colors.text,
-  type: Colors.heading,
+  preprocessor: '#d0a0c0',
+  number: '#e0c080',
+  function: '#d0a0d0',
+  type: '#d0a0d0',
 };
 
 function HighlightedCode({ code, lang }: { code: string; lang: 'c' | 'bash' | 'plain' | 'yedrc' }) {
@@ -223,7 +225,12 @@ function HighlightedCode({ code, lang }: { code: string; lang: 'c' | 'bash' | 'p
   return <Text style={codeStyles.code}>{elements}</Text>;
 }
 
-export function CodeBlock({ children, lang }: CodeBlockProps) {
+const CONTEXT_LABELS: Record<string, { label: string; color: string }> = {
+  terminal: { label: 'terminal', color: Colors.string },
+  yed: { label: 'yed', color: Colors.keyword },
+};
+
+export function CodeBlock({ children, lang, context, reserveSlug }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
   const detectedLang = lang || detectLang(children);
 
@@ -235,12 +242,25 @@ export function CodeBlock({ children, lang }: CodeBlockProps) {
     }
   };
 
+  const ctx = context ? CONTEXT_LABELS[context] : null;
+
   return (
-    <View style={codeStyles.container}>
+    <View style={codeStyles.outerWrap}>
+      {ctx ? (
+        <View style={codeStyles.contextSlug}>
+          <View style={[codeStyles.contextSlugBox, { backgroundColor: ctx.color + '20' }]}>
+            <Text style={[codeStyles.contextSlugText, { color: ctx.color }]}>{ctx.label}</Text>
+          </View>
+        </View>
+      ) : reserveSlug ? (
+        <View style={codeStyles.contextSlug} />
+      ) : null}
+      <View style={[codeStyles.container, (ctx || reserveSlug) && { flex: 1, marginVertical: 0 }]}>
       <HighlightedCode code={children} lang={detectedLang} />
       <Pressable style={codeStyles.copyButton} onPress={handleCopy}>
         <Text style={codeStyles.copyText}>{copied ? 'Copied!' : 'Copy'}</Text>
       </Pressable>
+      </View>
     </View>
   );
 }
@@ -258,6 +278,28 @@ const codeStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.cardBorder,
     position: 'relative',
+  },
+  outerWrap: {
+    flexDirection: 'row',
+    marginVertical: 8,
+  },
+  contextSlug: {
+    width: 60,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    marginRight: 8,
+  },
+  contextSlugBox: {
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+  },
+  contextSlugText: {
+    fontFamily: Typography.fontFamily,
+    fontSize: 10,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
   code: {
     fontFamily: Typography.fontFamily,

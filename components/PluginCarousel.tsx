@@ -87,22 +87,27 @@ export function AutoCarousel({ title, plugins }: PluginCarouselProps) {
 
     const cardWidth = 300 + 12;
     const singleSetWidth = plugins.length * cardWidth;
+    const speed = 30; // pixels per second
+    let lastTime: number | null = null;
+    let rafId: number;
 
-    const interval = setInterval(() => {
-      if (pausedRef.current || !scrollRef.current) return;
+    const tick = (now: number) => {
+      if (lastTime !== null && !pausedRef.current && scrollRef.current) {
+        const dt = (now - lastTime) / 1000;
+        offsetRef.current += speed * dt;
 
-      offsetRef.current += 1;
+        if (offsetRef.current >= singleSetWidth) {
+          offsetRef.current -= singleSetWidth;
+        }
 
-      // When we've scrolled past the first set, jump back seamlessly
-      if (offsetRef.current >= singleSetWidth) {
-        offsetRef.current -= singleSetWidth;
         scrollRef.current.scrollTo({ x: offsetRef.current, animated: false });
       }
+      lastTime = now;
+      rafId = requestAnimationFrame(tick);
+    };
 
-      scrollRef.current.scrollTo({ x: offsetRef.current, animated: false });
-    }, 30);
-
-    return () => clearInterval(interval);
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
   }, [plugins.length]);
 
   useEffect(() => {

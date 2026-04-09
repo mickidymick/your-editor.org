@@ -16,68 +16,109 @@ function Callout({ type, children }: { type: 'note' | 'tip'; children: React.Rea
   );
 }
 
-const DEFAULT_CONFIG = `# ~/.config/yed/yedrc
+const YEDRC_HEADER = `#                 _
+#  _   _  ___  __| |_ __ ___
+# | | | |/ _ \\/ _\` | '__/ __|
+# | |_| |  __/ (_| | | | (__
+#  \\__, |\\___|\\__,_|_|  \\___|
+#  |___/
+#
+# your-editor.org
+# Add your name and customize to your liking!
+`;
+
+const DEFAULT_YEDRC = `${YEDRC_HEADER}
+
+#========================#
+#         Style          #
+#========================#
 
 # Enable truecolor support
 set truecolor "yes"
 
-# Load the plugin manager
-plugin-load "ypm"
-
 # Set your style
 style "first-dark"
 
-# Plugins
-plugin-load "auto_paren"
-plugin-load "comment"
-plugin-load "completer"
-plugin-load "cursor_word_hl"
-plugin-load "find_file"
-plugin-load "go_menu"
-plugin-load "grep"
-plugin-load "line_numbers"
-plugin-load "loc_history"
-plugin-load "mouse"
-plugin-load "universal_clipboard"
+
+#========================#
+#       Variables        #
+#========================#
 
 # Completer settings
 set completer-auto "yes"
 
-# Use ripgrep for grep
-set grep-cmd "rg --vimgrep"`;
+# Mouse settings
+set mouse-cursor-scroll "yes"
+set mouse-scroll-num-lines "3"
 
-const VIMISH_CONFIG = `# ~/.config/yed/yedrc
+# Copy to system clipboard on yank
+set universal-copy-on-yank "yes"
+
+
+#========================#
+#       Keybindings      #
+#========================#
+
+# File navigation
+bind ctrl-p find-file
+bind ctrl-tab go-menu
+bind ctrl-shift-f grep
+
+# Editing
+bind ctrl-/ comment-toggle
+bind ctrl-s write-buffer
+
+# Navigation
+bind ctrl-g cursor-line-goto
+
+# Terminal
+bind ctrl-\` terminal`;
+
+const DEFAULT_YPM_LIST = `auto_paren
+comment
+completer
+cursor_word_hl
+find_file
+go_menu
+grep
+line_numbers
+loc_history
+mouse
+terminal
+universal_clipboard
+style_pack
+style_picker
+lang/c
+lang/cpp
+lang/python
+lang/sh
+lang/yedrc
+lang/make
+lang/rust
+lang/syntax/c
+lang/syntax/cpp
+lang/syntax/python
+lang/syntax/sh
+lang/syntax/yedrc
+lang/syntax/make
+lang/syntax/rust`;
+
+const VIMISH_YEDRC = `${YEDRC_HEADER}
+
+#========================#
+#         Style          #
+#========================#
 
 # Enable truecolor support
 set truecolor "yes"
 
-# Load the plugin manager
-plugin-load "ypm"
-
 # Set your style
 style "first-dark"
 
-# Plugins
-plugin-load "auto_paren"
-plugin-load "bookmarks"
-plugin-load "builder"
-plugin-load "comment"
-plugin-load "completer"
-plugin-load "ctags"
-plugin-load "cursor_word_hl"
-plugin-load "diff"
-plugin-load "find_file"
-plugin-load "go_menu"
-plugin-load "grep"
-plugin-load "jump_stack"
-plugin-load "loc_history"
-plugin-load "man"
-plugin-load "mouse"
-plugin-load "mouse_menu"
-plugin-load "terminal"
-plugin-load "tree_view"
-plugin-load "universal_clipboard"
-plugin-load "vimish"
+
+#========================#
+#       Variables        #
+#========================#
 
 # Completer settings
 set completer-auto "yes"
@@ -101,43 +142,125 @@ set builder-popup-rg "yes"
 # Diff settings
 set diff-hl-on "yes"
 
-# Vimish keybindings
-vimish-bind  normal  "tab"          go-menu
+# Ctags settings
+set ctags-regen-on-write "yes"
+set ctags-compl "yes"
+
+# Copy to system clipboard on yank
+set universal-copy-on-yank "yes"
+
+
+#========================#
+#       Keybindings      #
+#========================#
+
+# File navigation
 vimish-bind  normal  "spc f"        find-file
-vimish-bind  normal  "spc t"        ctags-find
+vimish-bind  normal  "spc e"        tree-view-list
+vimish-bind  normal  "spc b"        go-menu
+vimish-bind  normal  "spc g"        grep
+
+# Code navigation
+vimish-bind  normal  "g d"          multi jump-stack-push ctags-jump-to-definition
+vimish-bind  normal  "g r"          lsp-search-symbol
+vimish-bind  normal  "K"            lsp-info
+vimish-bind  normal  "ctrl-o"       jump-stack-pop
+
+# Comments
+vimish-bind  normal  "g c"          comment-toggle
+
+# Build
+vimish-bind  normal  "spc m"        builder-start
+vimish-bind  normal  "spc j"        builder-jump-to-error
+
+# Bookmarks
 vimish-bind  normal  "spc i"        toggle-bookmark-on-line
-vimish-bind  normal  "spc o"        goto-prev-bookmark
-vimish-bind  normal  "spc p"        goto-next-bookmark
-vimish-bind  normal  "ctrl-c ctrl-c" comment-toggle
-vimish-bind  normal  "ctrl-y"       builder-start
-vimish-bind  normal  "ctrl-u"       multi "buffer *lsp-diagnostics" "feed-keys enter"
-vimish-bind  normal  "bsp"          jump-stack-pop
-vimish-bind  normal  "M M"          man-word
-vimish-bind  normal  "%"            brace-goto-other
-vimish-bind  normal  "+"            diff-expand-truncated-lines
-vimish-bind  normal  "-"            diff-contract-truncated-lines
-vimish-bind  normal  "T T"          multi jump-stack-push ctags-jump-to-definition
-vimish-bind  normal  "E E"          builder-jump-to-error`;
+vimish-bind  normal  "[ b"          goto-prev-bookmark
+vimish-bind  normal  "] b"          goto-next-bookmark
+
+# Diagnostics
+vimish-bind  normal  "spc d"        multi "buffer *lsp-diagnostics" "feed-keys enter"
+
+# Misc
+vimish-bind  normal  "spc t"        terminal
+vimish-bind  normal  "%"            brace-goto-other`;
+
+const VIMISH_YPM_LIST = `auto_paren
+bookmarks
+builder
+comment
+completer
+ctags
+cursor_word_hl
+diff
+find_file
+go_menu
+grep
+jump_stack
+loc_history
+man
+mouse
+mouse_menu
+terminal
+tree_view
+universal_clipboard
+vimish
+style_pack
+style_picker
+lang/c
+lang/cpp
+lang/python
+lang/sh
+lang/yedrc
+lang/make
+lang/rust
+lang/syntax/c
+lang/syntax/cpp
+lang/syntax/python
+lang/syntax/sh
+lang/syntax/yedrc
+lang/syntax/make
+lang/syntax/rust`;
 
 export default function ExampleConfigs() {
   const [activeTab, setActiveTab] = useState<'default' | 'vimish'>('default');
 
+  const yedrc = activeTab === 'default' ? DEFAULT_YEDRC : VIMISH_YEDRC;
+  const ypmList = activeTab === 'default' ? DEFAULT_YPM_LIST : VIMISH_YPM_LIST;
+
   return (
     <View>
-      <SEO title="Example Configs" description="Example yedrc configurations for getting started with yed." />
-      <Text style={styles.h1}>Example Configs</Text>
+      <SEO title="Starter Configs" description="Starter yedrc and ypm_list configurations for getting started with yed." />
+      <Text style={styles.h1}>Starter Configs</Text>
       <Text style={styles.intro}>
-        These are starter configurations you can copy into your{' '}
-        <Text style={styles.code}>~/.config/yed/yedrc</Text> file. Pick whichever
-        suits your workflow and customize from there.
+        Pick a starter config below and save both files to{' '}
+        <Text style={styles.code}>~/.config/yed/</Text>.
       </Text>
+      <Text style={styles.body}>
+        If the directory doesn't exist yet, create it:
+      </Text>
+      <CodeBlock context="terminal">{'mkdir -p ~/.config/yed'}</CodeBlock>
+      <View style={styles.fileExplain}>
+        <Text style={styles.body}>
+          <Text style={styles.code}>yedrc</Text> — your settings and keybindings
+        </Text>
+        <Text style={styles.body}>
+          <Text style={styles.code}>ypm_list</Text> — which plugins YPM should install
+        </Text>
+      </View>
 
-      <Callout type="note">
-        These configs assume you have{' '}
-        <Link href="/ypm" style={styles.link}>YPM</Link> set up.
-        Plugins listed here will be loaded automatically — use{' '}
-        <Text style={styles.code}>ypm-menu</Text> to install any you're missing.
-      </Callout>
+      <View style={styles.divider} />
+
+      <Text style={styles.h2}>Choose your style</Text>
+      <Text style={styles.body}>
+        <Text style={styles.bold}>Default yed</Text> works like most text editors — you type and
+        it inserts text. If you're used to editors like nano, Notepad++, or VS Code, start here.
+      </Text>
+      <Text style={styles.body}>
+        <Text style={styles.bold}>Vimish</Text> uses modal editing, where keys do different things
+        depending on the mode you're in. Normal mode is for navigating and running commands, insert
+        mode is for typing text. If you're coming from vim or neovim, this will feel familiar.
+      </Text>
 
       {/* Tab switcher */}
       <View style={styles.tabs}>
@@ -159,75 +282,59 @@ export default function ExampleConfigs() {
         </Pressable>
       </View>
 
-      {/* Default config */}
-      {activeTab === 'default' && (
-        <View>
-          <Text style={styles.configDesc}>
-            A clean starting point for yed's default keybindings. Includes essential plugins for
-            file finding, completion, and grep — no modal editing.
-          </Text>
-          <CodeBlock lang="yedrc">{DEFAULT_CONFIG}</CodeBlock>
-        </View>
+      {/* Config description */}
+      {activeTab === 'default' ? (
+        <Text style={styles.configDesc}>
+          A clean starting point with yed's default keybindings. Includes essential plugins for
+          file finding, completion, and grep — no modal editing.
+        </Text>
+      ) : (
+        <Text style={styles.configDesc}>
+          A full-featured setup with vim-style modal editing. Includes keybindings for
+          jump to definition, build, grep, bookmarks, and more.
+        </Text>
       )}
 
-      {/* Vimish config */}
-      {activeTab === 'vimish' && (
-        <View>
-          <Text style={styles.configDesc}>
-            A full-featured setup with vim-style modal editing. Includes keybindings for most
-            common operations — jump to definition, build, grep, bookmarks, and more.
-          </Text>
-          <CodeBlock lang="yedrc">{VIMISH_CONFIG}</CodeBlock>
-        </View>
-      )}
+      {/* yedrc */}
+      <Text style={styles.fileLabel}>~/.config/yed/yedrc</Text>
+      <CodeBlock lang="yedrc" reserveSlug>{yedrc}</CodeBlock>
 
-      <View style={styles.divider} />
+      {/* ypm_list */}
+      <Text style={styles.fileLabel}>~/.config/yed/ypm_list</Text>
+      <CodeBlock reserveSlug>{ypmList}</CodeBlock>
 
-      <Text style={styles.h2}>What's in these configs</Text>
-      <Text style={styles.body}>
-        Both configs start with the same foundation:
-      </Text>
+      <Link href="/user-guide" asChild>
+        <Pressable style={styles.guideCta}>
+          <Text style={styles.guideCtaText}>Next: Open yed for the first time →</Text>
+        </Pressable>
+      </Link>
 
-      <View style={styles.list}>
-        <Text style={styles.listItem}>
-          {'\u2022'} <Text style={styles.code}>truecolor</Text> — enables 24-bit color for styles that support it
-        </Text>
-        <Text style={styles.listItem}>
-          {'\u2022'} <Text style={styles.code}>ypm</Text> — the plugin manager, so you can install and update plugins
-        </Text>
-        <Text style={styles.listItem}>
-          {'\u2022'} <Text style={styles.code}>completer-auto</Text> — shows completion suggestions as you type
-        </Text>
-        <Text style={styles.listItem}>
-          {'\u2022'} <Text style={styles.code}>grep-cmd</Text> — uses ripgrep for faster project-wide search (install{' '}
-          <Text style={styles.code}>rg</Text> separately)
-        </Text>
-      </View>
-
-      <Text style={styles.body}>
-        The vimish config adds modal editing keybindings and more plugins for navigation,
-        building, and debugging. See each plugin's page for details on what the keybindings do.
-      </Text>
-
+      {/* Next steps */}
       <View style={styles.divider} />
 
       <Text style={styles.h2}>Next steps</Text>
       <View style={styles.nextSteps}>
+        <Link href="/user-guide" style={styles.nextLink}>User Guide</Link>
+        <Text style={styles.nextDesc}>
+          — opening yed, buffers, frames, keybindings, and more
+        </Text>
+      </View>
+      <View style={styles.nextSteps}>
+        <Link href="/ypm" style={styles.nextLink}>YPM Guide</Link>
+        <Text style={styles.nextDesc}>
+          — manage plugins, update, and sync across machines
+        </Text>
+      </View>
+      <View style={styles.nextSteps}>
         <Link href="/plugins" style={styles.nextLink}>Browse plugins</Link>
         <Text style={styles.nextDesc}>
-          — discover more plugins to add to your config
+          — discover more plugins to add to your ypm_list
         </Text>
       </View>
       <View style={styles.nextSteps}>
-        <Link href="/lsp-setup" style={styles.nextLink}>Set up LSP</Link>
+        <Link href="/lsp-setup" style={styles.nextLink}>LSP Setup</Link>
         <Text style={styles.nextDesc}>
           — add language server support for go-to-definition, diagnostics, and more
-        </Text>
-      </View>
-      <View style={styles.nextSteps}>
-        <Link href="/reference/variables" style={styles.nextLink}>Variable reference</Link>
-        <Text style={styles.nextDesc}>
-          — see all configurable variables
         </Text>
       </View>
     </View>
@@ -268,6 +375,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.codeBg,
     paddingHorizontal: 4,
     color: Colors.text,
+  },
+  bold: {
+    fontWeight: 'bold',
+    color: Colors.heading,
   },
   link: {
     color: Colors.link,
@@ -317,6 +428,32 @@ const styles = StyleSheet.create({
   tabTextActive: {
     color: Colors.contentBg,
   },
+  guideCta: {
+    backgroundColor: Colors.heading,
+    borderRadius: 6,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    alignSelf: 'center',
+    marginTop: 24,
+  },
+  guideCtaText: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.md,
+    color: Colors.contentBg,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  fileExplain: {
+    marginTop: 12,
+    marginBottom: 8,
+  },
+  fileLabel: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.sm,
+    color: Colors.subtleText,
+    marginTop: 16,
+    marginBottom: 4,
+  },
   configDesc: {
     fontFamily: Typography.fontFamily,
     fontSize: Typography.fontSize.base,
@@ -328,17 +465,6 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: Colors.cardBorder,
     marginVertical: 24,
-  },
-  list: {
-    marginBottom: 12,
-  },
-  listItem: {
-    fontFamily: Typography.fontFamily,
-    fontSize: Typography.fontSize.base,
-    color: Colors.text,
-    lineHeight: Typography.fontSize.base * Typography.lineHeight.normal,
-    marginBottom: 6,
-    paddingLeft: 8,
   },
   nextSteps: {
     flexDirection: 'row',

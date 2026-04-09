@@ -48,7 +48,7 @@ export default function YPM() {
       <Text style={styles.h1}>YPM — yed Plugin Manager</Text>
       <Text style={styles.intro}>
         YPM is yed's built-in plugin manager. It can find, download, build, and manage plugins
-        from a collection of 155+ community and official plugins.
+        from a collection of 153 community and official plugins.
       </Text>
 
       {/* Getting Started */}
@@ -59,18 +59,18 @@ export default function YPM() {
           YPM is included with yed. If you used the default configuration setup, it's already
           loaded. Otherwise, load it manually:
         </Text>
-        <CodeBlock>{'plugin-load ypm'}</CodeBlock>
+        <CodeBlock context="yed">{'plugin-load ypm'}</CodeBlock>
         <Text style={styles.body}>
           Or add it to your <Text style={styles.code}>yedrc</Text>:
         </Text>
-        <CodeBlock>{"plugin-load 'ypm'"}</CodeBlock>
+        <CodeBlock context="yed">{"plugin-load 'ypm'"}</CodeBlock>
       </Step>
 
       <Step number={2} title="Browse available plugins">
         <Text style={styles.body}>
           Open the YPM menu to see all available plugins:
         </Text>
-        <CodeBlock>{'ypm-menu'}</CodeBlock>
+        <CodeBlock context="yed">{'ypm-menu'}</CodeBlock>
         <Text style={styles.body}>
           This opens the <Text style={styles.code}>*ypm-menu</Text> buffer where you can browse,
           search, and install plugins interactively.
@@ -82,7 +82,7 @@ export default function YPM() {
           From the YPM menu, navigate to a plugin and press Enter to install it. Or install
           directly by name:
         </Text>
-        <CodeBlock>{'ypm-install vimish'}</CodeBlock>
+        <CodeBlock context="yed">{'ypm-install vimish'}</CodeBlock>
         <Callout type="tip">
           <Text style={styles.code}>ypm-install</Text> both installs and hot-loads the plugin
           immediately — no restart needed. Installed plugins are also automatically loaded on
@@ -185,6 +185,12 @@ export default function YPM() {
         <CommandRow command="*ypm-output" description="Build and install output log" even={true} />
       </View>
 
+      <Link href="/plugins" asChild>
+        <Pressable style={styles.guideCta}>
+          <Text style={styles.guideCtaText}>Browse all plugins →</Text>
+        </Pressable>
+      </Link>
+
       {/* Related */}
       <View style={styles.divider} />
       <Text style={styles.h2}>Related</Text>
@@ -192,7 +198,7 @@ export default function YPM() {
         <Link href="/plugins" asChild>
           <Pressable style={styles.nextCard}>
             <Text style={styles.nextCardTitle}>Browse Plugins</Text>
-            <Text style={styles.nextCardDesc}>Search all 155+ available plugins</Text>
+            <Text style={styles.nextCardDesc}>Search all 153 available plugins</Text>
           </Pressable>
         </Link>
         <Link href="/user-guide" asChild>
@@ -303,6 +309,21 @@ const styles = StyleSheet.create({
   },
   stepContent: {
     marginLeft: 40,
+  },
+  guideCta: {
+    backgroundColor: Colors.heading,
+    borderRadius: 6,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    alignSelf: 'center',
+    marginTop: 32,
+  },
+  guideCtaText: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.md,
+    color: Colors.contentBg,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   divider: {
     height: 1,

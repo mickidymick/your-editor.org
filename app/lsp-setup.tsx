@@ -36,9 +36,9 @@ function ServerCard({ name, install, config, languages }: {
       <Text style={styles.serverName}>{name}</Text>
       <Text style={styles.serverLangs}>{languages}</Text>
       <Text style={styles.serverInstallLabel}>Install:</Text>
-      <CodeBlock lang="bash">{install}</CodeBlock>
+      <CodeBlock lang="bash" context="terminal">{install}</CodeBlock>
       <Text style={styles.serverConfigLabel}>Add to yedrc:</Text>
-      <CodeBlock lang="yedrc">{config}</CodeBlock>
+      <CodeBlock lang="yedrc" context="yed">{config}</CodeBlock>
     </View>
   );
 }
@@ -108,14 +108,16 @@ export default function LspSetup() {
           </View>
         </View>
 
-        <Text style={styles.body}>Add these to your yedrc:</Text>
-        <CodeBlock lang="yedrc">{`plugin-load "lsp"
-plugin-load "lsp_diagnostics"
-plugin-load "lsp_info_popup"
-plugin-load "lsp_symbol_buffer"
-plugin-load "completer"
-
-set completer-auto "yes"`}</CodeBlock>
+        <Text style={styles.body}>Add these to your <Text style={styles.code}>ypm_list</Text>:</Text>
+        <CodeBlock reserveSlug>{`lsp
+lsp_diagnostics
+lsp_info_popup
+lsp_symbol_buffer
+completer`}</CodeBlock>
+        <Text style={styles.body}>
+          And add this to your <Text style={styles.code}>yedrc</Text>:
+        </Text>
+        <CodeBlock lang="yedrc" context="yed">{'set completer-auto "yes"'}</CodeBlock>
       </Section>
 
       <View style={styles.divider} />
@@ -126,7 +128,7 @@ set completer-auto "yes"`}</CodeBlock>
           about it with{' '}
           <Text style={styles.code}>lsp-define-server</Text> in your yedrc. The format is:
         </Text>
-        <CodeBlock lang="yedrc">{'lsp-define-server <NAME> <COMMAND> <LANGUAGE> [LANGUAGE...]'}</CodeBlock>
+        <CodeBlock lang="yedrc" context="yed">{'lsp-define-server <NAME> <COMMAND> <LANGUAGE> [LANGUAGE...]'}</CodeBlock>
 
         <Text style={styles.body}>
           Here are common setups:
@@ -138,6 +140,14 @@ set completer-auto "yes"`}</CodeBlock>
           install="sudo apt install clangd"
           config={'lsp-define-server CLANGD clangd --background-index C C++'}
         />
+
+        <Callout type="note">
+          clangd needs a <Text style={styles.code}>compile_commands.json</Text> in your project
+          root to understand how your code is built. Generate one with{' '}
+          <Text style={styles.code}>bear -- make</Text> or with cmake:{' '}
+          <Text style={styles.code}>cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1</Text>.
+          Without it, clangd won't be able to find headers or index your project properly.
+        </Callout>
 
         <ServerCard
           name="pylsp"
@@ -175,13 +185,13 @@ set completer-auto "yes"`}</CodeBlock>
 
       <View style={styles.divider} />
 
-      <Section title="Useful keybindings">
+      <Section title="Example keybindings">
         <Text style={styles.body}>
           If you're using{' '}
           <Link href="/plugins/vimish" style={styles.link}>vimish</Link>, here are some
-          keybindings for LSP features:
+          keybindings you might find useful as a starting point:
         </Text>
-        <CodeBlock lang="yedrc">{`# Jump to definition (push location first for jump-stack)
+        <CodeBlock lang="yedrc" context="yed">{`# Jump to definition (push location first for jump-stack)
 vimish-bind  normal  "T T"        multi jump-stack-push ctags-jump-to-definition
 
 # View diagnostics list
@@ -219,6 +229,29 @@ vimish-bind  normal  "bsp"        jump-stack-pop`}</CodeBlock>
           </Text>
         </View>
       </Section>
+
+      <View style={styles.divider} />
+      <Text style={styles.h2}>Related</Text>
+      <View style={styles.nextSteps}>
+        <Link href="/plugins" asChild>
+          <Pressable style={styles.nextCard}>
+            <Text style={styles.nextCardTitle}>Plugins</Text>
+            <Text style={styles.nextCardDesc}>Browse all available plugins</Text>
+          </Pressable>
+        </Link>
+        <Link href="/user-guide" asChild>
+          <Pressable style={styles.nextCard}>
+            <Text style={styles.nextCardTitle}>User Guide</Text>
+            <Text style={styles.nextCardDesc}>Learn the basics of using yed</Text>
+          </Pressable>
+        </Link>
+        <Link href="/faq" asChild>
+          <Pressable style={styles.nextCard}>
+            <Text style={styles.nextCardTitle}>FAQ</Text>
+            <Text style={styles.nextCardDesc}>Common questions answered</Text>
+          </Pressable>
+        </Link>
+      </View>
     </View>
   );
 }
@@ -286,6 +319,33 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: Colors.cardBorder,
     marginVertical: 24,
+  },
+  nextSteps: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  nextCard: {
+    backgroundColor: Colors.cardBg,
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
+    borderRadius: 6,
+    padding: 16,
+    marginRight: 12,
+    marginBottom: 12,
+    minWidth: 180,
+    flex: 1,
+  },
+  nextCardTitle: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.base,
+    color: Colors.link,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  nextCardDesc: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.sm,
+    color: Colors.subtleText,
   },
   featureGrid: {
     flexDirection: 'row',

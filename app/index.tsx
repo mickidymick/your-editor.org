@@ -28,7 +28,7 @@ const featured = plugins
 export default function Home() {
   return (
     <View>
-      <SEO title="yed" description="yed is a fast, extensible terminal editor with 155+ plugins. Lightweight, command-driven, and fully customizable." />
+      <SEO title="yed" description="yed is a fast, extensible terminal editor with 153 plugins. Lightweight, command-driven, and fully customizable." />
       {/* Hero */}
       <View style={styles.hero}>
         <Text style={styles.heroTitle}>
@@ -74,7 +74,7 @@ export default function Home() {
           { title: 'Frames', desc: 'Layered frame management with splits' },
           { title: 'Live Search', desc: 'Find and replace as you type' },
           { title: 'Undo / Redo', desc: 'Full undo history for every buffer' },
-          { title: '155+ Plugins', desc: 'LSP, git, completion, themes, and more' },
+          { title: '153 Plugins', desc: 'LSP, git, completion, themes, and more' },
         ].map((feature) => (
           <View key={feature.title} style={styles.featureCard}>
             <Text style={styles.featureTitle}>{feature.title}</Text>

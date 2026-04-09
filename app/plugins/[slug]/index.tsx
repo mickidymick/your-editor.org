@@ -153,6 +153,17 @@ export default function PluginDetail() {
         </View>
       )}
 
+      {/* LSP setup link */}
+      {plugin.category === 'lsp' && (
+        <View style={styles.lspCallout}>
+          <Text style={styles.lspCalloutText}>
+            This plugin requires a language server.{' '}
+            <Link href="/lsp-setup" style={styles.link}>See the LSP Setup guide</Link> to
+            get started.
+          </Text>
+        </View>
+      )}
+
       {/* Style preview for color themes */}
       {plugin.category === 'style' && (() => {
         // Find all style variants for this plugin
@@ -641,6 +652,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   infoCardDesc: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.sm,
+    color: Colors.text,
+    lineHeight: Typography.fontSize.sm * Typography.lineHeight.normal,
+  },
+  lspCallout: {
+    backgroundColor: Colors.cardBg,
+    borderLeftWidth: 3,
+    borderLeftColor: Colors.link,
+    borderRadius: 4,
+    padding: 14,
+    marginBottom: 16,
+  },
+  lspCalloutText: {
     fontFamily: Typography.fontFamily,
     fontSize: Typography.fontSize.sm,
     color: Colors.text,

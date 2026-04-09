@@ -97,7 +97,7 @@ export default function Changelog() {
         <Link href="/plugins" asChild>
           <Pressable style={styles.nextCard}>
             <Text style={styles.nextCardTitle}>Plugins</Text>
-            <Text style={styles.nextCardDesc}>Browse 155+ plugins</Text>
+            <Text style={styles.nextCardDesc}>Browse 153 plugins</Text>
           </Pressable>
         </Link>
       </View>

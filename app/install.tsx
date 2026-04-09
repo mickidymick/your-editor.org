@@ -57,7 +57,7 @@ export default function Install() {
             github.com/kammerdienerb/yed
           </Text>
         </Text>
-        <CodeBlock>{'git clone https://github.com/kammerdienerb/yed.git'}</CodeBlock>
+        <CodeBlock context="terminal">{'git clone https://github.com/kammerdienerb/yed.git'}</CodeBlock>
       </Step>
 
       <Step number={2} title="Build and install">
@@ -75,46 +75,57 @@ export default function Install() {
         </View>
 
         <Text style={styles.exampleLabel}>Debug build to a test directory:</Text>
-        <CodeBlock>{'./install.sh -c debug -p test'}</CodeBlock>
+        <CodeBlock context="terminal">{'./install.sh -c debug -p test'}</CodeBlock>
 
         <Text style={styles.exampleLabel}>User-local release build:</Text>
-        <CodeBlock>{'./install.sh -p ~/.local'}</CodeBlock>
+        <CodeBlock context="terminal">{'./install.sh -p ~/.local'}</CodeBlock>
 
         <Text style={styles.exampleLabel}>System-wide release build:</Text>
-        <CodeBlock>{'sudo ./install.sh'}</CodeBlock>
+        <CodeBlock context="terminal">{'sudo ./install.sh'}</CodeBlock>
       </Step>
 
-      <Step number={3} title="Verify installation">
+      <Step number={3} title="Grab a starter config">
+        <Text style={styles.body}>
+          Before opening yed for the first time, grab a starter{' '}
+          <Text style={styles.code}>yedrc</Text> and{' '}
+          <Text style={styles.code}>ypm_list</Text>. When yed starts, it will
+          automatically install your plugins.
+        </Text>
+        <Link href="/example-configs" asChild>
+          <Pressable style={styles.configCta}>
+            <Text style={styles.configCtaText}>Pick a starter config →</Text>
+          </Pressable>
+        </Link>
+      </Step>
+
+      <Step number={4} title="Run yed">
         <Callout type="note">
           If you installed to a non-default path, make sure the directory containing the{' '}
           <Text style={styles.code}>yed</Text> executable is in your <Text style={styles.code}>PATH</Text>.
         </Callout>
-        <Text style={styles.body}>
-          You should now be able to run <Text style={styles.code}>yed</Text>:
-        </Text>
-        <CodeBlock>{'yed'}</CodeBlock>
+        <CodeBlock context="terminal">{'yed'}</CodeBlock>
       </Step>
 
       {/* Next Steps */}
       <View style={styles.divider} />
       <Text style={styles.h2}>Next Steps</Text>
       <View style={styles.nextSteps}>
+        <Link href="/example-configs" asChild>
+          <Pressable style={styles.nextCard}>
+            <Text style={styles.nextCardTitle}>Configs</Text>
+            <Text style={styles.nextCardDesc}>Grab a starter yedrc and ypm_list</Text>
+          </Pressable>
+        </Link>
         <Link href="/user-guide" asChild>
           <Pressable style={styles.nextCard}>
             <Text style={styles.nextCardTitle}>User Guide</Text>
             <Text style={styles.nextCardDesc}>Learn the basics of using yed</Text>
           </Pressable>
         </Link>
-        <Link href="/update" asChild>
+        <Link href="/ypm" asChild>
           <Pressable style={styles.nextCard}>
-            <Text style={styles.nextCardTitle}>Updating</Text>
-            <Text style={styles.nextCardDesc}>How to update to the latest version</Text>
-          </Pressable>
-        </Link>
-        <Link href="/plugins" asChild>
-          <Pressable style={styles.nextCard}>
-            <Text style={styles.nextCardTitle}>Plugins</Text>
-            <Text style={styles.nextCardDesc}>Browse 155+ available plugins</Text>
+            <Text style={styles.nextCardTitle}>YPM Guide</Text>
+            <Text style={styles.nextCardDesc}>Manage plugins with the plugin manager</Text>
           </Pressable>
         </Link>
       </View>
@@ -231,6 +242,20 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.4,
     shadowRadius: 12,
+  },
+  configCta: {
+    backgroundColor: Colors.heading,
+    borderRadius: 6,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    alignSelf: 'flex-start',
+    marginTop: 4,
+  },
+  configCtaText: {
+    fontFamily: Typography.fontFamily,
+    fontSize: Typography.fontSize.base,
+    color: Colors.contentBg,
+    fontWeight: 'bold',
   },
   nextSteps: {
     flexDirection: 'row',

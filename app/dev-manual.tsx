@@ -88,7 +88,7 @@ export default function DevManual() {
           Every plugin must implement a boot function. This is the entry point called when the
           plugin is loaded:
         </Text>
-        <CodeBlock lang="c">{`#include <yed/plugin.h>
+        <CodeBlock lang="c" reserveSlug>{`#include <yed/plugin.h>
 
 int yed_plugin_boot(yed_plugin *self) {
     YED_PLUG_VERSION_CHECK();
@@ -126,7 +126,7 @@ int yed_plugin_boot(yed_plugin *self) {
           <Text style={styles.body}>
             Register an unload function for cleanup when the plugin is unloaded:
           </Text>
-          <CodeBlock lang="c">{`void my_unload(yed_plugin *self) {
+          <CodeBlock lang="c" reserveSlug>{`void my_unload(yed_plugin *self) {
     // Free resources, remove state
 }
 
@@ -141,7 +141,7 @@ yed_plugin_set_unload_fn(self, my_unload);`}</CodeBlock>
           Commands are the primary way users interact with plugin functionality. Register them
           during boot:
         </Text>
-        <CodeBlock lang="c">{`void my_command(int n_args, char **args) {
+        <CodeBlock lang="c" reserveSlug>{`void my_command(int n_args, char **args) {
     if (n_args < 1) {
         yed_cerr("expected an argument");
         return;
@@ -156,7 +156,7 @@ yed_plugin_set_command(self, "my-command", my_command);`}</CodeBlock>
           <Text style={styles.body}>
             Run any command from within a plugin using the <Text style={styles.code}>YEXE</Text> macro:
           </Text>
-          <CodeBlock lang="c">{`YEXE("style", "gruvbox");
+          <CodeBlock lang="c" reserveSlug>{`YEXE("style", "gruvbox");
 YEXE("buffer", "my_file.c");
 YEXE("cursor-down");`}</CodeBlock>
         </SubSection>
@@ -168,7 +168,7 @@ YEXE("cursor-down");`}</CodeBlock>
           Plugins react to editor events by registering handlers. The event system supports 70+
           event types covering buffer modifications, cursor movement, rendering, and more.
         </Text>
-        <CodeBlock lang="c">{`void my_handler(yed_event *event) {
+        <CodeBlock lang="c" reserveSlug>{`void my_handler(yed_event *event) {
     // React to the event
     // Access context: event->buffer, event->frame,
     //                 event->row, event->col, etc.
@@ -266,7 +266,7 @@ yed_plugin_add_event_handler(self, h);`}</CodeBlock>
           <Text style={styles.body}>
             Create special buffers (prefixed with <Text style={styles.code}>*</Text>) for plugin UI:
           </Text>
-          <CodeBlock lang="c">{`yed_buffer *buf = yed_create_buffer("*my-plugin-output");
+          <CodeBlock lang="c" reserveSlug>{`yed_buffer *buf = yed_create_buffer("*my-plugin-output");
 buf->flags |= BUFF_RD_ONLY | BUFF_SPECIAL;`}</CodeBlock>
         </SubSection>
       </Section>
@@ -276,7 +276,7 @@ buf->flags |= BUFF_RD_ONLY | BUFF_SPECIAL;`}</CodeBlock>
         <Text style={styles.body}>
           Use variables for plugin configuration:
         </Text>
-        <CodeBlock lang="c">{`// Set a default (only if not already set by user)
+        <CodeBlock lang="c" reserveSlug>{`// Set a default (only if not already set by user)
 if (!yed_get_var("my-plugin-option")) {
     yed_set_var("my-plugin-option", "default-value");
 }
@@ -318,7 +318,7 @@ char *val = yed_get_var("my-plugin-option");`}</CodeBlock>
         <Text style={styles.body}>
           Wrap buffer modifications in undo records so users can undo your plugin's changes:
         </Text>
-        <CodeBlock lang="c">{`yed_start_undo_record(frame, buffer);
+        <CodeBlock lang="c" reserveSlug>{`yed_start_undo_record(frame, buffer);
 
 // Make your buffer modifications here
 
@@ -334,7 +334,7 @@ yed_end_undo_record(frame, buffer);`}</CodeBlock>
         <Text style={styles.body}>
           Create a <Text style={styles.code}>build.sh</Text> script for your plugin:
         </Text>
-        <CodeBlock lang="bash">{`#!/usr/bin/env bash
+        <CodeBlock lang="bash" reserveSlug>{`#!/usr/bin/env bash
 gcc -o my_plugin.so my_plugin.c \\
     $(yed --print-cflags) \\
     $(yed --print-ldflags)`}</CodeBlock>
@@ -354,7 +354,7 @@ gcc -o my_plugin.so my_plugin.c \\
         <Text style={styles.body}>
           Here's a complete plugin that adds a command to count the lines in the current buffer:
         </Text>
-        <CodeBlock lang="c">{`#include <yed/plugin.h>
+        <CodeBlock lang="c" reserveSlug>{`#include <yed/plugin.h>
 
 void count_lines(int n_args, char **args) {
     yed_frame *frame = ys->active_frame;
@@ -409,7 +409,7 @@ int yed_plugin_boot(yed_plugin *self) {
           <Text style={styles.body}>
             A style plugin defines colors for truecolor (RGB) with optional 256-color fallbacks:
           </Text>
-          <CodeBlock lang="c">{`#include <yed/plugin.h>
+          <CodeBlock lang="c" reserveSlug>{`#include <yed/plugin.h>
 
 #define ALT(rgb, _256) (tc ? (rgb) : (_256))
 
