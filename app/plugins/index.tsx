@@ -16,9 +16,11 @@ function findAllStyleColors(slug: string): { name: string; colors: typeof styleC
   const base = slug.replace('styles-', '');
   const matches = Object.keys(styleColorData).filter(k => {
     const styleName = k.replace('styles-', '');
+    const baseHyphen = base.replace(/_/g, '-');
     return styleName === base ||
+      styleName === baseHyphen ||
       styleName.startsWith(base + '-') ||
-      styleName.startsWith(base.replace(/_/g, '-') + '-');
+      styleName.startsWith(baseHyphen + '-');
   });
   return matches.map(k => ({
     name: k.replace('styles-', ''),

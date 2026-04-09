@@ -184,6 +184,32 @@
     "related": [
       "convert",
       "terminal"
+    ],
+    "infoCards": [
+      {
+        "title": "Arithmetic",
+        "description": "+  -  *  /  //  %  **"
+      },
+      {
+        "title": "Comparison",
+        "description": "==  !=  <  >  <=  >="
+      },
+      {
+        "title": "Bitwise",
+        "description": "&  |  ^  ~  <<  >>"
+      },
+      {
+        "title": "Trig",
+        "description": "sin  cos  asin  acos  sinh  cosh"
+      },
+      {
+        "title": "Logarithmic",
+        "description": "log  log2  log10"
+      },
+      {
+        "title": "Other",
+        "description": "sqrt  ceil  floor  fabs"
+      }
     ]
   },
   "lsp_diagnostics": {

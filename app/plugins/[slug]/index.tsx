@@ -9,6 +9,26 @@ import plugins from '../../../data/plugins.json';
 import pluginExtras from '../../../data/plugin-extras.json';
 import styleColors from '../../../data/style-colors.json';
 
+const PLUGIN_IMAGES: Record<string, any> = {
+  'calc': require('../../../assets/images/calc.png'),
+  'diff': require('../../../assets/images/diff.png'),
+  'grep': require('../../../assets/images/grep.png'),
+  'bookmarks': require('../../../assets/images/bookmarks.png'),
+  'cursor_word_hl': require('../../../assets/images/cursor_word_hl.png'),
+  'terminal': require('../../../assets/images/terminal.png'),
+  'tree_view': require('../../../assets/images/tree_view.png'),
+  'find_file': require('../../../assets/images/find_file.png'),
+  'completer': require('../../../assets/images/completer.png'),
+  'style_picker': require('../../../assets/images/style_picker.png'),
+  'lsp_info_popup': require('../../../assets/images/lsp_info_popup.png'),
+  'fstyle': require('../../../assets/images/fstyle.png'),
+  'lsp_diagnostics': require('../../../assets/images/lsp_diagnostics.png'),
+  'go_menu': require('../../../assets/images/go_menu.png'),
+  'builder': require('../../../assets/images/builder.png'),
+  'mouse_menu': require('../../../assets/images/mouse_menu.png'),
+  'line_numbers': require('../../../assets/images/line_numbers.png'),
+};
+
 const styleColorData = styleColors as Record<string, {
   bg: string; fg: string; comment: string; keyword: string;
   fn_call: string; number: string; string: string;
@@ -62,6 +82,7 @@ const extras = pluginExtras as Record<string, {
   infoCardsLink?: string;
   infoCardsLinkText?: string;
   bundledStyles?: string[];
+  previewImage?: string;
 }>;
 
 export default function PluginDetail() {
@@ -164,6 +185,18 @@ export default function PluginDetail() {
           </View>
         ) : null;
       })()}
+
+      {/* Plugin preview image */}
+      {(PLUGIN_IMAGES[plugin.slug] || extra?.previewImage) && (
+        <View style={styles.pluginPreviewSection}>
+          <View style={styles.pluginPreviewFrame}>
+            <Image
+              source={PLUGIN_IMAGES[plugin.slug] || { uri: extra?.previewImage }}
+              style={styles.pluginPreviewImage}
+            />
+          </View>
+        </View>
+      )}
 
       {/* Links row */}
       <View style={styles.linksRow}>
@@ -780,5 +813,20 @@ const styles = StyleSheet.create({
   previewImage: {
     width: '100%' as any,
     aspectRatio: 2,
+  },
+  pluginPreviewSection: {
+    marginBottom: 16,
+    alignSelf: 'flex-start',
+  },
+  pluginPreviewFrame: {
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
+    borderRadius: 6,
+    overflow: 'hidden',
+  },
+  pluginPreviewImage: {
+    width: 800,
+    height: 420,
+    maxWidth: '100%' as any,
   },
 });
